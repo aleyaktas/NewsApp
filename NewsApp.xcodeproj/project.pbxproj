@@ -14,6 +14,8 @@
 		A62D5B4E2AA75A0000CD4F1B /* RegisterVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62D5B4D2AA75A0000CD4F1B /* RegisterVC.storyboard */; };
 		A62D5B502AA75A3100CD4F1B /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D5B4F2AA75A3100CD4F1B /* RegisterVC.swift */; };
 		A62D5B532AA7949E00CD4F1B /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D5B522AA7949E00CD4F1B /* UITextField+.swift */; };
+		A62D5B582AA7954700CD4F1B /* LoginVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62D5B572AA7954700CD4F1B /* LoginVC.storyboard */; };
+		A62D5B5A2AA7955800CD4F1B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D5B592AA7955800CD4F1B /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		A62D5B4D2AA75A0000CD4F1B /* RegisterVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterVC.storyboard; sourceTree = "<group>"; };
 		A62D5B4F2AA75A3100CD4F1B /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		A62D5B522AA7949E00CD4F1B /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		A62D5B572AA7954700CD4F1B /* LoginVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginVC.storyboard; sourceTree = "<group>"; };
+		A62D5B592AA7955800CD4F1B /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 		A62D5B492AA758C900CD4F1B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A62D5B552AA7952D00CD4F1B /* Login Page */,
 				A62D5B4C2AA7598E00CD4F1B /* Register Page */,
 			);
 			path = Scenes;
@@ -108,6 +113,15 @@
 				A62D5B522AA7949E00CD4F1B /* UITextField+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		A62D5B552AA7952D00CD4F1B /* Login Page */ = {
+			isa = PBXGroup;
+			children = (
+				A62D5B572AA7954700CD4F1B /* LoginVC.storyboard */,
+				A62D5B592AA7955800CD4F1B /* LoginVC.swift */,
+			);
+			path = "Login Page";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +185,7 @@
 				A62D5B4E2AA75A0000CD4F1B /* RegisterVC.storyboard in Resources */,
 				A62D5B422AA74D6B00CD4F1B /* LaunchScreen.storyboard in Resources */,
 				A62D5B3F2AA74D6B00CD4F1B /* Assets.xcassets in Resources */,
+				A62D5B582AA7954700CD4F1B /* LoginVC.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +200,7 @@
 				A62D5B362AA74D6A00CD4F1B /* AppDelegate.swift in Sources */,
 				A62D5B382AA74D6A00CD4F1B /* SceneDelegate.swift in Sources */,
 				A62D5B532AA7949E00CD4F1B /* UITextField+.swift in Sources */,
+				A62D5B5A2AA7955800CD4F1B /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -119,6 +119,9 @@ account for you</string>
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
                                             <color key="baseForegroundColor" red="0.33333334329999997" green="0.73333334920000004" blue="0.92549020049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="loginAct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fCy-Nh-KkG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
