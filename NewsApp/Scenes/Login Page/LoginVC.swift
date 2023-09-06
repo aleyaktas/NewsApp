@@ -9,7 +9,6 @@ import UIKit
 
 class LoginVC: UIViewController {
     
-    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -19,8 +18,8 @@ class LoginVC: UIViewController {
     }
     
     func prepareTextFields() {
-        usernameTextField.setIcon(UIImage(systemName: "person.fill")!)
-        passwordTextField.setIcon(UIImage(systemName: "lock.fill")!)
+//        usernameTextField.setIcon(UIImage(systemName: "person.fill")!)
+//        passwordTextField.setIcon(UIImage(systemName: "lock.fill")!)
     }
     
     
@@ -28,10 +27,8 @@ class LoginVC: UIViewController {
         print("Login user")
     }
     
-    
     @IBAction func createAccountAct(_ sender: UIButton) {
         print("Got to create page")
-
             
         let storyboard = UIStoryboard(name: "RegisterVC", bundle: nil)
         let gotoVC = storyboard.instantiateViewController(withIdentifier: "RegisterVC")

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--RegisterVC-->
+        <!--Item-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="RegisterVC" id="Y6W-OH-hqX" customClass="RegisterVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,6 +148,7 @@ account for you</string>
                             <constraint firstItem="akl-KT-gQS" firstAttribute="top" secondItem="cfM-T1-6Hv" secondAttribute="bottom" constant="24" id="zmc-Tj-Thj"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="F77-bs-z8r"/>
                     <connections>
                         <outlet property="emailTextField" destination="UTC-tS-W8A" id="NSA-7g-CIN"/>
                         <outlet property="passwordTextField" destination="P3b-3B-gb5" id="IKs-46-3mR"/>
@@ -156,7 +157,7 @@ account for you</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116.79389312977099" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="1043.5114503816794" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>

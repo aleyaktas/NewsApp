@@ -19,9 +19,18 @@ class RegisterVC: UIViewController {
     }
     
     func prepareTextFields() {
-        usernameTextField.setIcon(UIImage(systemName: "person.fill")!)
-        emailTextField.setIcon(UIImage(systemName: "envelope.fill")!)
-        passwordTextField.setIcon(UIImage(systemName: "lock.fill")!)
+//        if let textField = usernameTextField {
+//            // textField nil değilse, işlemleri gerçekleştir
+//            textField.setIcon(UIImage(systemName: "person.fill")!)
+//        } else {
+//            // textField nil ise, uygun bir şekilde ele alın
+//            print("usernameTextField nil olarak bulundu.")
+//        }
+//   
+//
+//        usernameTextField.setIcon(UIImage(systemName: "person.fill")!)
+//        emailTextField.setIcon(UIImage(systemName: "envelope.fill")!)
+//        passwordTextField.setIcon(UIImage(systemName: "lock.fill")!)
     }
     
     @IBAction func registerAct(_ sender: UIButton) {

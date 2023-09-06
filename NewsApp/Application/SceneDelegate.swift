@@ -16,10 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        
-        let storyboard = UIStoryboard(name: "RegisterVC", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "RegisterVC") as? RegisterVC {
-            window.rootViewController = UINavigationController(rootViewController: vc)
+
+        // Ana storyboard'u yükleyin
+        let mainStoryboard = UIStoryboard(name: "HomeVC", bundle: nil)
+        if let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController {
+            window.rootViewController = tabBarController
             window.makeKeyAndVisible()
             self.window = window
         }
