@@ -16,23 +16,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8g-7X-wLd">
-                                <rect key="frame" x="173.66666666666666" y="415.66666666666669" width="46" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8rg-Ib-imA">
+                                <rect key="frame" x="0.0" y="39" width="393" height="44"/>
+                                <items>
+                                    <navigationItem title="News." id="eEk-Iq-633">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.3.horizontal.decrease" catalog="system" id="l2a-j5-qPk"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="slider.horizontal.3" catalog="system" id="WOP-f0-x1u"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="el8-l6-cFp">
+                                <rect key="frame" x="0.0" y="83" width="393" height="686"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pz6-bZ-z6y">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KRP-3h-qTK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="L8g-7X-wLd" firstAttribute="centerX" secondItem="Bbg-Hp-XYW" secondAttribute="centerX" id="5iQ-nU-5W4"/>
-                            <constraint firstItem="L8g-7X-wLd" firstAttribute="centerY" secondItem="Bbg-Hp-XYW" secondAttribute="centerY" id="ba8-4B-Hn6"/>
+                            <constraint firstItem="KRP-3h-qTK" firstAttribute="trailing" secondItem="el8-l6-cFp" secondAttribute="trailing" id="4uV-1z-Uf3"/>
+                            <constraint firstItem="el8-l6-cFp" firstAttribute="centerY" secondItem="Bbg-Hp-XYW" secondAttribute="centerY" id="5Qz-4u-FvC"/>
+                            <constraint firstItem="el8-l6-cFp" firstAttribute="leading" secondItem="KRP-3h-qTK" secondAttribute="leading" id="727-PY-ruu"/>
+                            <constraint firstItem="8rg-Ib-imA" firstAttribute="leading" secondItem="KRP-3h-qTK" secondAttribute="leading" id="FiU-03-jXD"/>
+                            <constraint firstItem="KRP-3h-qTK" firstAttribute="bottom" secondItem="el8-l6-cFp" secondAttribute="bottom" id="NLz-Tj-cVo"/>
+                            <constraint firstItem="el8-l6-cFp" firstAttribute="centerX" secondItem="Bbg-Hp-XYW" secondAttribute="centerX" id="RXn-ez-1QS"/>
+                            <constraint firstItem="8rg-Ib-imA" firstAttribute="trailing" secondItem="KRP-3h-qTK" secondAttribute="trailing" id="Rfj-6N-w11"/>
+                            <constraint firstItem="el8-l6-cFp" firstAttribute="top" secondItem="8rg-Ib-imA" secondAttribute="bottom" id="WFC-zC-r1q"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="aaabbb" image="square.and.arrow.up" catalog="system" selectedImage="square.stack.3d.up" id="Eey-Fm-LyY">
                         <color key="badgeColor" systemColor="linkColor"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="collectionView" destination="el8-l6-cFp" id="wcZ-Vz-JId"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUd-Nb-XbC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,6 +80,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="line.3.horizontal.decrease" catalog="system" width="128" height="73"/>
+        <image name="slider.horizontal.3" catalog="system" width="128" height="99"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="square.stack.3d.up" catalog="system" width="128" height="125"/>
         <systemColor name="linkColor">
