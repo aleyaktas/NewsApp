@@ -18,11 +18,10 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
         configureData()
         customNibs()
         fetchNewsData()
-
+        
     }
     
     private func configureData() {
@@ -34,8 +33,10 @@ class HomeVC: UIViewController {
         let sliderCellNib: UINib = UINib(nibName: "SliderCollectionView", bundle: nil)
         collectionView.register(sliderCellNib, forCellWithReuseIdentifier: "SliderCollectionViewCell")
         
-        let newsCellNib: UINib = UINib(nibName: "NewsDetailTableView", bundle: nil)
-        collectionView.register(newsCellNib, forCellWithReuseIdentifier: "NewsDetailTableViewCell")
+        let newsCellNib: UINib = UINib(nibName: "NewsDetailCollectionView", bundle: nil)
+        collectionView.register(newsCellNib, forCellWithReuseIdentifier: "NewsDetailCollectionViewCell")
+       
+       
     }
     
     func fetchNewsData() {
@@ -45,7 +46,7 @@ class HomeVC: UIViewController {
                     self?.newsData = articles
                     self?.collectionView.reloadData()
                 } else {
-                    print("else")
+                    print("Data not found")
                 }
             }
         }}
@@ -110,17 +111,16 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                 return cell
             }
         } else if indexPath.section == 1 {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsDetailTableViewCell", for: indexPath) as? NewsDetailTableViewCell {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsDetailCollectionViewCell", for: indexPath) as? NewsDetailCollectionViewCell {
                     let article = newsData[indexPath.row]
 
                     if let urlToImage = article.urlToImage {
                         let url = URL(string: urlToImage)
                         cell.newImage.kf.setImage(with: url)
                     }
-                   
+
                     cell.categoryName.text = article.author ?? "Empty"
-                    cell.detail.text = article.description ?? "Empty"
-                
+                    cell.detail.text = article.title ?? "Empty"
                 
                 return cell
             }
@@ -134,17 +134,34 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
         let collectionViewWidth = collectionView.frame.width
-        
         let cellWidth = collectionViewWidth
+        let cellHeight: CGFloat = (indexPath.section == 0) ? 300 : 200
         
-        let cellHeight: CGFloat = 300.0
-        
-        if indexPath.section == 0 {
-            return CGSize(width: cellWidth, height: cellHeight)
+        return CGSize(width: cellWidth, height: cellHeight)
+        }
+
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 1 {
+            return CGSize(width: collectionView.frame.size.width, height: 70)
+        } else {
+            return CGSize(width: collectionView.frame.size.width, height: 0)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderCollectionView", for: indexPath) as! HeaderCollectionView
+            if let headerLabel = cell.headerLabel {
+                headerLabel.text = "Latest News"
+            } else {
+            }
+            return cell
         }
         
-        return CGSize(width: cellWidth, height: cellHeight - 100)
-        
+        return UICollectionReusableView()
     }
+    
 }
