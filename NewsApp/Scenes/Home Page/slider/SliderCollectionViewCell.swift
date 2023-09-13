@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SliderCollectionViewCell: UICollectionViewCell {
     
@@ -54,8 +55,9 @@ extension SliderCollectionViewCell: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderDetailCollectionViewCell", for: indexPath) as? SliderDetailCollectionViewCell {
             let slider = sliderDataList[indexPath.row]
-            if let urlToImage = slider.urlToImage, let url = URL(string: urlToImage) {
-                cell.imageView.load(url: url)
+            if let urlToImage = slider.urlToImage {
+                let url = URL(string: urlToImage)
+                cell.imageView.kf.setImage(with: url)
             }
             cell.categoryName.text = slider.author ?? "Boş"
             cell.decription.text = slider.description ?? "Boş"

@@ -7,6 +7,8 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
+
 
 class HomeVC: UIViewController {
 
@@ -111,9 +113,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsDetailTableViewCell", for: indexPath) as? NewsDetailTableViewCell {
                     let article = newsData[indexPath.row]
 
-                    if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
-                        cell.newImage.load(url: url, placeholder: UIImage(systemName: "loading.fill"))
+                    if let urlToImage = article.urlToImage {
+                        let url = URL(string: urlToImage)
+                        cell.newImage.kf.setImage(with: url)
                     }
+                   
                     cell.categoryName.text = article.author ?? "Empty"
                     cell.detail.text = article.description ?? "Empty"
                 
