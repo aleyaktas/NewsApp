@@ -11,32 +11,27 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" restorationIdentifier="SliderCollectionViewCell" id="iN0-l3-epB" customClass="SliderCollectionViewCell" customModule="NewsApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+            <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KWX-bM-VXo">
-                    <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T8r-Gh-5Je">
-                        <size key="itemSize" width="400" height="200"/>
+                        <size key="itemSize" width="400" height="300"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="CnV-im-7kP">
-                    <rect key="frame" x="142" y="164" width="116" height="26"/>
-                </pageControl>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="KWX-bM-VXo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4se-6E-qlX"/>
-                <constraint firstAttribute="bottom" secondItem="KWX-bM-VXo" secondAttribute="bottom" id="CwC-hS-oSk"/>
-                <constraint firstAttribute="bottom" secondItem="CnV-im-7kP" secondAttribute="bottom" constant="10" id="Mux-TR-hTt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KWX-bM-VXo" secondAttribute="trailing" id="6Kc-w6-EcI"/>
+                <constraint firstItem="KWX-bM-VXo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="GYu-d8-bof"/>
                 <constraint firstItem="KWX-bM-VXo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QkG-tS-E6T"/>
-                <constraint firstItem="KWX-bM-VXo" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ld9-Ag-dLR"/>
-                <constraint firstItem="CnV-im-7kP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="u9B-Ri-rTW"/>
+                <constraint firstAttribute="bottom" secondItem="KWX-bM-VXo" secondAttribute="bottom" id="hEb-Oh-b05"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
