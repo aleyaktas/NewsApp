@@ -40,19 +40,19 @@
                                         <rect key="frame" x="118" y="0.0" width="275" height="150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aleyna Aktaş" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alz-4g-XaS">
-                                                <rect key="frame" x="0.0" y="0.0" width="267" height="21.666666666666668"/>
+                                                <rect key="frame" x="0.0" y="30" width="267" height="21.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="aleynaaktas627@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkQ-LN-gU7">
-                                                <rect key="frame" x="0.0" y="21.666666666666671" width="267" height="17"/>
+                                                <rect key="frame" x="0.0" y="51.666666666666671" width="267" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gka-YK-JPe">
-                                                <rect key="frame" x="0.0" y="38.666666666666679" width="267" height="91.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="68.666666666666671" width="267" height="61.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign Out">
                                                     <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -60,7 +60,7 @@
                                                 </buttonConfiguration>
                                             </button>
                                         </subviews>
-                                        <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="0.0" bottom="20" trailing="8"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="30" leading="0.0" bottom="20" trailing="8"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>

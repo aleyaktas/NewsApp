@@ -26,7 +26,6 @@ class AccountsVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-
 }
 
 
@@ -47,6 +46,4 @@ extension AccountsVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     }
-    
-    
 }

@@ -57,7 +57,13 @@
                             <constraint firstAttribute="bottom" secondItem="el8-l6-cFp" secondAttribute="bottom" id="Rtv-G4-NJM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="News." id="tgD-UM-xdY"/>
+                    <navigationItem key="navigationItem" title="News." id="tgD-UM-xdY">
+                        <barButtonItem key="leftBarButtonItem" image="line.3.horizontal" catalog="system" id="XOn-qy-l8V">
+                            <connections>
+                                <action selector="menuButtonAct:" destination="nan-Ft-nVc" id="Eec-zh-bz8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="el8-l6-cFp" id="wcZ-Vz-JId"/>
                     </connections>
@@ -84,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="7278.6259541984728" y="-395.07042253521126"/>
         </scene>
-        <!--aaabbb-->
+        <!--NavigationBar-->
         <scene sceneID="hFQ-tF-zzo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Oxw-j1-cEy" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Oxw-j1-cEy" userLabel="NavigationBar" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="aaabbb" image="square.and.arrow.up" catalog="system" selectedImage="square.stack.3d.up" id="Eey-Fm-LyY">
                         <color key="badgeColor" systemColor="linkColor"/>
                     </tabBarItem>
@@ -97,6 +103,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="NO"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="nan-Ft-nVc" kind="relationship" relationship="rootViewController" id="mZa-R6-G6B"/>
                     </connections>
@@ -107,6 +116,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="square.stack.3d.up" catalog="system" width="128" height="125"/>
         <systemColor name="linkColor">

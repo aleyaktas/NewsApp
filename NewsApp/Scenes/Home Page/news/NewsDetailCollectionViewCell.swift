@@ -17,7 +17,6 @@ class NewsDetailCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-
         categoryName.preferredMaxLayoutWidth = contentView.frame.width - newImage.frame.width - 20
         detail.preferredMaxLayoutWidth = contentView.frame.width - newImage.frame.width - 20
         

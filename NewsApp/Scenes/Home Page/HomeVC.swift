@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import Kingfisher
+import SideMenu
 
 
 class HomeVC: UIViewController {
@@ -15,13 +16,24 @@ class HomeVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var newsData: [Article] = []
     
+    var menu: SideMenuNavigationController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureData()
         customNibs()
         fetchNewsData()
+        menu = SideMenuNavigationController(rootViewController: MenuListController())
+        menu?.leftSide = true
         
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
+    }
+    
+    
+    @IBAction func menuButtonAct(_ sender: UIButton) {
+        present(menu!, animated: true, completion: nil)
     }
     
     private func configureData() {
@@ -202,3 +214,4 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
 
     
 }
+
