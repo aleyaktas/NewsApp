@@ -8,15 +8,26 @@
 import UIKit
 import Kingfisher
 
+protocol SliderSelectDelegate {
+    func didSelectCell(article: Article)
+}
+
 class SliderCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    var delegate: SliderSelectDelegate?
+
     var sliderDataList = [Article]() {
         didSet {
             collectionView.reloadData()
         }
     }
+    func cellAct(index: Int) {
     
+        delegate?.didSelectCell(article: sliderDataList[index])
+   
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         configureData()
@@ -66,6 +77,12 @@ extension SliderCollectionViewCell: UICollectionViewDelegate, UICollectionViewDa
         return UICollectionViewCell()
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+        
+        cellAct(index: indexPath.row)
+        
+    }
     
     
 }

@@ -27,6 +27,7 @@ class HomeVC: UIViewController {
     private func configureData() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        
     }
     
     func customNibs() {
@@ -92,7 +93,21 @@ class HomeVC: UIViewController {
 
 }
 
-extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SliderSelectDelegate {
+    func didSelectCell(article: Article) {
+        let storyboard = UIStoryboard(name: "DetailVC", bundle: nil)
+
+        if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
+            if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
+                vc.imageUrl = url
+            }
+
+            vc.content = article.content ?? "Empty"
+
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
             return 1
@@ -107,7 +122,8 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         if indexPath.section == 0 {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCollectionViewCell", for: indexPath) as? SliderCollectionViewCell {
                     cell.sliderDataList = newsData
-                
+                    cell.delegate = self
+
                 return cell
             }
         } else if indexPath.section == 1 {
@@ -163,5 +179,24 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
         return UICollectionReusableView()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "DetailVC", bundle: nil)
+        
+        let article = newsData[indexPath.row]
+        
+        if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
+            if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
+                vc.imageUrl = url
+            }
+
+            vc.content = article.content ?? "Empty"
+
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
+
+
     
 }
