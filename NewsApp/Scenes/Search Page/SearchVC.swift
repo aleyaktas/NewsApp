@@ -34,7 +34,8 @@ class SearchVC: UIViewController {
                     print("Data not found")
                 }
             }
-        }}
+        }
+    }
     
     func getFilterNews(query: String, completion: @escaping ([Article]?) -> Void) {
         if let path = Bundle.main.path(forResource: "EnvironmentVariables", ofType: "plist"),
@@ -76,7 +77,7 @@ class SearchVC: UIViewController {
            completion(nil)
         }
     }
-
+    
     
 }
 
@@ -101,7 +102,23 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource, UISearchBarDeleg
             return UITableViewCell()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "DetailVC", bundle: nil)
+        
+        let article = newsData[indexPath.row]
+        
+        if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
+            if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
+                vc.imageUrl = url
+            }
+            vc.newTitle = article.title ?? "Empty"
+            vc.content = article.content ?? "Empty"
+            vc.article = article
 
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         fetchNewsData(searchText: searchText)

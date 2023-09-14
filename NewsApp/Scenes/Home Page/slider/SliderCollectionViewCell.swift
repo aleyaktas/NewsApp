@@ -70,6 +70,7 @@ extension SliderCollectionViewCell: UICollectionViewDelegate, UICollectionViewDa
                 let url = URL(string: urlToImage)
                 cell.imageView.kf.setImage(with: url)
             }
+        
             cell.categoryName.text = slider.author ?? "Empty"
             cell.decription.text = slider.title ?? "Empty"
             return cell
@@ -78,7 +79,6 @@ extension SliderCollectionViewCell: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
         
         cellAct(index: indexPath.row)
         

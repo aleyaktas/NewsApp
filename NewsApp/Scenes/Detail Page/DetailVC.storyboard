@@ -23,26 +23,53 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fto-jF-usR">
-                                                <rect key="frame" x="20" y="20" width="353" height="200"/>
+                                                <rect key="frame" x="20" y="74.333333333333343" width="353" height="200.00000000000003"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="mjj-fr-mIc"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSb-Jo-vwh">
-                                                <rect key="frame" x="20" y="240" width="353" height="21"/>
+                                                <rect key="frame" x="20" y="294.33333333333331" width="353" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dRT-Nr-HuB">
+                                                <rect key="frame" x="20" y="20.000000000000004" width="353" height="34.333333333333343"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okK-0Z-bdN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="282.33333333333331" height="34.333333333333336"/>
+                                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="24"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW5-iS-UlH">
+                                                        <rect key="frame" x="292.33333333333331" y="0.0" width="60.666666666666686" height="34.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system">
+                                                            <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="favoriteButtonAct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ePW-vF-vmD"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="okK-0Z-bdN" firstAttribute="width" secondItem="dRT-Nr-HuB" secondAttribute="width" multiplier="0.8" id="7pD-VE-BHk"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="Fto-jF-usR" firstAttribute="top" secondItem="qAZ-vN-2Th" secondAttribute="top" constant="20" id="Tkf-21-Qc0"/>
+                                            <constraint firstItem="Fto-jF-usR" firstAttribute="top" secondItem="dRT-Nr-HuB" secondAttribute="bottom" constant="20" id="CrK-Fq-XaS"/>
                                             <constraint firstItem="PSb-Jo-vwh" firstAttribute="leading" secondItem="qAZ-vN-2Th" secondAttribute="leading" constant="20" id="VWt-8t-Qpx"/>
+                                            <constraint firstAttribute="trailing" secondItem="dRT-Nr-HuB" secondAttribute="trailing" constant="20" id="drm-WD-eIh"/>
                                             <constraint firstAttribute="trailing" secondItem="PSb-Jo-vwh" secondAttribute="trailing" constant="20" id="m5O-D1-zdv"/>
                                             <constraint firstAttribute="trailing" secondItem="Fto-jF-usR" secondAttribute="trailing" constant="20" id="tNp-F3-AjD"/>
                                             <constraint firstItem="Fto-jF-usR" firstAttribute="leading" secondItem="qAZ-vN-2Th" secondAttribute="leading" constant="20" id="tjz-xs-DwK"/>
                                             <constraint firstItem="PSb-Jo-vwh" firstAttribute="top" secondItem="Fto-jF-usR" secondAttribute="bottom" constant="20" id="tsk-PF-N5Z"/>
+                                            <constraint firstItem="dRT-Nr-HuB" firstAttribute="top" secondItem="qAZ-vN-2Th" secondAttribute="top" constant="20" id="uKc-ex-6S1"/>
+                                            <constraint firstItem="dRT-Nr-HuB" firstAttribute="leading" secondItem="qAZ-vN-2Th" secondAttribute="leading" constant="20" id="xYU-oY-5Bj"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -70,6 +97,8 @@
                     <connections>
                         <outlet property="contentText" destination="PSb-Jo-vwh" id="Afa-EQ-ZMd"/>
                         <outlet property="detailImage" destination="Fto-jF-usR" id="Yvs-d8-bzu"/>
+                        <outlet property="favoriteButton" destination="aW5-iS-UlH" id="099-qz-Woj"/>
+                        <outlet property="titleText" destination="okK-0Z-bdN" id="AfW-Bv-joX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -78,6 +107,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bookmark" catalog="system" width="110" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

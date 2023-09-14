@@ -101,8 +101,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
                 vc.imageUrl = url
             }
-
+            vc.newTitle = article.title ?? "Empty"
             vc.content = article.content ?? "Empty"
+            vc.article = article
 
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -189,8 +190,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
                 vc.imageUrl = url
             }
-
+            vc.newTitle = article.title ?? "Empty"
             vc.content = article.content ?? "Empty"
+            vc.article = article
 
             self.navigationController?.pushViewController(vc, animated: true)
         }
