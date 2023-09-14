@@ -18,7 +18,6 @@ class FavoritesVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        title = "Bookmarks"
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -17,7 +17,9 @@ class SearchVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         fetchNewsData(searchText: "")
+        
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
@@ -26,9 +28,8 @@ class SearchVC: UIViewController {
     func fetchNewsData(searchText: String) {
         getFilterNews(query: searchText) { [weak self] articles in
             DispatchQueue.main.async {
-                if let articles = articles {
+                if let articles {
                     self?.newsData = articles
-                    print(articles.count)
                     self?.tableView.reloadData()
                 } else {
                     print("Data not found")
@@ -59,6 +60,7 @@ class SearchVC: UIViewController {
                        
                        if let articles = newsResponse.articles {
                            completion(articles)
+                           print(articles.count)
                        } else {
                            completion([])
                        }
@@ -123,7 +125,6 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource, UISearchBarDeleg
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         fetchNewsData(searchText: searchText)
     }
-    
 }
 
 

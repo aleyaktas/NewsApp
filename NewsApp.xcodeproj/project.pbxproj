@@ -36,6 +36,8 @@
 		A66C66962AB39A12000EA17B /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C66952AB39A12000EA17B /* FavoritesVC.swift */; };
 		A66C66982AB39A1D000EA17B /* FavoritesVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A66C66972AB39A1D000EA17B /* FavoritesVC.storyboard */; };
 		A66C669B2AB39D16000EA17B /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C669A2AB39D16000EA17B /* NewsTableViewCell.swift */; };
+		A66C669E2AB3A2DA000EA17B /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C669D2AB3A2DA000EA17B /* SettingsVC.swift */; };
+		A66C66A02AB3A2E0000EA17B /* SettingsVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A66C669F2AB3A2E0000EA17B /* SettingsVC.storyboard */; };
 		A6C9259E2AB1E825000C2D96 /* NewsDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C9259D2AB1E824000C2D96 /* NewsDetailCollectionViewCell.swift */; };
 		A6C925A12AB22E9A000C2D96 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A6C925A02AB22E9A000C2D96 /* Kingfisher */; };
 		A6C925A42AB23653000C2D96 /* HeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C925A32AB23653000C2D96 /* HeaderCollectionView.swift */; };
@@ -73,6 +75,8 @@
 		A66C66952AB39A12000EA17B /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		A66C66972AB39A1D000EA17B /* FavoritesVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesVC.storyboard; sourceTree = "<group>"; };
 		A66C669A2AB39D16000EA17B /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		A66C669D2AB3A2DA000EA17B /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		A66C669F2AB3A2E0000EA17B /* SettingsVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsVC.storyboard; sourceTree = "<group>"; };
 		A6C9259D2AB1E824000C2D96 /* NewsDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		A6C925A32AB23653000C2D96 /* HeaderCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionView.swift; sourceTree = "<group>"; };
 		A6C925A52AB24578000C2D96 /* NewsDetailCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailCollectionView.xib; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 		A62D5B492AA758C900CD4F1B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A66C669C2AB3A2A1000EA17B /* Profile Page */,
 				A66C66942AB399E3000EA17B /* Favorites Page */,
 				A66C66812AB37F01000EA17B /* Search Page */,
 				A66C667A2AB31F7B000EA17B /* Detail Page */,
@@ -265,6 +270,15 @@
 			path = news;
 			sourceTree = "<group>";
 		};
+		A66C669C2AB3A2A1000EA17B /* Profile Page */ = {
+			isa = PBXGroup;
+			children = (
+				A66C669D2AB3A2DA000EA17B /* SettingsVC.swift */,
+				A66C669F2AB3A2E0000EA17B /* SettingsVC.storyboard */,
+			);
+			path = "Profile Page";
+			sourceTree = "<group>";
+		};
 		A6C925962AB1E747000C2D96 /* news */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +368,7 @@
 				A6C925A62AB24578000C2D96 /* NewsDetailCollectionView.xib in Resources */,
 				A62ABC012AA90B6500EED1BF /* EnvironmentVariables.plist in Resources */,
 				A66C66982AB39A1D000EA17B /* FavoritesVC.storyboard in Resources */,
+				A66C66A02AB3A2E0000EA17B /* SettingsVC.storyboard in Resources */,
 				A62D5B3F2AA74D6B00CD4F1B /* Assets.xcassets in Resources */,
 				A62D5B5F2AA7C46E00CD4F1B /* HomeVC.storyboard in Resources */,
 				A66C66852AB3804C000EA17B /* SearchVC.storyboard in Resources */,
@@ -370,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A66C669E2AB3A2DA000EA17B /* SettingsVC.swift in Sources */,
 				A6C925A42AB23653000C2D96 /* HeaderCollectionView.swift in Sources */,
 				A62ABBFF2AA909DA00EED1BF /* Article.swift in Sources */,
 				A62ABBF82AA9049600EED1BF /* SliderDetailCollectionViewCell.swift in Sources */,
