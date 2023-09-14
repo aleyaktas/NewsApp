@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--aaabbb-->
+        <!--News.-->
         <scene sceneID="hQi-5b-bfb">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="nan-Ft-nVc" customClass="HomeVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,17 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8rg-Ib-imA">
-                                <rect key="frame" x="0.0" y="39" width="393" height="44"/>
-                                <items>
-                                    <navigationItem title="News." id="eEk-Iq-633">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.3.horizontal.decrease" catalog="system" id="l2a-j5-qPk"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="slider.horizontal.3" catalog="system" id="WOP-f0-x1u"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="el8-l6-cFp">
-                                <rect key="frame" x="0.0" y="83" width="393" height="686"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pz6-bZ-z6y">
                                     <size key="itemSize" width="128" height="50"/>
@@ -40,15 +31,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jk-TH-i6b">
-                                            <rect key="frame" x="16.000000000000004" y="10.666666666666666" width="61.333333333333343" height="28.666666666666671"/>
+                                            <rect key="frame" x="16" y="10.666666666666664" width="361" height="29"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                             <color key="textColor" systemColor="systemOrangeColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="5Jk-TH-i6b" firstAttribute="leading" secondItem="BsA-5K-54I" secondAttribute="leadingMargin" constant="8" id="ghe-Eb-7Ox"/>
-                                        <constraint firstItem="5Jk-TH-i6b" firstAttribute="centerY" secondItem="BsA-5K-54I" secondAttribute="centerY" id="jhR-QZ-XDd"/>
+                                        <constraint firstItem="5Jk-TH-i6b" firstAttribute="leading" secondItem="BsA-5K-54I" secondAttribute="leadingMargin" constant="8" id="75W-zb-PzM"/>
+                                        <constraint firstItem="5Jk-TH-i6b" firstAttribute="centerY" secondItem="BsA-5K-54I" secondAttribute="centerY" id="JLF-SL-W0R"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="5Jk-TH-i6b" secondAttribute="trailing" constant="8" id="dSV-Wk-Y4d"/>
                                     </constraints>
                                     <connections>
                                         <outlet property="headerLabel" destination="5Jk-TH-i6b" id="hUg-2V-RSd"/>
@@ -59,26 +51,20 @@
                         <viewLayoutGuide key="safeArea" id="KRP-3h-qTK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KRP-3h-qTK" firstAttribute="trailing" secondItem="el8-l6-cFp" secondAttribute="trailing" id="4uV-1z-Uf3"/>
-                            <constraint firstItem="el8-l6-cFp" firstAttribute="centerY" secondItem="Bbg-Hp-XYW" secondAttribute="centerY" id="5Qz-4u-FvC"/>
-                            <constraint firstItem="el8-l6-cFp" firstAttribute="leading" secondItem="KRP-3h-qTK" secondAttribute="leading" id="727-PY-ruu"/>
-                            <constraint firstItem="8rg-Ib-imA" firstAttribute="leading" secondItem="KRP-3h-qTK" secondAttribute="leading" id="FiU-03-jXD"/>
-                            <constraint firstItem="KRP-3h-qTK" firstAttribute="bottom" secondItem="el8-l6-cFp" secondAttribute="bottom" id="NLz-Tj-cVo"/>
-                            <constraint firstItem="el8-l6-cFp" firstAttribute="centerX" secondItem="Bbg-Hp-XYW" secondAttribute="centerX" id="RXn-ez-1QS"/>
-                            <constraint firstItem="8rg-Ib-imA" firstAttribute="trailing" secondItem="KRP-3h-qTK" secondAttribute="trailing" id="Rfj-6N-w11"/>
-                            <constraint firstItem="el8-l6-cFp" firstAttribute="top" secondItem="8rg-Ib-imA" secondAttribute="bottom" id="WFC-zC-r1q"/>
+                            <constraint firstItem="el8-l6-cFp" firstAttribute="top" secondItem="KRP-3h-qTK" secondAttribute="top" id="1lg-Rh-Mau"/>
+                            <constraint firstItem="el8-l6-cFp" firstAttribute="trailing" secondItem="KRP-3h-qTK" secondAttribute="trailing" id="CJZ-TW-x7w"/>
+                            <constraint firstItem="el8-l6-cFp" firstAttribute="leading" secondItem="KRP-3h-qTK" secondAttribute="leading" id="Eww-eh-TPn"/>
+                            <constraint firstAttribute="bottom" secondItem="el8-l6-cFp" secondAttribute="bottom" id="Rtv-G4-NJM"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="aaabbb" image="square.and.arrow.up" catalog="system" selectedImage="square.stack.3d.up" id="Eey-Fm-LyY">
-                        <color key="badgeColor" systemColor="linkColor"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="News." id="tgD-UM-xdY"/>
                     <connections>
                         <outlet property="collectionView" destination="el8-l6-cFp" id="wcZ-Vz-JId"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUd-Nb-XbC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8205.3435114503809" y="-395.07042253521126"/>
+            <point key="canvasLocation" x="9132.061068702289" y="-395.07042253521126"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Hof-43-3UX">
@@ -91,17 +77,36 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="nan-Ft-nVc" kind="relationship" relationship="viewControllers" id="LXb-3b-w4i"/>
+                        <segue destination="Oxw-j1-cEy" kind="relationship" relationship="viewControllers" id="LXb-3b-w4i"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxk-38-cCB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7278.6259541984728" y="-395.07042253521126"/>
         </scene>
+        <!--aaabbb-->
+        <scene sceneID="hFQ-tF-zzo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Oxw-j1-cEy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="aaabbb" image="square.and.arrow.up" catalog="system" selectedImage="square.stack.3d.up" id="Eey-Fm-LyY">
+                        <color key="badgeColor" systemColor="linkColor"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="N90-ID-oXT">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nan-Ft-nVc" kind="relationship" relationship="rootViewController" id="mZa-R6-G6B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lxV-qZ-Dtg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8205.3435114503809" y="-395.07042253521126"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="line.3.horizontal.decrease" catalog="system" width="128" height="73"/>
-        <image name="slider.horizontal.3" catalog="system" width="128" height="99"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="square.stack.3d.up" catalog="system" width="128" height="125"/>
         <systemColor name="linkColor">
