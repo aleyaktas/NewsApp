@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -38,43 +39,43 @@ News App</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxP-iC-BbZ">
-                                <rect key="frame" x="20" y="519" width="353" height="44"/>
+                                <rect key="frame" x="20" y="535" width="353" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="ujQ-CS-RPZ"/>
+                                    <constraint firstAttribute="height" constant="48" id="ujQ-CS-RPZ"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
-                                    <color key="baseBackgroundColor" red="0.33333334329999997" green="0.73333334920000004" blue="0.92549020049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" name="primary"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="loginAct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VbI-hg-q17"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bkh-ah-CTc">
-                                <rect key="frame" x="20" y="366" width="353" height="96"/>
+                                <rect key="frame" x="20" y="366" width="353" height="112"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhR-Bt-zxn">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
-                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="48"/>
+                                        <color key="backgroundColor" name="gray"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="j0c-SC-yY3"/>
+                                            <constraint firstAttribute="height" constant="48" id="j0c-SC-yY3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f4e-wE-sHQ">
-                                        <rect key="frame" x="0.0" y="56" width="353" height="40"/>
-                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <rect key="frame" x="0.0" y="64" width="353" height="48"/>
+                                        <color key="backgroundColor" name="gray"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="aOI-ui-FWk"/>
+                                            <constraint firstAttribute="height" constant="48" id="aOI-ui-FWk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiJ-cn-mZv">
-                                <rect key="frame" x="40" y="587" width="313" height="31"/>
+                                <rect key="frame" x="40" y="607" width="313" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gM1-BC-Pv4">
                                         <rect key="frame" x="0.0" y="0.0" width="151.66666666666666" height="31"/>
@@ -87,7 +88,7 @@ News App</string>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Create new account">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
-                                            <color key="baseForegroundColor" red="0.33333334329999997" green="0.73333334920000004" blue="0.92549020049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="baseForegroundColor" name="primary"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="createAccountAct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="063-il-PQB"/>
@@ -96,9 +97,9 @@ News App</string>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZh-yN-ThP">
-                                <rect key="frame" x="19.999999999999993" y="478" width="118.33333333333331" height="17"/>
+                                <rect key="frame" x="19.999999999999993" y="494" width="118.33333333333331" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <color key="textColor" red="0.33333334329999997" green="0.73333334920000004" blue="0.92549020049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" name="primary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -134,12 +135,15 @@ News App</string>
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="500" height="500"/>
+        <image name="logo" width="1000" height="999"/>
+        <namedColor name="gray">
+            <color red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primary">
+            <color red="0.792156862745098" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

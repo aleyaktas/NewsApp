@@ -10,7 +10,6 @@ import Alamofire
 import Kingfisher
 import SideMenu
 
-
 class HomeVC: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -23,6 +22,7 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
         view.backgroundColor = .white
         configureData()
         customNibs()
+        setupNavigationBar()
         fetchNewsData(category: "general")
         let menu = MenuListController()
         menu.menuDelegate = self
@@ -32,8 +32,24 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
         
         SideMenuManager.default.leftMenuNavigationController = sideMenu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
+    
     }
     
+    private func setupNavigationBar() {
+        navigationItem.title = ""
+        let imageView = UIImageView(image: UIImage(named: "small-logo"))
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
+        let imageSize = CGSize(width: 40, height: 40)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalToConstant: imageSize.width).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: imageSize.height).isActive = true
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+       
+    }
     
     @IBAction func menuButtonAct(_ sender: UIButton) {
         present(sideMenu!, animated: true, completion: nil)
@@ -110,6 +126,8 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SliderSelectDelegate, MenuListDelegate {
+
+    
     
     func didSelectCategory(_ category: String) {
         fetchNewsData(category: category)
@@ -160,12 +178,13 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
 
                     cell.categoryName.text = article.author ?? "Empty"
                     cell.detail.text = article.title ?? "Empty"
-                
+
                 return cell
             }
         }
         return UICollectionViewCell()
     }
+
 
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -219,9 +238,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-
-
-
     
 }
 

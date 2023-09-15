@@ -43,6 +43,7 @@
 		A66C66A82AB3B6FC000EA17B /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C66A72AB3B6FC000EA17B /* AccountTableViewCell.swift */; };
 		A66C66AB2AB3C416000EA17B /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = A66C66AA2AB3C416000EA17B /* SideMenu */; };
 		A66C66AF2AB3CFD3000EA17B /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C66AE2AB3CFD3000EA17B /* MenuVC.swift */; };
+		A66D32392AB4A25500BC64B6 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A66D32382AB4A25500BC64B6 /* SkeletonView */; };
 		A6C9259E2AB1E825000C2D96 /* NewsDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C9259D2AB1E824000C2D96 /* NewsDetailCollectionViewCell.swift */; };
 		A6C925A12AB22E9A000C2D96 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A6C925A02AB22E9A000C2D96 /* Kingfisher */; };
 		A6C925A42AB23653000C2D96 /* HeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C925A32AB23653000C2D96 /* HeaderCollectionView.swift */; };
@@ -96,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A66D32392AB4A25500BC64B6 /* SkeletonView in Frameworks */,
 				A6C925A12AB22E9A000C2D96 /* Kingfisher in Frameworks */,
 				A66C66AB2AB3C416000EA17B /* SideMenu in Frameworks */,
 				A62ABBFB2AA9069400EED1BF /* Alamofire in Frameworks */,
@@ -346,6 +348,7 @@
 				A62ABBFA2AA9069400EED1BF /* Alamofire */,
 				A6C925A02AB22E9A000C2D96 /* Kingfisher */,
 				A66C66AA2AB3C416000EA17B /* SideMenu */,
+				A66D32382AB4A25500BC64B6 /* SkeletonView */,
 			);
 			productName = NewsApp;
 			productReference = A62D5B322AA74D6A00CD4F1B /* NewsApp.app */;
@@ -379,6 +382,7 @@
 				A62ABBF92AA9069400EED1BF /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A6C9259F2AB22E9A000C2D96 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				A66C66A92AB3C416000EA17B /* XCRemoteSwiftPackageReference "SideMenu" */,
+				A66D32372AB4A25500BC64B6 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = A62D5B332AA74D6A00CD4F1B /* Products */;
 			projectDirPath = "";
@@ -664,6 +668,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		A66D32372AB4A25500BC64B6 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		A6C9259F2AB22E9A000C2D96 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -684,6 +696,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A66C66A92AB3C416000EA17B /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
+		};
+		A66D32382AB4A25500BC64B6 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A66D32372AB4A25500BC64B6 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 		A6C925A02AB22E9A000C2D96 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

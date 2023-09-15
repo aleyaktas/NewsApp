@@ -20,6 +20,11 @@ class LoginVC: UIViewController {
     func prepareTextFields() {
 //        usernameTextField.setIcon(UIImage(systemName: "person.fill")!)
 //        passwordTextField.setIcon(UIImage(systemName: "lock.fill")!)
+        if let usernamePlaceholder = usernameTextField.placeholder, let passwordPlaceholder = passwordTextField.placeholder {
+            usernameTextField.attributedPlaceholder = NSAttributedString(string: usernamePlaceholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
+            passwordTextField.attributedPlaceholder = NSAttributedString(string: passwordPlaceholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
+        }
+
     }
     
     

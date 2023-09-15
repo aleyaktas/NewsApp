@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--News.-->
+        <!--HomeVC-->
         <scene sceneID="hQi-5b-bfb">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="nan-Ft-nVc" customClass="HomeVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,9 +58,9 @@
                             <constraint firstAttribute="bottom" secondItem="el8-l6-cFp" secondAttribute="bottom" id="Rtv-G4-NJM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="News." id="tgD-UM-xdY">
+                    <navigationItem key="navigationItem" id="tgD-UM-xdY">
                         <barButtonItem key="leftBarButtonItem" image="line.3.horizontal" catalog="system" id="XOn-qy-l8V">
-                            <color key="tintColor" name="primary"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="menuButtonAct:" destination="nan-Ft-nVc" id="Eec-zh-bz8"/>
                             </connections>

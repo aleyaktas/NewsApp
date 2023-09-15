@@ -19,13 +19,16 @@ class RegisterVC: UIViewController {
     }
     
     func prepareTextFields() {
-//        if let textField = usernameTextField {
-//            // textField nil değilse, işlemleri gerçekleştir
-//            textField.setIcon(UIImage(systemName: "person.fill")!)
-//        } else {
-//            // textField nil ise, uygun bir şekilde ele alın
-//            print("usernameTextField nil olarak bulundu.")
-//        }
+
+        if let usernamePlaceholder = usernameTextField.placeholder,
+           let emailPlaceholder = emailTextField.placeholder,
+           let passwordPlaceholder = passwordTextField.placeholder {
+            usernameTextField.attributedPlaceholder = NSAttributedString(string: usernamePlaceholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
+            emailTextField.attributedPlaceholder = NSAttributedString(string: emailPlaceholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
+            passwordTextField.attributedPlaceholder = NSAttributedString(string: passwordPlaceholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
+        }
+
+    
 //   
 //
 //        usernameTextField.setIcon(UIImage(systemName: "person.fill")!)
