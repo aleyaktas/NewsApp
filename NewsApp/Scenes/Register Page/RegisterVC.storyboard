@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -45,7 +46,7 @@ account for you</string>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Register">
-                                    <color key="baseBackgroundColor" red="0.33333334329999997" green="0.73333334920000004" blue="0.92549020049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" name="primary"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="registerAct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0vT-hZ-3M2"/>
@@ -117,7 +118,7 @@ account for you</string>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Login">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
-                                            <color key="baseForegroundColor" red="0.33333334329999997" green="0.73333334920000004" blue="0.92549020049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="baseForegroundColor" name="primary"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="loginAct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fCy-Nh-KkG"/>
@@ -163,6 +164,9 @@ account for you</string>
     <resources>
         <image name="logo" width="500" height="500"/>
         <image name="square.fill" catalog="system" width="128" height="114"/>
+        <namedColor name="primary">
+            <color red="0.792156862745098" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -11,29 +11,32 @@ import Kingfisher
 import SideMenu
 
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var newsData: [Article] = []
     
-    var menu: SideMenuNavigationController?
+    private var sideMenu: SideMenuNavigationController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureData()
         customNibs()
-        fetchNewsData()
-        menu = SideMenuNavigationController(rootViewController: MenuListController())
-        menu?.leftSide = true
+        fetchNewsData(category: "general")
+        let menu = MenuListController()
+        menu.menuDelegate = self
         
-        SideMenuManager.default.leftMenuNavigationController = menu
+        sideMenu = SideMenuNavigationController(rootViewController: menu)
+        sideMenu?.leftSide = true
+        
+        SideMenuManager.default.leftMenuNavigationController = sideMenu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
     }
     
     
     @IBAction func menuButtonAct(_ sender: UIButton) {
-        present(menu!, animated: true, completion: nil)
+        present(sideMenu!, animated: true, completion: nil)
     }
     
     private func configureData() {
@@ -52,8 +55,8 @@ class HomeVC: UIViewController {
        
     }
     
-    func fetchNewsData() {
-        getAllNews { [weak self] articles in
+    func fetchNewsData(category:String) {
+        getAllNews(category: category) { [weak self] articles in
             DispatchQueue.main.async {
                 if let articles = articles {
                     self?.newsData = articles
@@ -64,7 +67,7 @@ class HomeVC: UIViewController {
             }
         }}
     
-    func getAllNews(completion: @escaping ([Article]?) -> Void) {
+    func getAllNews(category:String,completion: @escaping ([Article]?) -> Void) {
         if let path = Bundle.main.path(forResource: "EnvironmentVariables", ofType: "plist"),
            let dict = NSDictionary(contentsOfFile: path) as? [String: Any],
            let apiKey = dict["API_KEY"] as? String {
@@ -72,7 +75,8 @@ class HomeVC: UIViewController {
            let newsURL = "https://newsapi.org/v2/top-headlines"
            let parameters: [String: Any] = [
                "country": "US",
-               "apiKey": apiKey
+               "apiKey": apiKey,
+               "category": category
            ]
            
            AF.request(newsURL, method: .get, parameters: parameters).responseData { response in
@@ -105,7 +109,13 @@ class HomeVC: UIViewController {
 
 }
 
-extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SliderSelectDelegate {
+extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SliderSelectDelegate, MenuListDelegate {
+    
+    func didSelectCategory(_ category: String) {
+        fetchNewsData(category: category)
+        sideMenu?.dismiss(animated: true)
+    }
+    
     func didSelectCell(article: Article) {
         let storyboard = UIStoryboard(name: "DetailVC", bundle: nil)
 
@@ -166,7 +176,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
 
         let collectionViewWidth = collectionView.frame.width
         let cellWidth = collectionViewWidth
-        let cellHeight: CGFloat = (indexPath.section == 0) ? 300 : 200
+        let cellHeight: CGFloat = (indexPath.section == 0) ? 300 : 150
         
         return CGSize(width: cellWidth, height: cellHeight)
         }

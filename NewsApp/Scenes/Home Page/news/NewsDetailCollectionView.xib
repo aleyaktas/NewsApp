@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" restorationIdentifier="NewsDetailCollectionViewCell" id="iN0-l3-epB" customClass="NewsDetailCollectionViewCell" customModule="NewsApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+            <rect key="frame" x="0.0" y="0.0" width="400" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2P-M2-YqI">
@@ -21,15 +21,15 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vij-F2-1ak">
-                    <rect key="frame" x="230" y="25" width="150" height="150"/>
+                    <rect key="frame" x="260" y="15" width="120" height="120"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="150" id="gbu-zv-hog"/>
-                        <constraint firstAttribute="height" constant="150" id="rhO-p0-NkW"/>
+                        <constraint firstAttribute="width" constant="120" id="gbu-zv-hog"/>
+                        <constraint firstAttribute="height" constant="120" id="rhO-p0-NkW"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yz3-rZ-QeP">
-                    <rect key="frame" x="20.000000000000004" y="43.666666666666664" width="47.333333333333343" height="102.33333333333334"/>
-                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
+                    <rect key="frame" x="20" y="43.666666666666657" width="42" height="52.333333333333343"/>
+                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>

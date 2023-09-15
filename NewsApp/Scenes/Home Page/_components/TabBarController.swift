@@ -12,6 +12,8 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UITabBar.appearance().tintColor = UIColor(named: "primary")
+        
         let homeVC = UIStoryboard(name: "HomeVC", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
         let searchVC = UIStoryboard(name: "SearchVC", bundle: nil).instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
         let favoritesVC = UIStoryboard(name: "FavoritesVC", bundle: nil).instantiateViewController(withIdentifier: "FavoritesVC") as! FavoritesVC

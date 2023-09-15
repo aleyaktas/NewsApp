@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,9 +32,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jk-TH-i6b">
-                                            <rect key="frame" x="16" y="10.666666666666664" width="361" height="29"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                            <color key="textColor" systemColor="systemOrangeColor"/>
+                                            <rect key="frame" x="16" y="11.666666666666664" width="361" height="27"/>
+                                            <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="24"/>
+                                            <color key="textColor" name="primary"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -59,6 +60,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="News." id="tgD-UM-xdY">
                         <barButtonItem key="leftBarButtonItem" image="line.3.horizontal" catalog="system" id="XOn-qy-l8V">
+                            <color key="tintColor" name="primary"/>
                             <connections>
                                 <action selector="menuButtonAct:" destination="nan-Ft-nVc" id="Eec-zh-bz8"/>
                             </connections>
@@ -95,7 +97,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Oxw-j1-cEy" userLabel="NavigationBar" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="aaabbb" image="square.and.arrow.up" catalog="system" selectedImage="square.stack.3d.up" id="Eey-Fm-LyY">
-                        <color key="badgeColor" systemColor="linkColor"/>
+                        <color key="badgeColor" red="0.83274406190000005" green="0.38168269399999999" blue="0.38148808480000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="N90-ID-oXT">
@@ -119,14 +121,11 @@
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="square.stack.3d.up" catalog="system" width="128" height="125"/>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="primary">
+            <color red="0.792156862745098" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
