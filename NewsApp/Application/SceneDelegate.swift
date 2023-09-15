@@ -17,8 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        let storyboard = UIStoryboard(name: "RegisterVC", bundle: nil)
-             if let vc = storyboard.instantiateViewController(withIdentifier: "RegisterVC") as? RegisterVC {
+        let storyboard = UIStoryboard(name: "OnboardingVC", bundle: nil)
+             if let vc = storyboard.instantiateViewController(withIdentifier: "OnboardingVC") as? OnboardingVC {
                  window.rootViewController = UINavigationController(rootViewController: vc)
                  window.makeKeyAndVisible()
                  self.window = window

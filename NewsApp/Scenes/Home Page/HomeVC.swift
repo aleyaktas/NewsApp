@@ -67,8 +67,6 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
         
         let newsCellNib: UINib = UINib(nibName: "NewsDetailCollectionView", bundle: nil)
         collectionView.register(newsCellNib, forCellWithReuseIdentifier: "NewsDetailCollectionViewCell")
-       
-       
     }
     
     func fetchNewsData(category:String) {
@@ -126,8 +124,6 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SliderSelectDelegate, MenuListDelegate {
-
-    
     
     func didSelectCategory(_ category: String) {
         fetchNewsData(category: category)
