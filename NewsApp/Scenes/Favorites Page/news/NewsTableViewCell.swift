@@ -9,15 +9,18 @@ import UIKit
 
 class NewsTableViewCell: UITableViewCell {
 
+  
+    @IBOutlet weak var newAuthor: UILabel!
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var newImage: UIImageView!
+    @IBOutlet weak var date: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         newImage.layer.cornerRadius = 20
         
         titleText.numberOfLines = 0
-        titleText.lineBreakMode = .byWordWrapping
+        titleText.lineBreakMode = .byTruncatingTail
     }
     override func prepareForReuse() {
         super.prepareForReuse()

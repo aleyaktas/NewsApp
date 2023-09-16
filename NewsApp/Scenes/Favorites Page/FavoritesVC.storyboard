@@ -35,23 +35,46 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahU-HE-mrK">
-                                                    <rect key="frame" x="176" y="31" width="41.333333333333343" height="21"/>
+                                                    <rect key="frame" x="176" y="31" width="35.333333333333343" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTu-PT-wre">
+                                                    <rect key="frame" x="176" y="56" width="177" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="j9O-FB-UQU"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09P-zA-PPg">
+                                                    <rect key="frame" x="176" y="114" width="177" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="cTu-PT-wre" firstAttribute="leading" secondItem="6DI-VZ-g0J" secondAttribute="trailing" constant="20" id="B8W-mV-MUk"/>
                                                 <constraint firstItem="6DI-VZ-g0J" firstAttribute="centerY" secondItem="noW-tp-H5A" secondAttribute="centerY" id="BEV-4Y-rHd"/>
+                                                <constraint firstItem="09P-zA-PPg" firstAttribute="leading" secondItem="6DI-VZ-g0J" secondAttribute="trailing" constant="20" id="CJW-fR-tfc"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ahU-HE-mrK" secondAttribute="trailing" constant="8" id="D9a-1S-nhJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="09P-zA-PPg" secondAttribute="trailing" constant="20" id="I9T-du-dVO"/>
+                                                <constraint firstItem="cTu-PT-wre" firstAttribute="top" secondItem="ahU-HE-mrK" secondAttribute="bottom" constant="8" id="KeY-fs-EqW"/>
                                                 <constraint firstItem="6DI-VZ-g0J" firstAttribute="leading" secondItem="noW-tp-H5A" secondAttribute="leadingMargin" constant="8" id="NjO-ph-AFG"/>
                                                 <constraint firstItem="ahU-HE-mrK" firstAttribute="top" secondItem="noW-tp-H5A" secondAttribute="topMargin" constant="20" id="XoX-5N-9Lw"/>
                                                 <constraint firstItem="ahU-HE-mrK" firstAttribute="leading" secondItem="6DI-VZ-g0J" secondAttribute="trailing" constant="20" id="k40-WK-aBR"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="cTu-PT-wre" secondAttribute="trailing" constant="20" id="lrd-QR-MUP"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="09P-zA-PPg" secondAttribute="bottom" constant="8" id="ttg-cU-bLF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="date" destination="09P-zA-PPg" id="TJt-TC-aEh"/>
+                                            <outlet property="newAuthor" destination="ahU-HE-mrK" id="GCb-RW-HxR"/>
                                             <outlet property="newImage" destination="6DI-VZ-g0J" id="5jG-3o-uXE"/>
-                                            <outlet property="titleText" destination="ahU-HE-mrK" id="1Ow-bw-Ed0"/>
+                                            <outlet property="titleText" destination="cTu-PT-wre" id="QFh-Pu-Ndm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

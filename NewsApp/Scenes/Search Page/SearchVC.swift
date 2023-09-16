@@ -14,7 +14,8 @@ class SearchVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var newsData: [Article] = []
-    
+    let homeVC = UIStoryboard(name: "HomeVC", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,13 +90,21 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource, UISearchBarDeleg
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "SearchNewsTableViewCell", for: indexPath) as? SearchNewsTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as? NewsTableViewCell {
             let article = newsData[indexPath.row]
 
             if let urlToImage = article.urlToImage {
                 let url = URL(string: urlToImage)
-                cell.searchImage.kf.setImage(with: url)
+                cell.newImage.kf.setImage(with: url)
             }
+            
+            if let author = article.author {
+                let components = author.components(separatedBy: ",")
+                cell.newAuthor.text = components.first
+            }
+
+            let date = homeVC?.dateFormatter(dateString: article.publishedAt ?? "2023-09-15T12:10:00Z")
+            cell.date.text = date ?? "Empty"
 
             cell.titleText.text = article.title ?? "Empty"
 
