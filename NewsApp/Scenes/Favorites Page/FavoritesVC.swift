@@ -11,7 +11,8 @@ import Alamofire
 class FavoritesVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
+    var homeVC: HomeVC?
+
     var newsData: [Article] = []
     
     override func viewDidLoad() {
@@ -62,6 +63,12 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
             if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
                 vc.imageUrl = url
             }
+            if let author = article.author {
+                let components = author.components(separatedBy: ",")
+                vc.newAuthor = components.first
+            }
+            let date = homeVC?.dateFormatter(dateString: article.publishedAt ?? "")
+            vc.date = date ?? "Empty"
             vc.newTitle = article.title ?? "Empty"
             vc.content = article.content ?? "Empty"
             vc.article = article

@@ -35,7 +35,7 @@ class FavoritesManager {
     func getFavorites() -> [Article] {
         if let data = userDefaults.data(forKey: favoritesKey),
            let favorites = try? JSONDecoder().decode([Article].self, from: data) {
-            return favorites
+            return favorites.reversed()
         }
         return []
     }

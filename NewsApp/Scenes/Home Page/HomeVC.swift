@@ -124,7 +124,7 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
         }
     }
     
-    func dateFormatter(dateString: String) -> String? {
+     func dateFormatter(dateString: String) -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         dateFormatter.locale = Locale(identifier: "en_US")
@@ -156,6 +156,12 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
                 vc.imageUrl = url
             }
+            if let author = article.author {
+                let components = author.components(separatedBy: ",")
+                vc.newAuthor = components.first
+            }
+            let date = dateFormatter(dateString: article.publishedAt ?? "")
+            vc.date = date ?? "Empty"
             vc.newTitle = article.title ?? "Empty"
             vc.content = article.content ?? "Empty"
             vc.article = article

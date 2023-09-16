@@ -245,7 +245,6 @@
 		A66C667A2AB31F7B000EA17B /* Detail Page */ = {
 			isa = PBXGroup;
 			children = (
-				A66C66912AB3998D000EA17B /* _components */,
 				A66C667D2AB31FA3000EA17B /* DetailVC.swift */,
 				A66C667F2AB325AA000EA17B /* DetailVC.storyboard */,
 			);
@@ -281,6 +280,7 @@
 		A66C66942AB399E3000EA17B /* Favorites Page */ = {
 			isa = PBXGroup;
 			children = (
+				A66C66912AB3998D000EA17B /* _components */,
 				A66C66992AB39D02000EA17B /* news */,
 				A66C66952AB39A12000EA17B /* FavoritesVC.swift */,
 				A66C66972AB39A1D000EA17B /* FavoritesVC.storyboard */,

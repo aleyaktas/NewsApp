@@ -39,9 +39,9 @@ News App</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxP-iC-BbZ">
-                                <rect key="frame" x="20" y="535" width="353" height="48"/>
+                                <rect key="frame" x="20" y="539" width="353" height="52"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="ujQ-CS-RPZ"/>
+                                    <constraint firstAttribute="height" constant="52" id="ujQ-CS-RPZ"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
@@ -56,8 +56,8 @@ News App</string>
                                     <action selector="loginAct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VbI-hg-q17"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bkh-ah-CTc">
-                                <rect key="frame" x="20" y="366" width="353" height="112"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bkh-ah-CTc">
+                                <rect key="frame" x="20" y="366" width="353" height="116"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhR-Bt-zxn">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="48"/>
@@ -69,7 +69,7 @@ News App</string>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f4e-wE-sHQ">
-                                        <rect key="frame" x="0.0" y="64" width="353" height="48"/>
+                                        <rect key="frame" x="0.0" y="68" width="353" height="48"/>
                                         <color key="backgroundColor" name="gray"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="aOI-ui-FWk"/>
@@ -80,7 +80,7 @@ News App</string>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiJ-cn-mZv">
-                                <rect key="frame" x="40" y="607" width="313" height="31"/>
+                                <rect key="frame" x="40" y="615" width="313" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gM1-BC-Pv4">
                                         <rect key="frame" x="0.0" y="0.0" width="151.66666666666666" height="31"/>
@@ -102,7 +102,7 @@ News App</string>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZh-yN-ThP">
-                                <rect key="frame" x="19.999999999999993" y="494" width="118.33333333333331" height="17"/>
+                                <rect key="frame" x="19.999999999999993" y="498" width="118.33333333333331" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" name="primary"/>
                                 <nil key="highlightedColor"/>
@@ -142,7 +142,7 @@ News App</string>
     <resources>
         <image name="logo" width="1000" height="999"/>
         <namedColor name="gray">
-            <color red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="primary">
             <color red="0.792156862745098" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
