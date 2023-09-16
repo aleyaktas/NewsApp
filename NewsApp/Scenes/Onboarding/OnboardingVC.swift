@@ -38,16 +38,21 @@ class OnboardingVC: UIViewController {
         collectionView.showsHorizontalScrollIndicator = false
     }
     
-    
     @IBAction func nextStepAct(_ sender: UIButton) {
         if currentPage == slider.count - 1 {
-            print("Go to register")
+            let storyboard = UIStoryboard(name: "RegisterVC", bundle: nil)
+                        
+            if let vc = storyboard.instantiateViewController(withIdentifier: "RegisterVC") as? RegisterVC {
+            
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         } else {
             currentPage += 1
             let indexPath = IndexPath(item: currentPage, section: 0)
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
     }
+
     
     func setArray() {
         let item1 = OnboardingSlider(title: "Welcome", description: "Take your first step to get closer to the news with us. Easily access the latest news and updates.", image: "onboarding1")

@@ -38,6 +38,13 @@ class RegisterVC: UIViewController {
     
     @IBAction func registerAct(_ sender: UIButton) {
         print("Register user")
+        let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
+                if let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController {
+                     if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                        let windowDelegate = windowScene.delegate as? SceneDelegate {
+                         windowDelegate.window?.rootViewController = tabBarController
+                     }
+                 }
     }
     
     @IBAction func loginAct(_ sender: UIButton) {

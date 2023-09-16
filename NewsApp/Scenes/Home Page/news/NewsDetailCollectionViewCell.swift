@@ -13,6 +13,7 @@ class NewsDetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var newImage: UIImageView!
     @IBOutlet weak var categoryName: UILabel!
     @IBOutlet weak var detail: UILabel!
+    @IBOutlet weak var newDate: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,14 +25,6 @@ class NewsDetailCollectionViewCell: UICollectionViewCell {
         categoryName.lineBreakMode = .byWordWrapping
 
         detail.numberOfLines = 0
-        detail.lineBreakMode = .byWordWrapping
-        
-        categoryName.adjustsFontSizeToFitWidth = true
-        categoryName.minimumScaleFactor = 0.5
-        categoryName.lineBreakMode = .byTruncatingTail
-
-        detail.adjustsFontSizeToFitWidth = true
-        detail.minimumScaleFactor = 0.5
         detail.lineBreakMode = .byTruncatingTail
         
         newImage.layer.cornerRadius = 20

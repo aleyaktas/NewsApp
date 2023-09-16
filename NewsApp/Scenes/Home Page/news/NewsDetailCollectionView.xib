@@ -27,10 +27,19 @@
                         <constraint firstAttribute="height" constant="120" id="rhO-p0-NkW"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yz3-rZ-QeP">
-                    <rect key="frame" x="20" y="43.666666666666657" width="42" height="52.333333333333343"/>
-                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yz3-rZ-QeP">
+                    <rect key="frame" x="20.000000000000004" y="43.666666666666657" width="44.333333333333343" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="RTY-5W-A5X"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIN-Tw-Rz8">
+                    <rect key="frame" x="20" y="128" width="220" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -40,17 +49,20 @@
                 <constraint firstItem="vij-F2-1ak" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yz3-rZ-QeP" secondAttribute="trailing" constant="8" id="2Ux-Jf-Hs4"/>
                 <constraint firstItem="j2P-M2-YqI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="3PY-Ov-RRe"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vij-F2-1ak" secondAttribute="trailing" constant="20" id="C2q-aq-a08"/>
+                <constraint firstItem="yz3-rZ-QeP" firstAttribute="top" secondItem="j2P-M2-YqI" secondAttribute="bottom" constant="8" id="DHh-eO-c3a"/>
                 <constraint firstItem="vij-F2-1ak" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j2P-M2-YqI" secondAttribute="trailing" constant="8" id="Dd3-4f-BN6"/>
                 <constraint firstItem="yz3-rZ-QeP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="KWX-xv-VZv"/>
                 <constraint firstItem="vij-F2-1ak" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Szj-X8-aQa"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="yz3-rZ-QeP" secondAttribute="bottom" constant="20" id="VDI-5e-onr"/>
                 <constraint firstItem="j2P-M2-YqI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="bgx-Lj-FfG"/>
-                <constraint firstItem="yz3-rZ-QeP" firstAttribute="top" secondItem="j2P-M2-YqI" secondAttribute="bottom" constant="8" id="oRX-Zo-63B"/>
+                <constraint firstItem="MIN-Tw-Rz8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="heY-qH-V2t"/>
+                <constraint firstItem="vij-F2-1ak" firstAttribute="leading" secondItem="MIN-Tw-Rz8" secondAttribute="trailing" constant="20" id="tvc-Dw-Uqo"/>
+                <constraint firstAttribute="bottom" secondItem="MIN-Tw-Rz8" secondAttribute="bottom" constant="5" id="vzQ-VE-vgN"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="categoryName" destination="j2P-M2-YqI" id="Cdf-RA-Y0f"/>
                 <outlet property="detail" destination="yz3-rZ-QeP" id="h12-uc-fgF"/>
+                <outlet property="newDate" destination="MIN-Tw-Rz8" id="3Fm-oK-Wj4"/>
                 <outlet property="newImage" destination="vij-F2-1ak" id="SLv-ok-8Sx"/>
             </connections>
             <point key="canvasLocation" x="-41.221374045801525" y="19.718309859154932"/>

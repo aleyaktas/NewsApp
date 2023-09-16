@@ -24,6 +24,7 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
         customNibs()
         setupNavigationBar()
         fetchNewsData(category: "general")
+        
         let menu = MenuListController()
         menu.menuDelegate = self
         
@@ -35,12 +36,14 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
     
     }
     
+
+    
     private func setupNavigationBar() {
         navigationItem.title = ""
         let imageView = UIImageView(image: UIImage(named: "small-logo"))
         imageView.contentMode = .scaleAspectFit
         navigationItem.titleView = imageView
-        let imageSize = CGSize(width: 40, height: 40)
+        let imageSize = CGSize(width: 75, height: 75)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.widthAnchor.constraint(equalToConstant: imageSize.width).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: imageSize.height).isActive = true
@@ -120,6 +123,22 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
            completion(nil)
         }
     }
+    
+    func dateFormatter(dateString: String) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        
+        if let date = dateFormatter.date(from: dateString) {
+            dateFormatter.dateFormat = "dd MMM, yyyy"
+            let formattedDate = dateFormatter.string(from: date)
+            return formattedDate
+        }
+        
+        return nil
+    }
+
 
 }
 
@@ -158,8 +177,10 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCollectionViewCell", for: indexPath) as? SliderCollectionViewCell {
-                    cell.sliderDataList = newsData
-                    cell.delegate = self
+                
+                let first10Items = Array(newsData.prefix(10))
+                cell.sliderDataList = first10Items
+                cell.delegate = self
 
                 return cell
             }
@@ -171,9 +192,14 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                         let url = URL(string: urlToImage)
                         cell.newImage.kf.setImage(with: url)
                     }
+                    if let author = article.author {
+                        let components = author.components(separatedBy: ",")
+                        cell.categoryName.text = components.first
+                    }
 
-                    cell.categoryName.text = article.author ?? "Empty"
                     cell.detail.text = article.title ?? "Empty"
+                    let date = dateFormatter(dateString: article.publishedAt ?? "")
+                    cell.newDate.text = date ?? "Empty"
 
                 return cell
             }
@@ -199,7 +225,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 1 {
-            return CGSize(width: collectionView.frame.size.width, height: 70)
+            return CGSize(width: collectionView.frame.size.width, height: 60)
         } else {
             return CGSize(width: collectionView.frame.size.width, height: 0)
         }

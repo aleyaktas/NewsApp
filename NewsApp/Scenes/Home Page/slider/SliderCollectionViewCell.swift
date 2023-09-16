@@ -16,6 +16,9 @@ class SliderCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var delegate: SliderSelectDelegate?
+    
+    var currentCell = 0
+    var timer: Timer?
 
     var sliderDataList = [Article]() {
         didSet {
@@ -32,10 +35,21 @@ class SliderCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         configureData()
         customNibs()
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(slideToNext), userInfo: nil, repeats: true)
         print(sliderDataList.count)
         configureCollectionViewLayout()
     }
-
+    
+    @objc func slideToNext() {
+        if sliderDataList.count > 0 {
+            if currentCell < sliderDataList.count - 1 {
+                currentCell += 1
+            } else {
+                currentCell = 0
+            }
+            collectionView.scrollToItem(at: IndexPath(item: currentCell, section: 0), at: .right, animated: true)
+        }
+    }
     
     private func configureData() {
         collectionView.delegate = self
@@ -70,8 +84,12 @@ extension SliderCollectionViewCell: UICollectionViewDelegate, UICollectionViewDa
                 let url = URL(string: urlToImage)
                 cell.imageView.kf.setImage(with: url)
             }
+            
+            if let author = slider.author {
+                let components = author.components(separatedBy: ",")
+                cell.categoryName.text = components.first
+            }
         
-            cell.categoryName.text = slider.author ?? "Empty"
             cell.decription.text = slider.title ?? "Empty"
             return cell
         }
