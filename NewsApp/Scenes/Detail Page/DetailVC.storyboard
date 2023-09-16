@@ -75,7 +75,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstItem="h5j-C6-efY" firstAttribute="top" secondItem="bbQ-ep-75p" secondAttribute="bottom" constant="20" id="9xJ-sp-2Oj"/>
                                             <constraint firstAttribute="trailing" secondItem="Geq-1T-sMn" secondAttribute="trailing" constant="20" id="Cug-CD-Kpv"/>
@@ -97,6 +97,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstItem="L76-wA-qOa" firstAttribute="trailing" secondItem="XQZ-0b-2iZ" secondAttribute="trailing" id="6K0-aW-yRL"/>
                                     <constraint firstItem="XQZ-0b-2iZ" firstAttribute="leading" secondItem="L76-wA-qOa" secondAttribute="leading" id="BuD-ix-MCU"/>
@@ -110,7 +111,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PXz-jd-u6Q"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="0lH-nJ-DJg" firstAttribute="bottom" secondItem="PXz-jd-u6Q" secondAttribute="bottom" id="Mov-hI-ZfW"/>
                             <constraint firstItem="0lH-nJ-DJg" firstAttribute="trailing" secondItem="PXz-jd-u6Q" secondAttribute="trailing" id="Z3Y-yI-sXk"/>
@@ -140,8 +141,8 @@
         <namedColor name="primary">
             <color red="0.79199999570846558" green="0.29399999976158142" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

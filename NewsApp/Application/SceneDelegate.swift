@@ -16,6 +16,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
+                    
+        let darkModeEnabled = UserDefaults.standard.bool(forKey: "IsDarkMode")
+            if darkModeEnabled {
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                    windowScene.windows.forEach { window in
+                        window.overrideUserInterfaceStyle = .dark
+                    }
+                }
+                
+            } else {
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                    windowScene.windows.forEach { window in
+                        window.overrideUserInterfaceStyle = .light
+                    }
+                }
+            }
 
         let storyboard = UIStoryboard(name: "OnboardingVC", bundle: nil)
              if let vc = storyboard.instantiateViewController(withIdentifier: "OnboardingVC") as? OnboardingVC {
