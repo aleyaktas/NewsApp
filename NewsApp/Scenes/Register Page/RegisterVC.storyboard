@@ -97,7 +97,7 @@ account for you</string>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="RaH-Xy-zvT"/>
                                         </constraints>
-                                        <color key="tintColor" systemColor="systemGray6Color"/>
+                                        <color key="tintColor" systemColor="systemGray3Color"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="square.fill" catalog="system"/>
                                     </button>
@@ -177,6 +177,9 @@ account for you</string>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

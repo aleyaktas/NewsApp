@@ -11,6 +11,9 @@ class SettingsVC: UIViewController {
 
     @IBOutlet weak var darkModeSwitch: UISwitch!
     
+    @IBOutlet weak var stackView: UIStackView!
+    
+    @IBOutlet weak var stackView2: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,8 +21,8 @@ class SettingsVC: UIViewController {
             darkModeSwitch.isOn = true
         } else {
             darkModeSwitch.isOn = false
-
         }
+
     }
   
     @IBAction func darkModeAct(_ sender: UISwitch) {

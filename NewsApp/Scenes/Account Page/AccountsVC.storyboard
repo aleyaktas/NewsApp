@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,20 +22,12 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lym-bT-rBH">
                                         <rect key="frame" x="146.66666666666666" y="77" width="100" height="96.666666666666657"/>
+                                        <color key="tintColor" name="primary"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="Kwk-6q-O0q"/>
                                             <constraint firstAttribute="width" constant="100" id="PsR-ne-SyS"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0e3-Vv-wWU">
-                                        <rect key="frame" x="329" y="20.000000000000004" width="44" height="34.333333333333343"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" subtitle="">
-                                            <imageReference key="image" image="pencil.line" catalog="system" symbolScale="medium"/>
-                                            <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
-                                        </buttonConfiguration>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIK-NG-c35">
                                         <rect key="frame" x="141" y="183" width="111.33333333333331" height="30.333333333333343"/>
                                         <state key="normal" title="Button"/>
@@ -47,10 +39,8 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
-                                    <constraint firstItem="0e3-Vv-wWU" firstAttribute="top" secondItem="uEn-lZ-Fjv" secondAttribute="top" constant="20" id="GMq-Dt-CXn"/>
                                     <constraint firstItem="YIK-NG-c35" firstAttribute="centerX" secondItem="uEn-lZ-Fjv" secondAttribute="centerX" id="LFC-YP-3Vq"/>
                                     <constraint firstItem="lym-bT-rBH" firstAttribute="centerX" secondItem="uEn-lZ-Fjv" secondAttribute="centerX" id="LqM-38-CaU"/>
-                                    <constraint firstAttribute="trailing" secondItem="0e3-Vv-wWU" secondAttribute="trailing" constant="20" id="OSN-Ue-OlU"/>
                                     <constraint firstAttribute="height" constant="250" id="RT5-XO-46z"/>
                                     <constraint firstItem="lym-bT-rBH" firstAttribute="centerY" secondItem="uEn-lZ-Fjv" secondAttribute="centerY" id="dVy-ik-x7F"/>
                                     <constraint firstItem="YIK-NG-c35" firstAttribute="top" secondItem="lym-bT-rBH" secondAttribute="bottom" constant="8" id="hKf-QH-QGv"/>
@@ -58,7 +48,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HFS-Fn-ThR">
                                 <rect key="frame" x="0.0" y="309" width="393" height="509"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AccountTableViewCell" id="XDr-A9-qfz" customClass="AccountTableViewCell" customModule="NewsApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="100"/>
@@ -84,6 +74,7 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="lcv-OU-ZCJ" secondAttribute="bottom" id="H3Y-qd-iiA"/>
                                                 <constraint firstItem="lcv-OU-ZCJ" firstAttribute="leading" secondItem="naP-Oj-0Wz" secondAttribute="leadingMargin" id="Wde-XI-dgX"/>
@@ -121,16 +112,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pencil.line" catalog="system" width="128" height="98"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <namedColor name="primary">
+            <color red="0.79199999570846558" green="0.29399999976158142" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
