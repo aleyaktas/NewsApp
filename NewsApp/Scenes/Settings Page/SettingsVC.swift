@@ -16,7 +16,7 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var stackView2: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if UserDefaults.standard.bool(forKey: "IsDarkMode") == true {
             darkModeSwitch.isOn = true
         } else {

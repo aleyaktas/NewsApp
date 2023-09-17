@@ -28,12 +28,6 @@ class RegisterVC: UIViewController {
             passwordTextField.attributedPlaceholder = NSAttributedString(string: passwordPlaceholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
         }
 
-    
-//   
-//
-//        usernameTextField.setIcon(UIImage(systemName: "person.fill")!)
-//        emailTextField.setIcon(UIImage(systemName: "envelope.fill")!)
-//        passwordTextField.setIcon(UIImage(systemName: "lock.fill")!)
     }
     
     @IBAction func registerAct(_ sender: UIButton) {

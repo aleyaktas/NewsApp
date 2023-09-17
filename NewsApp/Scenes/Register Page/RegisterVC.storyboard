@@ -66,6 +66,7 @@ account for you</string>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="QsB-Pc-kEQ"/>
                                         </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -75,6 +76,7 @@ account for you</string>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="wWk-sg-Kiz"/>
                                         </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -84,6 +86,7 @@ account for you</string>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="oJB-pU-YEP"/>
                                         </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>

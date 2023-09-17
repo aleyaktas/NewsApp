@@ -25,6 +25,8 @@ class AccountsVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
+
     }
 }
 

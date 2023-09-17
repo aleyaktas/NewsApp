@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,20 +21,27 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEn-lZ-Fjv">
                                 <rect key="frame" x="0.0" y="59" width="393" height="250"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lym-bT-rBH">
-                                        <rect key="frame" x="146.66666666666666" y="77" width="100" height="96.666666666666657"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lym-bT-rBH">
+                                        <rect key="frame" x="132.66666666666666" y="64.333333333333314" width="127.99999999999997" height="121.66666666666669"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" name="primary"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="Kwk-6q-O0q"/>
-                                            <constraint firstAttribute="width" constant="100" id="PsR-ne-SyS"/>
+                                            <constraint firstAttribute="height" constant="128" id="Kwk-6q-O0q"/>
+                                            <constraint firstAttribute="width" constant="128" id="PsR-ne-SyS"/>
                                         </constraints>
+                                        <imageReference key="image" image="person.fill" catalog="system" symbolScale="small"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="64"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIK-NG-c35">
-                                        <rect key="frame" x="141" y="183" width="111.33333333333331" height="30.333333333333343"/>
+                                        <rect key="frame" x="134.66666666666666" y="197" width="123.99999999999997" height="37"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Profile Photo">
-                                            <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Edit Photo">
+                                            <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                            <color key="baseForegroundColor" name="primary"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
@@ -47,8 +55,11 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HFS-Fn-ThR">
-                                <rect key="frame" x="0.0" y="309" width="393" height="509"/>
+                                <rect key="frame" x="0.0" y="309" width="393" height="200"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="X0H-Cj-5Zc"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AccountTableViewCell" id="XDr-A9-qfz" customClass="AccountTableViewCell" customModule="NewsApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="100"/>
@@ -68,6 +79,8 @@
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Aleyna Aktaş" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cjG-fu-bF8">
                                                             <rect key="frame" x="0.0" y="30.333333333333339" width="353" height="47.666666666666657"/>
+                                                            <color key="backgroundColor" name="gray"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
@@ -89,13 +102,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNg-Aq-8J6">
+                                <rect key="frame" x="20" y="529" width="353" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="MnC-9P-Gn4"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save">
+                                    <color key="baseBackgroundColor" name="primary"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="uEn-lZ-Fjv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5BO-kK-PAd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kNg-Aq-8J6" secondAttribute="trailing" constant="20" id="83i-iL-PYg"/>
+                            <constraint firstItem="kNg-Aq-8J6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="G7m-qR-asn"/>
                             <constraint firstItem="uEn-lZ-Fjv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="YMp-1u-h4b"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="HFS-Fn-ThR" secondAttribute="bottom" id="ePC-5i-27V"/>
+                            <constraint firstItem="kNg-Aq-8J6" firstAttribute="top" secondItem="HFS-Fn-ThR" secondAttribute="bottom" constant="20" id="bMZ-aT-Jzv"/>
                             <constraint firstItem="HFS-Fn-ThR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hCT-0X-jTC"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="HFS-Fn-ThR" secondAttribute="trailing" id="nLX-0Z-3f6"/>
                             <constraint firstItem="HFS-Fn-ThR" firstAttribute="top" secondItem="uEn-lZ-Fjv" secondAttribute="bottom" id="rhW-6v-e2u"/>
@@ -113,12 +138,12 @@
     </scenes>
     <resources>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <namedColor name="gray">
+            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="primary">
             <color red="0.79199999570846558" green="0.29399999976158142" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

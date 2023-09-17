@@ -169,27 +169,32 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MhB-B9-kHL">
-                                        <rect key="frame" x="20" y="394.66666666666669" width="353" height="71"/>
+                                        <rect key="frame" x="20" y="394.66666666666669" width="353" height="74.333333333333314"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZAE-Jk-SKu">
-                                                <rect key="frame" x="0.0" y="0.0" width="353" height="71"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="74.333333333333329"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1x-lw-KQB">
-                                                        <rect key="frame" x="20" y="20" width="313" height="31"/>
+                                                        <rect key="frame" x="20" y="20.000000000000004" width="313" height="34.333333333333343"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy and Security Help" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5C-Ch-Tc9">
-                                                                <rect key="frame" x="0.0" y="0.0" width="264" height="31"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="273" height="34.333333333333336"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhe-Ju-z20">
-                                                                <rect key="frame" x="264" y="0.0" width="51" height="31"/>
-                                                                <color key="onTintColor" name="primary"/>
-                                                            </switch>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLW-hx-T3v">
+                                                                <rect key="frame" x="273" y="0.0" width="40" height="34.333333333333336"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="ani-aJ-bAr"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" title="">
+                                                                    <color key="baseForegroundColor" name="primary"/>
+                                                                </buttonConfiguration>
+                                                            </button>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="nhe-Ju-z20" firstAttribute="leading" secondItem="T5C-Ch-Tc9" secondAttribute="trailing" id="2Gz-TS-FMu"/>
                                                             <constraint firstItem="T5C-Ch-Tc9" firstAttribute="top" secondItem="Q1x-lw-KQB" secondAttribute="top" id="BT1-Cs-qus"/>
                                                             <constraint firstItem="T5C-Ch-Tc9" firstAttribute="leading" secondItem="Q1x-lw-KQB" secondAttribute="leading" id="ItQ-Z1-OX5"/>
                                                             <constraint firstAttribute="bottom" secondItem="T5C-Ch-Tc9" secondAttribute="bottom" id="iMO-jq-BNv"/>
@@ -225,7 +230,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zp-wk-4Yu">
-                                        <rect key="frame" x="136" y="481.66666666666663" width="121" height="34.333333333333371"/>
+                                        <rect key="frame" x="136" y="485" width="121" height="34.333333333333371"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right.fill" catalog="system" title="Sign Out" subtitle="">
                                             <fontDescription key="titleFontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
