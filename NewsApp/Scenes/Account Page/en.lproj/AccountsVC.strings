@@ -1,6 +1,10 @@
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "SFj-pu-fyZ"; */
-"SFj-pu-fyZ.text" = "Name";
+"SFj-pu-fyZ.text" = "Label";
+
+"cS5-xF-Acz" = "Full Name";
+
+"Cqn-16-78i" = "Password";
 
 /* Class = "UIViewController"; title = "Edit Account"; ObjectID = "Y6W-OH-hqX"; */
 "Y6W-OH-hqX.title" = "Edit Account";

@@ -7,57 +7,67 @@
 
 import UIKit
 import Localize_Swift
-
-struct Fields {
-    var title: String
-    var text: String
-}
+import Firebase
 
 class AccountsVC: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editPhotoButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var fullNameText: UILabel!
+    @IBOutlet weak var fullNameTextField: UITextField!
+    @IBOutlet weak var emailText: UILabel!
+    @IBOutlet weak var emailTextField: UITextField!
     
-    var profileFields: [Fields] = []
+    var auth = AuthenticationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .none
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged),name: NSNotification.Name("changeLanguage"), object: nil)
-        
-        languageChanged()
+        configureData()
     }
     
     @objc func languageChanged() {
-
-        editPhotoButton.setTitle("edit_photo_button".localized(), for: .normal)
-        profileFields = [
-            Fields(title: "username_placeholder".localized(), text: "Aleyna Aktaş"),
-            Fields(title: "email_placeholder".localized(), text: "aleynaaktas627@gmail.com"),
-        ]
-        saveButton.setTitle("save_button".localized(), for: .normal)
-    }
-}
-
-
-extension AccountsVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return profileFields.count
+        configureData()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "AccountTableViewCell", for: indexPath) as? AccountTableViewCell {
-            let profile = profileFields[indexPath.row]
-
-            cell.header.text = profile.title
-            cell.textField.text = profile.text
-
-            return cell
-        } else {
-            return UITableViewCell()
+    func configureData() {
+        fullNameText.text = "fullname_placeholder".localized()
+        emailText.text = "email_placeholder".localized()
+        emailTextField.isUserInteractionEnabled = false
+        if let user = auth.getUserFromUserDefaults() {
+            fullNameTextField.text = user.fullname
+            emailTextField.text = user.email
         }
+        
+        editPhotoButton.setTitle("edit_photo_button".localized(), for: .normal)
+        saveButton.setTitle("save_button".localized(), for: .normal)
+    }
+    
+    @IBAction func saveButtonAct(_ sender: UIButton) {
+        
+        if let newFullname = fullNameTextField.text, !newFullname.isEmpty{
+            let updateUser = User(fullname: newFullname, email: emailTextField.text)
+              auth.saveUserToUserDefaults(user: updateUser)
+              
+              if let user = Auth.auth().currentUser {
+                  
+                  let db = Database.database().reference()
+                  let userRef = db.child("users").child(user.uid)
+                  
+                  userRef.updateChildValues(["fullname": newFullname]) { (error, _) in
+                     if let error = error {
+                         print("Failed to update user data: \(error.localizedDescription)")
+                     } else {
+                         print("User data updated successfully")
+                         self.showAlert(title: "Success", message: "Profile successfully updated")
+                     }
+                  }
+              }
+          } else {
+              showAlert(title: "Warning", message: "Please fill in fields.")
+          }
     }
 }
+
+
+

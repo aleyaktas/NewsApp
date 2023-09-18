@@ -31,7 +31,6 @@
 		A66C669B2AB39D16000EA17B /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C669A2AB39D16000EA17B /* NewsTableViewCell.swift */; };
 		A66C669E2AB3A2DA000EA17B /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C669D2AB3A2DA000EA17B /* SettingsVC.swift */; };
 		A66C66A32AB3B3F9000EA17B /* AccountsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C66A22AB3B3F9000EA17B /* AccountsVC.swift */; };
-		A66C66A82AB3B6FC000EA17B /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C66A72AB3B6FC000EA17B /* AccountTableViewCell.swift */; };
 		A66C66AB2AB3C416000EA17B /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = A66C66AA2AB3C416000EA17B /* SideMenu */; };
 		A66C66AF2AB3CFD3000EA17B /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C66AE2AB3CFD3000EA17B /* MenuVC.swift */; };
 		A66D323D2AB4E64500BC64B6 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D323C2AB4E64500BC64B6 /* OnboardingVC.swift */; };
@@ -79,7 +78,6 @@
 		A62D5B592AA7955800CD4F1B /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		A62D5B5C2AA7C46400CD4F1B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		A62D5B612AA7C6B500CD4F1B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		A66595D82AB795C30037058D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AccountsVC.strings; sourceTree = "<group>"; };
 		A66595DC2AB796130037058D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A66595DE2AB796140037058D /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A66595E52AB7A7940037058D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OnboardingVC.strings; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 		A66C669A2AB39D16000EA17B /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		A66C669D2AB3A2DA000EA17B /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		A66C66A22AB3B3F9000EA17B /* AccountsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsVC.swift; sourceTree = "<group>"; };
-		A66C66A72AB3B6FC000EA17B /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		A66C66AE2AB3CFD3000EA17B /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		A66D323C2AB4E64500BC64B6 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		A66D32402AB4EDEA00BC64B6 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -104,7 +101,6 @@
 		A6C93A7E2AB72D3D00EDADD5 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A6C93A862AB72EAA00EDADD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OnboardingVC.storyboard; sourceTree = "<group>"; };
 		A6C93A882AB72EEF00EDADD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AccountsVC.storyboard; sourceTree = "<group>"; };
-		A6C93A8B2AB72FC200EDADD5 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/AccountsVC.strings; sourceTree = "<group>"; };
 		A6C93A8F2AB72FD800EDADD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SettingsVC.storyboard; sourceTree = "<group>"; };
 		A6C93A932AB72FEA00EDADD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FavoritesVC.storyboard; sourceTree = "<group>"; };
 		A6C93A972AB72FFA00EDADD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SearchVC.storyboard; sourceTree = "<group>"; };
@@ -126,6 +122,8 @@
 		A6FC60322AB87D5300333C50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A6FC604D2AB8D5A800333C50 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		A6FC604F2AB8E70900333C50 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		A6FC60512AB8EE5F00333C50 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AccountsVC.strings; sourceTree = "<group>"; };
+		A6FC60522AB8EE6200333C50 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/AccountsVC.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,19 +331,10 @@
 		A66C66A12AB3B3E7000EA17B /* Account Page */ = {
 			isa = PBXGroup;
 			children = (
-				A66C66A62AB3B6E8000EA17B /* _components */,
 				A66C66A22AB3B3F9000EA17B /* AccountsVC.swift */,
 				A6C93A892AB72EEF00EDADD5 /* AccountsVC.storyboard */,
 			);
 			path = "Account Page";
-			sourceTree = "<group>";
-		};
-		A66C66A62AB3B6E8000EA17B /* _components */ = {
-			isa = PBXGroup;
-			children = (
-				A66C66A72AB3B6FC000EA17B /* AccountTableViewCell.swift */,
-			);
-			path = _components;
 			sourceTree = "<group>";
 		};
 		A66D323B2AB4E62E00BC64B6 /* Onboarding */ = {
@@ -501,7 +490,6 @@
 				A62ABBFF2AA909DA00EED1BF /* Article.swift in Sources */,
 				A62ABBF82AA9049600EED1BF /* SliderDetailCollectionViewCell.swift in Sources */,
 				A62D5B502AA75A3100CD4F1B /* RegisterVC.swift in Sources */,
-				A66C66A82AB3B6FC000EA17B /* AccountTableViewCell.swift in Sources */,
 				A66C66932AB399A7000EA17B /* FavoritesDetailManager.swift in Sources */,
 				A6FC604E2AB8D5A800333C50 /* AuthenticationManager.swift in Sources */,
 				A66C66A32AB3B3F9000EA17B /* AccountsVC.swift in Sources */,
@@ -561,8 +549,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				A6C93A882AB72EEF00EDADD5 /* Base */,
-				A6C93A8B2AB72FC200EDADD5 /* tr */,
-				A66595D82AB795C30037058D /* en */,
+				A6FC60512AB8EE5F00333C50 /* en */,
+				A6FC60522AB8EE6200333C50 /* tr */,
 			);
 			name = AccountsVC.storyboard;
 			sourceTree = "<group>";
