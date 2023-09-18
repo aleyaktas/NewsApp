@@ -48,14 +48,17 @@ class RegisterVC: UIViewController {
     @IBAction func registerAct(_ sender: UIButton) {
         
         guard let fullname = fullNameTextField.text, !fullname.isEmpty,
-              let email = emailTextField.text, !email.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty else {
-            return
-        }
+            let email = emailTextField.text, !email.isEmpty,
+            let password = passwordTextField.text, !password.isEmpty else {
+                showAlert(title: "Warning", message: "Please fill fullname, email and password fields.")
+                return
+            }
             
             Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
                 if let error = error {
                     print("User registration failed: \(error.localizedDescription)")
+                    self.showAlert(title: "User registration failed", message: error.localizedDescription)
+
                 } else {
                     if let user = Auth.auth().currentUser {
                         let db = Database.database().reference()
@@ -85,7 +88,7 @@ class RegisterVC: UIViewController {
                     }
                 }
             }
-    }
+        }
     
     @IBAction func loginAct(_ sender: UIButton) {        
         let storyboard = UIStoryboard(name: "LoginVC", bundle: nil)
@@ -94,5 +97,6 @@ class RegisterVC: UIViewController {
         gotoVC.modalPresentationStyle = .fullScreen
         self.present(gotoVC, animated: true)
     }
+   
 }
 

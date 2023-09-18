@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -36,20 +37,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lu0-Hy-l4S">
-                                                    <rect key="frame" x="48" y="100" width="300" height="300"/>
+                                                    <rect key="frame" x="73" y="100" width="250" height="250"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="300" id="3Dz-7f-YWW"/>
-                                                        <constraint firstAttribute="width" constant="300" id="OJp-3r-20L"/>
+                                                        <constraint firstAttribute="height" constant="250" id="3Dz-7f-YWW"/>
+                                                        <constraint firstAttribute="width" constant="250" id="OJp-3r-20L"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYC-dq-Zk5">
-                                                    <rect key="frame" x="20" y="473.66666666666669" width="356" height="24"/>
+                                                    <rect key="frame" x="20" y="423.66666666666669" width="356" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCs-Wz-QSg">
-                                                    <rect key="frame" x="20" y="420" width="356" height="33.666666666666686"/>
+                                                    <rect key="frame" x="20" y="370" width="356" height="33.666666666666686"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -113,7 +114,6 @@
                             <constraint firstItem="OwF-bC-xce" firstAttribute="top" secondItem="7PU-Xq-ynd" secondAttribute="bottom" constant="20" id="FzQ-hH-gu1"/>
                             <constraint firstItem="7PU-Xq-ynd" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="NfI-22-V1o"/>
                             <constraint firstItem="tH0-ut-0jI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="QiD-GK-ThW"/>
-                            <constraint firstItem="OwF-bC-xce" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Tc2-AE-zG9"/>
                             <constraint firstItem="tH0-ut-0jI" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="d47-63-kej"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OwF-bC-xce" secondAttribute="trailing" constant="20" id="tPd-Yy-63H"/>
                         </constraints>

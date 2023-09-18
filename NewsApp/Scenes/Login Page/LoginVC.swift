@@ -42,11 +42,13 @@ class LoginVC: UIViewController {
     @IBAction func loginAct(_ sender: UIButton) {
         guard let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty else {
-            return
+                showAlert(title: "Warning", message: "Please fill in both email and password fields.")
+                return
         }
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
                 print("User login failed: \(error.localizedDescription)")
+                self.showAlert(title: "User login failed", message: error.localizedDescription)
             } else {
                 print("User logged in successfully!")
                 let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)

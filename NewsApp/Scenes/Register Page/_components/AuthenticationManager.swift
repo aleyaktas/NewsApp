@@ -16,7 +16,6 @@ class AuthenticationManager {
     func saveUserToUserDefaults(user: User) {
         let encoder = JSONEncoder()
         if let encodedData = try? encoder.encode(user) {
-            print("kaydedeilid")
             UserDefaults.standard.set(encodedData, forKey: "user")
         }
     }

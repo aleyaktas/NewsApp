@@ -37,7 +37,6 @@ class SliderCollectionViewCell: UICollectionViewCell {
         customNibs()
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(slideToNext), userInfo: nil, repeats: true)
         print(sliderDataList.count)
-        configureCollectionViewLayout()
     }
     
     @objc func slideToNext() {
@@ -60,19 +59,10 @@ class SliderCollectionViewCell: UICollectionViewCell {
         let categoryCollectionCellNib: UINib = UINib(nibName: "SliderDetailCollectionView", bundle: nil)
         collectionView.register(categoryCollectionCellNib, forCellWithReuseIdentifier: "SliderDetailCollectionViewCell")
     }
-    func configureCollectionViewLayout() {
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.scrollDirection = .horizontal
-        let screenWidth = UIScreen.main.bounds.width
-        let screenHeight = collectionView.frame.size.height
-        layout.itemSize = CGSizeMake(screenWidth, screenHeight);
-        collectionView.collectionViewLayout = layout
-    }
 }
 
 
-extension SliderCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SliderCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sliderDataList.count
     }
@@ -97,10 +87,13 @@ extension SliderCollectionViewCell: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         cellAct(index: indexPath.row)
-        
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+           let screenWidth = UIScreen.main.bounds.width
+           let itemHeight = collectionView.frame.size.height
+           return CGSize(width: screenWidth, height: itemHeight)
+       }
     
 }

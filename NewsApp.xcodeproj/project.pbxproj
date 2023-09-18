@@ -59,6 +59,7 @@
 		A6FC60492AB8968500333C50 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = A6FC60482AB8968500333C50 /* FirebaseDatabase */; };
 		A6FC604B2AB8968500333C50 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A6FC604A2AB8968500333C50 /* FirebaseStorage */; };
 		A6FC604E2AB8D5A800333C50 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC604D2AB8D5A800333C50 /* AuthenticationManager.swift */; };
+		A6FC60502AB8E70900333C50 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC604F2AB8E70900333C50 /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,11 +110,9 @@
 		A6C93A972AB72FFA00EDADD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SearchVC.storyboard; sourceTree = "<group>"; };
 		A6C93A992AB7300100EDADD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DetailVC.storyboard; sourceTree = "<group>"; };
 		A6C93A9E2AB7300E00EDADD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NewsDetailCollectionView.xib; sourceTree = "<group>"; };
-		A6C93AA12AB7301100EDADD5 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/NewsDetailCollectionView.strings; sourceTree = "<group>"; };
 		A6C93AA32AB7301700EDADD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SliderCollectionView.xib; sourceTree = "<group>"; };
 		A6C93AA62AB7301D00EDADD5 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/SliderCollectionView.strings; sourceTree = "<group>"; };
 		A6C93AA82AB7302100EDADD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SliderDetailCollectionView.xib; sourceTree = "<group>"; };
-		A6C93AAB2AB7302400EDADD5 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/SliderDetailCollectionView.strings; sourceTree = "<group>"; };
 		A6C93AAD2AB7302900EDADD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HomeVC.storyboard; sourceTree = "<group>"; };
 		A6C93AB02AB7302C00EDADD5 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/HomeVC.strings; sourceTree = "<group>"; };
 		A6C93AB22AB7303000EDADD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginVC.storyboard; sourceTree = "<group>"; };
@@ -126,6 +125,7 @@
 		A6C93AC92AB73C4700EDADD5 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 		A6FC60322AB87D5300333C50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A6FC604D2AB8D5A800333C50 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		A6FC604F2AB8E70900333C50 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +238,7 @@
 				A62D5B522AA7949E00CD4F1B /* UITextField+.swift */,
 				A66D32402AB4EDEA00BC64B6 /* UIView+.swift */,
 				A6C93AC92AB73C4700EDADD5 /* Bundle+.swift */,
+				A6FC604F2AB8E70900333C50 /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -517,6 +518,7 @@
 				A62ABBFD2AA909B900EED1BF /* NewsResponse.swift in Sources */,
 				A66C66962AB39A12000EA17B /* FavoritesVC.swift in Sources */,
 				A62D5B5A2AA7955800CD4F1B /* LoginVC.swift in Sources */,
+				A6FC60502AB8E70900333C50 /* UIViewController+.swift in Sources */,
 				A66C667E2AB31FA3000EA17B /* DetailVC.swift in Sources */,
 				A6C93ACA2AB73C4700EDADD5 /* Bundle+.swift in Sources */,
 				A66D32412AB4EDEA00BC64B6 /* UIView+.swift in Sources */,
@@ -603,7 +605,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				A6C93A9E2AB7300E00EDADD5 /* Base */,
-				A6C93AA12AB7301100EDADD5 /* tr */,
 			);
 			name = NewsDetailCollectionView.xib;
 			sourceTree = "<group>";
@@ -621,7 +622,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				A6C93AA82AB7302100EDADD5 /* Base */,
-				A6C93AAB2AB7302400EDADD5 /* tr */,
 			);
 			name = SliderDetailCollectionView.xib;
 			sourceTree = "<group>";

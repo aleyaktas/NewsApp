@@ -37,6 +37,7 @@ class OnboardingVC: UIViewController {
         collectionView.dataSource = self
         collectionView.isPagingEnabled = false
         collectionView.showsHorizontalScrollIndicator = false
+
     }
     
     @IBAction func nextStepAct(_ sender: UIButton) {
@@ -103,7 +104,4 @@ extension OnboardingVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         currentPage = Int(scrollView.contentOffset.x / width)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
-    }
 }
