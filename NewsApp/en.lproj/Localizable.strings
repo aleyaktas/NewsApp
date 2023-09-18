@@ -41,6 +41,7 @@
 "welcome_text" = "Welcome";
 "login_description" = "Please enter the information below to login";
 "forgot_password" = "Forgot Password?";
+"privacyAndSecurity_text" = "Privacy And Security";
 
 // Search
 "search_title" = "Search";

@@ -240,6 +240,9 @@
                                             <fontDescription key="titleFontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
                                             <color key="baseForegroundColor" name="primary"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="signOutAct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LnZ-tB-HmL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -279,6 +282,7 @@
                         <outlet property="darkModeText" destination="qcf-W1-wfo" id="AYZ-1N-mny"/>
                         <outlet property="editAccountText" destination="RO2-Ia-7wP" id="vYz-l4-MF1"/>
                         <outlet property="languageText" destination="0xn-8D-Hbn" id="24F-fV-R9U"/>
+                        <outlet property="privacyAndSecurityText" destination="3xV-5C-mnz" id="p8S-e3-idm"/>
                         <outlet property="securityText" destination="T5C-Ch-Tc9" id="r9j-xI-5jS"/>
                         <outlet property="segmentedControl" destination="rZm-dz-Pze" id="HBg-Qi-TAL"/>
                         <outlet property="signOutText" destination="7zp-wk-4Yu" id="Wvd-RN-aJ8"/>

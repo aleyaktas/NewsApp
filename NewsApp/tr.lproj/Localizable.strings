@@ -41,6 +41,8 @@
 "welcome_text" = "Hoş Geldiniz";
 "login_description" = "Giriş yapmak için lütfen aşağıdaki bilgileri girin";
 "forgot_password" = "Parolamı Unuttum?";
+"privacyAndSecurity_text" = "Gizlilik ve Güvenlik";
+
 
 // Search
 "search_title" = "Arama Yap";

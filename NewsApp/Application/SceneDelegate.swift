@@ -11,7 +11,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
@@ -32,19 +31,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     }
                 }
             }
+        
+        let authManager = AuthenticationManager()
 
-        let storyboard = UIStoryboard(name: "OnboardingVC", bundle: nil)
-             if let vc = storyboard.instantiateViewController(withIdentifier: "OnboardingVC") as? OnboardingVC {
-                 window.rootViewController = UINavigationController(rootViewController: vc)
-                 window.makeKeyAndVisible()
-                 self.window = window
+        if authManager.getUserFromUserDefaults() != nil {
+            let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
+            if let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController {
+                window.rootViewController = tabBarController
+            }
+        } else {
+            let storyboard = UIStoryboard(name: "OnboardingVC", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "OnboardingVC") as? OnboardingVC {
+                window.rootViewController = UINavigationController(rootViewController: vc)
+            }
         }
-//        let mainStoryboard = UIStoryboard(name: "HomeVC", bundle: nil)
-//        if let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController {
-//            window.rootViewController = tabBarController
-//            window.makeKeyAndVisible()
-//            self.window = window
-//        }
+
+        window.makeKeyAndVisible()
+        self.window = window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

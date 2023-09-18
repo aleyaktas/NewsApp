@@ -19,6 +19,8 @@ class LoginVC: UIViewController {
     @IBOutlet weak var hasAccountText: UILabel!
     @IBOutlet weak var createAccount: UIButton!
     
+    var authManager = AuthenticationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareTextFields()
@@ -60,6 +62,7 @@ class LoginVC: UIViewController {
                 }
                 
                 if let user = Auth.auth().currentUser {
+            
                     let db = Database.database().reference()
                     let userRef = db.child("users").child(user.uid)
                     
@@ -70,6 +73,8 @@ class LoginVC: UIViewController {
                             if let userData = snapshot?.value as? [String: Any],
                                let fullname = userData["fullname"] as? String {
                                 print("Full Name: \(fullname)")
+                                let newUser = User(fullname: fullname, email: email)
+                                self.authManager.saveUserToUserDefaults(user: newUser)
                             }
                             
                         }
