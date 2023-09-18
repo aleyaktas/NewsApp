@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Localize_Swift
 
 class FavoritesVC: UIViewController {
 
@@ -17,8 +18,17 @@ class FavoritesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "favorites_title".localized()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: NSNotification.Name("changeLanguage"), object: nil)
+        
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    @objc func languageChanged() {
+        navigationItem.title = "favorites_title".localized()
     }
     
     override func viewWillAppear(_ animated: Bool) {

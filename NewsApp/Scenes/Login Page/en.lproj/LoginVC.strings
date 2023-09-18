@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "1Tk-bQ-pDG"; */
+"1Tk-bQ-pDG.text" = "Welcome";
+
+/* Class = "UIButton"; configuration.title = "Login"; ObjectID = "KxP-iC-BbZ"; */
+"KxP-iC-BbZ.configuration.title" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KxP-iC-BbZ"; */
+"KxP-iC-BbZ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Please enter the information below to login \nNews App"; ObjectID = "bQN-nf-pdC"; */
+"bQN-nf-pdC.text" = "Please enter the information below to login \nNews App";
+
+/* Class = "UILabel"; text = "Forgot Password?"; ObjectID = "cZh-yN-ThP"; */
+"cZh-yN-ThP.text" = "Forgot Password?";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "f4e-wE-sHQ"; */
+"f4e-wE-sHQ.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "Don't have an account?"; ObjectID = "gM1-BC-Pv4"; */
+"gM1-BC-Pv4.text" = "Don't have an account?";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "nhR-Bt-zxn"; */
+"nhR-Bt-zxn.placeholder" = "Username";
+
+/* Class = "UIButton"; configuration.title = "Create new account"; ObjectID = "v20-3V-BpA"; */
+"v20-3V-BpA.configuration.title" = "Create new account";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "v20-3V-BpA"; */
+"v20-3V-BpA.normalTitle" = "Button";

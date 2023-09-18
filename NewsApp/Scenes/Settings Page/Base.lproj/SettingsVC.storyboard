@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings-->
+        <!--SettingsVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="SettingsVC" title="Settings" id="Y6W-OH-hqX" customClass="SettingsVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsVC" id="Y6W-OH-hqX" customClass="SettingsVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,6 +69,9 @@
                                                                     <segment title="Tr"/>
                                                                     <segment title="En"/>
                                                                 </segments>
+                                                                <connections>
+                                                                    <action selector="changeLanguageAct:" destination="Y6W-OH-hqX" eventType="valueChanged" id="fl2-vq-jlL"/>
+                                                                </connections>
                                                             </segmentedControl>
                                                         </subviews>
                                                     </stackView>
@@ -269,7 +273,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="uh2-NX-Axp"/>
                     <connections>
+                        <outlet property="accountText" destination="k3x-v6-f8u" id="J6M-CP-Xic"/>
+                        <outlet property="changePasswordText" destination="S38-jw-26Y" id="1nt-wX-0od"/>
                         <outlet property="darkModeSwitch" destination="Ggh-aJ-UXW" id="WjW-Qk-oFd"/>
+                        <outlet property="darkModeText" destination="qcf-W1-wfo" id="AYZ-1N-mny"/>
+                        <outlet property="editAccountText" destination="RO2-Ia-7wP" id="vYz-l4-MF1"/>
+                        <outlet property="languageText" destination="0xn-8D-Hbn" id="24F-fV-R9U"/>
+                        <outlet property="securityText" destination="T5C-Ch-Tc9" id="r9j-xI-5jS"/>
+                        <outlet property="segmentedControl" destination="rZm-dz-Pze" id="HBg-Qi-TAL"/>
+                        <outlet property="signOutText" destination="7zp-wk-4Yu" id="Wvd-RN-aJ8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

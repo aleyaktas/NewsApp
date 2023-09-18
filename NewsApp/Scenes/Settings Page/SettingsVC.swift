@@ -6,23 +6,39 @@
 //
 
 import UIKit
+import Localize_Swift
+
 
 class SettingsVC: UIViewController {
 
     @IBOutlet weak var darkModeSwitch: UISwitch!
+    @IBOutlet weak var darkModeText: UILabel!
+    @IBOutlet weak var languageText: UILabel!
+    @IBOutlet weak var accountText: UILabel!
+    @IBOutlet weak var editAccountText: UILabel!
+    @IBOutlet weak var changePasswordText: UILabel!
+    @IBOutlet weak var securityText: UILabel!
+    @IBOutlet weak var signOutText: UIButton!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    @IBOutlet weak var stackView: UIStackView!
-    
-    @IBOutlet weak var stackView2: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(languageChanged),name: NSNotification.Name("changeLanguage"), object: nil)
+                
         if UserDefaults.standard.bool(forKey: "IsDarkMode") == true {
             darkModeSwitch.isOn = true
         } else {
             darkModeSwitch.isOn = false
         }
-
+        
+        languageChanged()
+        
+        if let selectedLanguage = UserDefaults.standard.string(forKey: "AppSelectedLanguage") {
+            segmentedControl.selectedSegmentIndex = (selectedLanguage == "tr") ? 0 : 1
+        } else {
+            segmentedControl.selectedSegmentIndex = 1
+        }
+     
     }
   
     @IBAction func darkModeAct(_ sender: UISwitch) {
@@ -43,6 +59,34 @@ class SettingsVC: UIViewController {
         }
 
     }
+    
+    @objc func languageChanged() {
+        darkModeText.text = "dark_mood".localized()
+        languageText.text = "language_text".localized()
+        accountText.text = "account_text".localized()
+        editAccountText.text = "editAccount_text".localized()
+        changePasswordText.text = "change_password_text".localized()
+        securityText.text = "security_text".localized()
+        signOutText.setTitle("sign_out_text".localized(), for: .normal)
+    }
+
+    
+    @IBAction func changeLanguageAct(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+           case 0:
+            Localize.setCurrentLanguage("tr")
+            UserDefaults.standard.set("tr", forKey: "AppSelectedLanguage")
+
+           case 1:
+            Localize.setCurrentLanguage("en")
+            UserDefaults.standard.set("en", forKey: "AppSelectedLanguage")
+
+           default:
+               break
+           }
+        NotificationCenter.default.post(name: NSNotification.Name("changeLanguage"), object: nil)
+    }
+    
     @IBAction func editAccountAct(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "AccountsVC", bundle: nil)
         

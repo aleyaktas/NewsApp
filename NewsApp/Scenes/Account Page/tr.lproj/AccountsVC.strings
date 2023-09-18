@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "SFj-pu-fyZ"; */
+"SFj-pu-fyZ.text" = "Name";
+
+/* Class = "UIViewController"; title = "Edit Account"; ObjectID = "Y6W-OH-hqX"; */
+"Y6W-OH-hqX.title" = "Hesabı Düzenle";
+
+/* Class = "UIButton"; configuration.title = "Edit Photo"; ObjectID = "YIK-NG-c35"; */
+"YIK-NG-c35.configuration.title" = "Fotoğrafı Güncelle";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "YIK-NG-c35"; */
+"YIK-NG-c35.normalTitle" = "Buton";
+
+/* Class = "UITextField"; placeholder = "Aleyna Aktaş"; ObjectID = "cjG-fu-bF8"; */
+"cjG-fu-bF8.placeholder" = "Aleyna Aktaş";
+
+/* Class = "UIButton"; configuration.title = "Save"; ObjectID = "kNg-Aq-8J6"; */
+"kNg-Aq-8J6.configuration.title" = "Kaydet";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kNg-Aq-8J6"; */
+"kNg-Aq-8J6.normalTitle" = "Buton";

@@ -11,8 +11,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    static let LCLLanguageChangeNotification = NSNotification.Name("LanguageChangeNotification")
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         
         UINavigationBar.appearance().barTintColor = UIColor(named: "primary")
         UINavigationBar.appearance().tintColor = UIColor(named: "primary")

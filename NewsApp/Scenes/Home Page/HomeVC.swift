@@ -19,6 +19,9 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: NSNotification.Name("changeLanguage"), object: nil)
+
         configureData()
         customNibs()
         setupNavigationBar()
@@ -35,7 +38,10 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
     
     }
     
-
+    @objc func languageChanged() {
+        collectionView.reloadData()
+        fetchNewsData(category: "general")
+    }
     
     private func setupNavigationBar() {
         navigationItem.title = ""
@@ -87,13 +93,14 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
         if let path = Bundle.main.path(forResource: "EnvironmentVariables", ofType: "plist"),
            let dict = NSDictionary(contentsOfFile: path) as? [String: Any],
            let apiKey = dict["API_KEY"] as? String {
-           
-           let newsURL = "https://newsapi.org/v2/top-headlines"
-           let parameters: [String: Any] = [
-               "country": "US",
+            let language = UserDefaults.standard.string(forKey: "AppSelectedLanguage") ?? "US"
+
+            let newsURL = "https://newsapi.org/v2/top-headlines"
+            let parameters: [String: Any] = [
+                "country": language == "en" ? "us" : language,
                "apiKey": apiKey,
                "category": category
-           ]
+            ]
            
            AF.request(newsURL, method: .get, parameters: parameters).responseData { response in
                switch response.result {
@@ -123,10 +130,17 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
         }
     }
     
-     func dateFormatter(dateString: String) -> String? {
+    func dateFormatter(dateString: String) -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        dateFormatter.locale = Locale(identifier: "en_US")
+        let userSelectedLanguage = UserDefaults.standard.string(forKey: "AppSelectedLanguage") ?? "en"
+        
+        if userSelectedLanguage == "en" {
+            dateFormatter.locale = Locale(identifier: "en_US")
+        } else if userSelectedLanguage == "tr" {
+            dateFormatter.locale = Locale(identifier: "tr_TR")
+        }
+        
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
         
         if let date = dateFormatter.date(from: dateString) {
@@ -134,11 +148,8 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
             let formattedDate = dateFormatter.string(from: date)
             return formattedDate
         }
-        
         return nil
     }
-
-
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SliderSelectDelegate, MenuListDelegate {
@@ -240,7 +251,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         if kind == UICollectionView.elementKindSectionHeader {
             let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderCollectionView", for: indexPath) as! HeaderCollectionView
             if let headerLabel = cell.headerLabel {
-                headerLabel.text = "Latest News"
+                headerLabel.text = "Latest News".localized()
             } else {
             }
             return cell

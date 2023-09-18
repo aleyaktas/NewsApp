@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -132,8 +133,14 @@ News App</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="createAccount" destination="v20-3V-BpA" id="IR6-pU-ya7"/>
+                        <outlet property="forgotPassword" destination="cZh-yN-ThP" id="LWO-9V-Eha"/>
+                        <outlet property="hasAccountText" destination="gM1-BC-Pv4" id="FGQ-Rj-9q2"/>
+                        <outlet property="loginButton" destination="KxP-iC-BbZ" id="gNm-kj-JR6"/>
+                        <outlet property="loginDescription" destination="bQN-nf-pdC" id="L91-Wn-OoU"/>
                         <outlet property="passwordTextField" destination="f4e-wE-sHQ" id="RED-BE-hXP"/>
                         <outlet property="usernameTextField" destination="nhR-Bt-zxn" id="uQ7-9B-uYk"/>
+                        <outlet property="welcomeText" destination="1Tk-bQ-pDG" id="rLm-s3-A2N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

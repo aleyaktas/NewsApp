@@ -18,9 +18,9 @@ class OnboardingVC: UIViewController {
         didSet {
             pageControl.currentPage = currentPage
             if currentPage == slider.count - 1 {
-                nextButton.setTitle("Get Started", for: .normal)
+                nextButton.setTitle("get_started_button_title".localized(), for: .normal)
             } else {
-                nextButton.setTitle("Next", for: .normal)
+                nextButton.setTitle("next_button_title".localized(), for: .normal)
             }
         }
     }
@@ -32,6 +32,7 @@ class OnboardingVC: UIViewController {
     }
     
     private func configureData() {
+        nextButton.setTitle("next_button_title".localized(), for: .normal)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.isPagingEnabled = false
@@ -56,9 +57,18 @@ class OnboardingVC: UIViewController {
 
     
     func setArray() {
-        let item1 = OnboardingSlider(title: "Welcome", description: "Take your first step to get closer to the news with us. Easily access the latest news and updates.", image: "onboarding1")
-        let item2 = OnboardingSlider(title: "Explore Categories", description: "Customize your news by selecting categories that match your interests. Discover sports, technology, politics, and more.", image: "onboarding2")
-        let item3 = OnboardingSlider(title: "Save Your Favorite News", description: "Add the news you want to follow closely to your favorites. Access them quickly whenever you want.", image: "onboarding3")
+        let item1 = OnboardingSlider(title: "onboarding_title1".localized(),
+                                     description: "onboarding_desc1".localized(),
+                                     image: "onboarding1")
+
+        let item2 = OnboardingSlider(title: "onboarding_title2".localized(),
+                                     description: "onboarding_desc2".localized(),
+                                     image: "onboarding2")
+
+        let item3 = OnboardingSlider(title: "onboarding_title3".localized(),
+                                     description: "onboarding_desc3".localized(),
+                                     image: "onboarding3")
+
         slider = [item1, item2, item3]
         collectionView.reloadData()
     }
@@ -67,7 +77,6 @@ class OnboardingVC: UIViewController {
 
 extension OnboardingVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(slider.count)
         return slider.count
     }
     
@@ -97,5 +106,4 @@ extension OnboardingVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
-
 }

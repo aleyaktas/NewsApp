@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -31,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMU-nL-PQW">
-                                <rect key="frame" x="51.333333333333343" y="303.66666666666669" width="290.33333333333326" height="57.333333333333314"/>
+                                <rect key="frame" x="24" y="303.66666666666669" width="345" height="57.333333333333314"/>
                                 <string key="text">Welcome to the News App, please enter 
 the information below to create an 
 account for you</string>
@@ -142,9 +143,9 @@ account for you</string>
                             <constraint firstItem="CFo-li-4wB" firstAttribute="top" secondItem="lDo-xE-ixG" secondAttribute="bottom" constant="16" id="BED-At-S99"/>
                             <constraint firstItem="lDo-xE-ixG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="BiV-Xc-UIM"/>
                             <constraint firstItem="ncc-hw-BC8" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="GsE-zu-wID"/>
-                            <constraint firstItem="TMU-nL-PQW" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="I81-03-g4U"/>
                             <constraint firstItem="ncc-hw-BC8" firstAttribute="top" secondItem="rze-Yw-Hxo" secondAttribute="bottom" constant="16" id="IB7-T3-58s"/>
                             <constraint firstItem="CFo-li-4wB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Ihb-vJ-zhw"/>
+                            <constraint firstItem="TMU-nL-PQW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="JLf-Mu-bcf"/>
                             <constraint firstItem="rze-Yw-Hxo" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="JRO-v5-aiK"/>
                             <constraint firstItem="lDo-xE-ixG" firstAttribute="top" secondItem="TMU-nL-PQW" secondAttribute="bottom" constant="24" id="NZc-gD-uWC"/>
                             <constraint firstItem="akl-KT-gQS" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="SM1-Qr-bVj"/>
@@ -152,6 +153,7 @@ account for you</string>
                             <constraint firstItem="TMU-nL-PQW" firstAttribute="top" secondItem="ncc-hw-BC8" secondAttribute="bottom" constant="12" id="WOF-Th-PH1"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cfM-T1-6Hv" secondAttribute="trailing" constant="20" id="XjJ-hq-7as"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CFo-li-4wB" secondAttribute="trailing" constant="20" id="YMA-fQ-agh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TMU-nL-PQW" secondAttribute="trailing" constant="24" id="dQt-Vj-bYB"/>
                             <constraint firstItem="cfM-T1-6Hv" firstAttribute="top" secondItem="CFo-li-4wB" secondAttribute="bottom" constant="16" id="qyu-WP-far"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lDo-xE-ixG" secondAttribute="trailing" constant="20" id="v1C-WG-o9g"/>
                             <constraint firstItem="akl-KT-gQS" firstAttribute="top" secondItem="cfM-T1-6Hv" secondAttribute="bottom" constant="24" id="zmc-Tj-Thj"/>
@@ -159,8 +161,14 @@ account for you</string>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="F77-bs-z8r"/>
                     <connections>
+                        <outlet property="createAccount" destination="ncc-hw-BC8" id="T6G-rE-SAE"/>
                         <outlet property="emailTextField" destination="UTC-tS-W8A" id="NSA-7g-CIN"/>
+                        <outlet property="hasAccountText" destination="4Ak-4d-22x" id="KZw-g3-vDB"/>
+                        <outlet property="loginButton" destination="WAr-tG-LSW" id="q5m-fi-pU7"/>
                         <outlet property="passwordTextField" destination="P3b-3B-gb5" id="IKs-46-3mR"/>
+                        <outlet property="registerButton" destination="cfM-T1-6Hv" id="ktY-7z-hLR"/>
+                        <outlet property="registerDescription" destination="TMU-nL-PQW" id="oa1-t3-wTA"/>
+                        <outlet property="securityPolicy" destination="9ng-4q-TSy" id="v7Y-f2-ufV"/>
                         <outlet property="usernameTextField" destination="QCY-78-nO1" id="GJz-ad-8Ki"/>
                     </connections>
                 </viewController>

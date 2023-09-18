@@ -1,0 +1,66 @@
+/* 
+  Localizable.strings
+  NewsApp
+
+  Created by Aleyna Aktaş on 17.09.2023.
+  
+*/
+
+// Settings
+"dark_mood" = "Dark Mood";
+"get_started_button_title" = "Get Started";
+"next_button_title" = "Next";
+"language_text" = "Language";
+"account_text" = "Account";
+"editAccount_text" = "Edit Account";
+"change_password_text" = "Change Password";
+"security_text" = "Privacy and Security Help";
+"sign_out_text" = "Sign Out";
+
+"Latest News" = "Latest News";
+
+// Onboarding
+"onboarding_title1" = "Welcome";
+"onboarding_title2" = "Explore Categories";
+"onboarding_title3" = "Save Your Favorite News";
+
+"onboarding_desc1" = "Take your first step to get closer to the news with us. Easily access the latest news and updates.";
+"onboarding_desc2" = "Customize your news by selecting categories that match your interests. Discover sports, technology, politics, and more.";
+"onboarding_desc3" = "Add the news you want to follow closely to your favorites. Access them quickly whenever you want.";
+
+// Register - Login
+"username_placeholder" = "Username";
+"email_placeholder" = "Email";
+"password_placeholder" = "Password";
+"create_account_text" = "Create Account";
+"register_description" = "Welcome to the News App, please enter the information below to create an account for you";
+"security_policy" = "Read our Privacy and Security Policy.";
+"register_button" = "Register";
+"has_account_text" = "Already have an account?";
+"login_button" = "Login";
+"welcome_text" = "Welcome";
+"login_description" = "Please enter the information below to login";
+"forgot_password" = "Forgot Password?";
+
+// Search
+"search_title" = "Search";
+
+// Favorites
+"favorites_title" = "Bookmarks";
+
+// Edit Account
+"edit_photo_button" = "Edit Photo";
+"save_button" = "Save";
+"edit_account_title" = "Edit Account";
+"back" = "Back";
+
+// Base.lproj/Localizable.strings (Ana dil - İngilizce)
+"General" = "General";
+"Business" = "Business";
+"Entertainment" = "Entertainment";
+"Health" = "Health";
+"Science" = "Science";
+"Sports" = "Sports";
+"Technology" = "Technology";
+
+

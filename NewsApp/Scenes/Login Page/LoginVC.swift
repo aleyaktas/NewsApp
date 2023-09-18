@@ -11,6 +11,12 @@ class LoginVC: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var welcomeText: UILabel!
+    @IBOutlet weak var loginDescription: UILabel!
+    @IBOutlet weak var forgotPassword: UILabel!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var hasAccountText: UILabel!
+    @IBOutlet weak var createAccount: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,13 +24,17 @@ class LoginVC: UIViewController {
     }
     
     func prepareTextFields() {
-//        usernameTextField.setIcon(UIImage(systemName: "person.fill")!)
-//        passwordTextField.setIcon(UIImage(systemName: "lock.fill")!)
-        if let usernamePlaceholder = usernameTextField.placeholder, let passwordPlaceholder = passwordTextField.placeholder {
-            usernameTextField.attributedPlaceholder = NSAttributedString(string: usernamePlaceholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
-            passwordTextField.attributedPlaceholder = NSAttributedString(string: passwordPlaceholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
-        }
-
+        usernameTextField.attributedPlaceholder = NSAttributedString(string: "username_placeholder".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "password_placeholder".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
+        welcomeText.text = "welcome_text".localized()
+        loginDescription.text = "login_description".localized()
+        forgotPassword.text = "forgot_password".localized()
+        loginButton.setTitle("login_button".localized(), for: .normal)
+        hasAccountText.text = "has_account_text".localized()
+        createAccount.setTitle("create_account_text".localized(), for: .normal)
+        
+        loginDescription.numberOfLines = 0
+        loginDescription.lineBreakMode = .byTruncatingTail
     }
     
     

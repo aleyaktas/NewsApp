@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "0xn-8D-Hbn"; */
+"0xn-8D-Hbn.text" = "Language";
+
+/* Class = "UILabel"; text = "Privacy and Security"; ObjectID = "3xV-5C-mnz"; */
+"3xV-5C-mnz.text" = "Privacy and Security";
+
+/* Class = "UIButton"; configuration.title = "Sign Out"; ObjectID = "7zp-wk-4Yu"; */
+"7zp-wk-4Yu.configuration.title" = "Sign Out";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7zp-wk-4Yu"; */
+"7zp-wk-4Yu.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Edit Account"; ObjectID = "RO2-Ia-7wP"; */
+"RO2-Ia-7wP.text" = "Edit Account";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Rfz-Gm-u6v"; */
+"Rfz-Gm-u6v.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Change Password"; ObjectID = "S38-jw-26Y"; */
+"S38-jw-26Y.text" = "Change Password";
+
+/* Class = "UILabel"; text = "Privacy and Security Help"; ObjectID = "T5C-Ch-Tc9"; */
+"T5C-Ch-Tc9.text" = "Privacy and Security Help";
+
+/* Class = "UIViewController"; title = "Settings"; ObjectID = "Y6W-OH-hqX"; */
+"Y6W-OH-hqX.title" = "Settings";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hB0-uX-bcp"; */
+"hB0-uX-bcp.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "iLW-hx-T3v"; */
+"iLW-hx-T3v.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Account"; ObjectID = "k3x-v6-f8u"; */
+"k3x-v6-f8u.text" = "Account";
+
+/* Class = "UILabel"; text = "Dark Mood"; ObjectID = "qcf-W1-wfo"; */
+"qcf-W1-wfo.text" = "Dark Mood";
+
+/* Class = "UISegmentedControl"; rZm-dz-Pze.segmentTitles[0] = "Tr"; ObjectID = "rZm-dz-Pze"; */
+"rZm-dz-Pze.segmentTitles[0]" = "Tr";
+
+/* Class = "UISegmentedControl"; rZm-dz-Pze.segmentTitles[1] = "En"; ObjectID = "rZm-dz-Pze"; */
+"rZm-dz-Pze.segmentTitles[1]" = "En";

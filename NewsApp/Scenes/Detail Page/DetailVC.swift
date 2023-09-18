@@ -29,13 +29,12 @@ class DetailVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let imageUrl, let content, let titleText, let newAuthor, let date {
-            detailImage.kf.setImage(with: imageUrl)
-            contentText.text = content
-            titleText.text = newTitle
-            author.text = newAuthor
-            newDate.text = date
-        }
+        detailImage.kf.setImage(with: imageUrl)
+        contentText.text = content
+        titleText.text = newTitle
+        author.text = newAuthor
+        newDate.text = date
+    
         scrollView.contentSize = detailView.frame.size
         if let article {
             updateFavoriteButtonIcon(article)

@@ -1,0 +1,64 @@
+/* 
+  Localizable.strings
+  NewsApp
+
+  Created by Aleyna Aktaş on 17.09.2023.
+  
+*/
+
+// Settings
+"dark_mood" = "Koyu mod";
+"get_started_button_title" = "Hadi Başlayalım";
+"next_button_title" = "Sıradaki";
+"language_text" = "Dil";
+"account_text" = "Hesap";
+"editAccount_text" = "Hesabı Düzenle";
+"change_password_text" = "Parolayı Değiştir";
+"security_text" = "Gizlilik ve Güvenlik Yardımı";
+"sign_out_text" = "Çıkış Yap";
+
+"Latest News" = "Son haberler";
+
+// Onboarding
+"onboarding_title1" = "Hoş Geldiniz";
+"onboarding_title2" = "Kategorileri Keşfedin";
+"onboarding_title3" = "Favori Haberlerinizi Kaydedin";
+
+"onboarding_desc1" = "Haberlere daha yakın olmak için ilk adımınızı atın. En son haberlere ve güncellemelere kolayca erişin.";
+"onboarding_desc2" = "İlgi alanlarınıza uygun kategorileri seçerek haberlerinizi özelleştirin. Spor, teknoloji, siyaset ve daha fazlasını keşfedin.";
+"onboarding_desc3" = "Yakından takip etmek istediğiniz haberleri favorilerinize ekleyin. İstediğiniz zaman hızlıca erişin.";
+
+// Register - Login
+"username_placeholder" = "Kullanıcı Adı";
+"email_placeholder" = "E-posta";
+"password_placeholder" = "Parola";
+"create_account_text" = "Hesap Oluştur";
+"register_description" = "Haber Uygulamasına hoş geldiniz, lütfen giriş yapmak için aşağıdaki bilgileri doldurun";
+"security_policy" = "Gizlilik ve Güvenlik Politikamızı okuyun.";
+"register_button" = "Kaydol";
+"has_account_text" = "Zaten bir hesabınız mı var?";
+"login_button" = "Giriş Yap";
+"welcome_text" = "Hoş Geldiniz";
+"login_description" = "Giriş yapmak için lütfen aşağıdaki bilgileri girin";
+"forgot_password" = "Parolamı Unuttum?";
+
+// Search
+"search_title" = "Arama Yap";
+
+// Favorites
+"favorites_title" = "Favorilerim";
+
+// Edit Account
+"edit_photo_button" = "Fotoğrafı Güncelle";
+"save_button" = "Kaydet";
+"edit_account_title" = "Hesabı Düzenle";
+"back" = "Geri";
+
+// Side Menu - Category
+"General" = "Genel";
+"Business" = "İş";
+"Entertainment" = "Eğlence";
+"Health" = "Sağlık";
+"Science" = "Bilim";
+"Sports" = "Spor";
+"Technology" = "Teknoloji";

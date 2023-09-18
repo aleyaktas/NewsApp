@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "Already have an account?"; ObjectID = "4Ak-4d-22x"; */
+"4Ak-4d-22x.text" = "Already have an account?";
+
+/* Class = "UILabel"; text = "I agree to the Terms and Privacy Policy"; ObjectID = "9ng-4q-TSy"; */
+"9ng-4q-TSy.text" = "I agree to the Terms and Privacy Policy";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "DMQ-e1-tZG"; */
+"DMQ-e1-tZG.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "F77-bs-z8r"; */
+"F77-bs-z8r.title" = "Item";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "P3b-3B-gb5"; */
+"P3b-3B-gb5.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "QCY-78-nO1"; */
+"QCY-78-nO1.placeholder" = "Username";
+
+/* Class = "UILabel"; text = "Welcome to the News App, please enter \nthe information below to create an \naccount for you"; ObjectID = "TMU-nL-PQW"; */
+"TMU-nL-PQW.text" = "Welcome to the News App, please enter \nthe information below to create an \naccount for you";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "UTC-tS-W8A"; */
+"UTC-tS-W8A.placeholder" = "Email";
+
+/* Class = "UIButton"; configuration.title = "Login"; ObjectID = "WAr-tG-LSW"; */
+"WAr-tG-LSW.configuration.title" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WAr-tG-LSW"; */
+"WAr-tG-LSW.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Register"; ObjectID = "cfM-T1-6Hv"; */
+"cfM-T1-6Hv.configuration.title" = "Register";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cfM-T1-6Hv"; */
+"cfM-T1-6Hv.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Create Account"; ObjectID = "ncc-hw-BC8"; */
+"ncc-hw-BC8.text" = "Create Account";

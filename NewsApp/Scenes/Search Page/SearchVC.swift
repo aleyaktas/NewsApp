@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Localize_Swift
 
 class SearchVC: UIViewController {
 
@@ -18,12 +19,28 @@ class SearchVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.title = "search_title".localized()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: NSNotification.Name("changeLanguage"), object: nil)
         
         fetchNewsData(searchText: "")
         
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        searchBar.text = ""
+        fetchNewsData(searchText: "")
+    }
+    
+    @objc func languageChanged() {
+        navigationItem.title = "search_title".localized()
+        fetchNewsData(searchText: "")
     }
     
     func fetchNewsData(searchText: String) {
@@ -41,15 +58,17 @@ class SearchVC: UIViewController {
     
     func getFilterNews(query: String, completion: @escaping ([Article]?) -> Void) {
         if let path = Bundle.main.path(forResource: "EnvironmentVariables", ofType: "plist"),
-           let dict = NSDictionary(contentsOfFile: path) as? [String: Any],
-           let apiKey = dict["API_KEY"] as? String {
-           
-           let newsURL = "https://newsapi.org/v2/top-headlines"
-           let parameters: [String: Any] = [
+            let dict = NSDictionary(contentsOfFile: path) as? [String: Any],
+            let apiKey = dict["API_KEY"] as? String {
+
+            let language = UserDefaults.standard.string(forKey: "AppSelectedLanguage") ?? "US"
+
+            let newsURL = "https://newsapi.org/v2/top-headlines"
+            let parameters: [String: Any] = [
                 "q": query,
-                "country": "US",
+                "country": language == "en" ? "us" : language,
                 "apiKey": apiKey
-           ]
+            ]
             
            
            AF.request(newsURL, method: .get, parameters: parameters).responseData { response in

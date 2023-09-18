@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "1Tk-bQ-pDG"; */
+"1Tk-bQ-pDG.text" = "Hoş Geldiniz";
+
+/* Class = "UIButton"; configuration.title = "Login"; ObjectID = "KxP-iC-BbZ"; */
+"KxP-iC-BbZ.configuration.title" = "Giriş Yap";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KxP-iC-BbZ"; */
+"KxP-iC-BbZ.normalTitle" = "Buton";
+
+/* Class = "UILabel"; text = "Please enter the information below to login \nNews App"; ObjectID = "bQN-nf-pdC"; */
+"bQN-nf-pdC.text" = "Giriş yapmak için lütfen aşağıdaki bilgileri girin\nHaber Uygulaması";
+
+/* Class = "UILabel"; text = "Forgot Password?"; ObjectID = "cZh-yN-ThP"; */
+"cZh-yN-ThP.text" = "Parolamı Unuttum?";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "f4e-wE-sHQ"; */
+"f4e-wE-sHQ.placeholder" = "Parola";
+
+/* Class = "UILabel"; text = "Don't have an account?"; ObjectID = "gM1-BC-Pv4"; */
+"gM1-BC-Pv4.text" = "Hesabınız yok mu?";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "nhR-Bt-zxn"; */
+"nhR-Bt-zxn.placeholder" = "Kullanıcı Adı";
+
+/* Class = "UIButton"; configuration.title = "Create new account"; ObjectID = "v20-3V-BpA"; */
+"v20-3V-BpA.configuration.title" = "Hesap Oluştur";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "v20-3V-BpA"; */
+"v20-3V-BpA.normalTitle" = "Buton";

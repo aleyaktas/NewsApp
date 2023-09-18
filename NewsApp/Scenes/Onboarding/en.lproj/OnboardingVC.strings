@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; configuration.title = "Next"; ObjectID = "OwF-bC-xce"; */
+"OwF-bC-xce.configuration.title" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "OwF-bC-xce"; */
+"OwF-bC-xce.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cYC-dq-Zk5"; */
+"cYC-dq-Zk5.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "nCs-Wz-QSg"; */
+"nCs-Wz-QSg.text" = "Label";

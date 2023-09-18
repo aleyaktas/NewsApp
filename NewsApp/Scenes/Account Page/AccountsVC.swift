@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Localize_Swift
 
 struct Fields {
     var title: String
@@ -15,18 +16,29 @@ struct Fields {
 class AccountsVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var editPhotoButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
-    var profileFields: [Fields] = [
-        Fields(title: "Name", text: "Aleyna Aktaş"),
-        Fields(title: "Email", text: "aleynaaktas627@gmail.com"),
-    ]
+    var profileFields: [Fields] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        NotificationCenter.default.addObserver(self, selector: #selector(languageChanged),name: NSNotification.Name("changeLanguage"), object: nil)
+        
+        languageChanged()
+    }
+    
+    @objc func languageChanged() {
 
+        editPhotoButton.setTitle("edit_photo_button".localized(), for: .normal)
+        profileFields = [
+            Fields(title: "username_placeholder".localized(), text: "Aleyna Aktaş"),
+            Fields(title: "email_placeholder".localized(), text: "aleynaaktas627@gmail.com"),
+        ]
+        saveButton.setTitle("save_button".localized(), for: .normal)
     }
 }
 
