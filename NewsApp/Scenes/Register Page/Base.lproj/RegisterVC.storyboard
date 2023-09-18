@@ -61,7 +61,7 @@ account for you</string>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lDo-xE-ixG">
                                 <rect key="frame" x="20" y="385" width="353" height="184"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QCY-78-nO1">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QCY-78-nO1">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="48"/>
                                         <color key="backgroundColor" name="gray"/>
                                         <constraints>
@@ -163,13 +163,13 @@ account for you</string>
                     <connections>
                         <outlet property="createAccount" destination="ncc-hw-BC8" id="T6G-rE-SAE"/>
                         <outlet property="emailTextField" destination="UTC-tS-W8A" id="NSA-7g-CIN"/>
+                        <outlet property="fullNameTextField" destination="QCY-78-nO1" id="W9e-cc-rqH"/>
                         <outlet property="hasAccountText" destination="4Ak-4d-22x" id="KZw-g3-vDB"/>
                         <outlet property="loginButton" destination="WAr-tG-LSW" id="q5m-fi-pU7"/>
                         <outlet property="passwordTextField" destination="P3b-3B-gb5" id="IKs-46-3mR"/>
                         <outlet property="registerButton" destination="cfM-T1-6Hv" id="ktY-7z-hLR"/>
                         <outlet property="registerDescription" destination="TMU-nL-PQW" id="oa1-t3-wTA"/>
                         <outlet property="securityPolicy" destination="9ng-4q-TSy" id="v7Y-f2-ufV"/>
-                        <outlet property="usernameTextField" destination="QCY-78-nO1" id="GJz-ad-8Ki"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -15,7 +15,7 @@
 "P3b-3B-gb5.placeholder" = "Password";
 
 /* Class = "UITextField"; placeholder = "Username"; ObjectID = "QCY-78-nO1"; */
-"QCY-78-nO1.placeholder" = "Username";
+"QCY-78-nO1.placeholder" = "Full Name";
 
 /* Class = "UILabel"; text = "Welcome to the News App, please enter \nthe information below to create an \naccount for you"; ObjectID = "TMU-nL-PQW"; */
 "TMU-nL-PQW.text" = "Welcome to the News App, please enter \nthe information below to create an \naccount for you";

@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
-    
-    @IBOutlet weak var usernameTextField: UITextField!
+
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var welcomeText: UILabel!
     @IBOutlet weak var loginDescription: UILabel!
@@ -24,7 +25,7 @@ class LoginVC: UIViewController {
     }
     
     func prepareTextFields() {
-        usernameTextField.attributedPlaceholder = NSAttributedString(string: "username_placeholder".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "email_placeholder".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "password_placeholder".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
         welcomeText.text = "welcome_text".localized()
         loginDescription.text = "login_description".localized()
@@ -39,18 +40,50 @@ class LoginVC: UIViewController {
     
     
     @IBAction func loginAct(_ sender: UIButton) {
-        print("Login user")
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty else {
+            return
+        }
+        Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+            if let error = error {
+                print("User login failed: \(error.localizedDescription)")
+            } else {
+                print("User logged in successfully!")
+                let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
+                if let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController {
+                   if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                      let windowDelegate = windowScene.delegate as? SceneDelegate {
+                       windowDelegate.window?.rootViewController = tabBarController
+                   }
+                }
+                
+                if let user = Auth.auth().currentUser {
+                    let db = Database.database().reference()
+                    let userRef = db.child("users").child(user.uid)
+                    
+                    userRef.getData() { (error, snapshot) in
+                        if let error = error {
+                            print("Failed to retrieve user data: \(error.localizedDescription)")
+                        } else {
+                            if let userData = snapshot?.value as? [String: Any],
+                               let fullname = userData["fullname"] as? String {
+                                print("Full Name: \(fullname)")
+                            }
+                            
+                        }
+                    }
+                }
+                
+            }
+        }
     }
     
     @IBAction func createAccountAct(_ sender: UIButton) {
-        print("Got to create page")
-            
         let storyboard = UIStoryboard(name: "RegisterVC", bundle: nil)
         let gotoVC = storyboard.instantiateViewController(withIdentifier: "RegisterVC")
         gotoVC.modalTransitionStyle = .flipHorizontal
         gotoVC.modalPresentationStyle = .fullScreen
         self.present(gotoVC, animated: true)
-        
     }
     
 }

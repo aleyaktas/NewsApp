@@ -29,7 +29,7 @@
 "onboarding_desc3" = "Add the news you want to follow closely to your favorites. Access them quickly whenever you want.";
 
 // Register - Login
-"username_placeholder" = "Username";
+"fullname_placeholder" = "Full Name";
 "email_placeholder" = "Email";
 "password_placeholder" = "Password";
 "create_account_text" = "Create Account";
@@ -44,6 +44,7 @@
 
 // Search
 "search_title" = "Search";
+"search_placeholder" = "Search News...";
 
 // Favorites
 "favorites_title" = "Bookmarks";

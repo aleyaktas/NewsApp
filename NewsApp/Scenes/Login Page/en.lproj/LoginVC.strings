@@ -21,7 +21,7 @@
 "gM1-BC-Pv4.text" = "Don't have an account?";
 
 /* Class = "UITextField"; placeholder = "Username"; ObjectID = "nhR-Bt-zxn"; */
-"nhR-Bt-zxn.placeholder" = "Username";
+"nhR-Bt-zxn.placeholder" = "Email";
 
 /* Class = "UIButton"; configuration.title = "Create new account"; ObjectID = "v20-3V-BpA"; */
 "v20-3V-BpA.configuration.title" = "Create new account";

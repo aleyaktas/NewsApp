@@ -15,7 +15,7 @@
 "P3b-3B-gb5.placeholder" = "Parola";
 
 /* Class = "UITextField"; placeholder = "Username"; ObjectID = "QCY-78-nO1"; */
-"QCY-78-nO1.placeholder" = "Kullanıcı Adı";
+"QCY-78-nO1.placeholder" = "Ad Soyad";
 
 /* Class = "UILabel"; text = "Welcome to the News App, please enter \nthe information below to create an \naccount for you"; ObjectID = "TMU-nL-PQW"; */
 "TMU-nL-PQW.text" = "News Uygulamasına hoş geldiniz. Sizin için bir \nhesap oluşturmak için lütfen aşağıdaki bilgileri girin.";

@@ -29,7 +29,7 @@
 "onboarding_desc3" = "Yakından takip etmek istediğiniz haberleri favorilerinize ekleyin. İstediğiniz zaman hızlıca erişin.";
 
 // Register - Login
-"username_placeholder" = "Kullanıcı Adı";
+"fullname_placeholder" = "Ad Soyad";
 "email_placeholder" = "E-posta";
 "password_placeholder" = "Parola";
 "create_account_text" = "Hesap Oluştur";
@@ -44,6 +44,7 @@
 
 // Search
 "search_title" = "Arama Yap";
+"search_placeholder" = "Haber Ara...";
 
 // Favorites
 "favorites_title" = "Favorilerim";

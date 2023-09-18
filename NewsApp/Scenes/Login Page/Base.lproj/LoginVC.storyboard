@@ -60,7 +60,7 @@ News App</string>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bkh-ah-CTc">
                                 <rect key="frame" x="20" y="366" width="353" height="116"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhR-Bt-zxn">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhR-Bt-zxn">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="48"/>
                                         <color key="backgroundColor" name="gray"/>
                                         <constraints>
@@ -134,12 +134,12 @@ News App</string>
                     </view>
                     <connections>
                         <outlet property="createAccount" destination="v20-3V-BpA" id="IR6-pU-ya7"/>
+                        <outlet property="emailTextField" destination="nhR-Bt-zxn" id="5o6-CA-4Az"/>
                         <outlet property="forgotPassword" destination="cZh-yN-ThP" id="LWO-9V-Eha"/>
                         <outlet property="hasAccountText" destination="gM1-BC-Pv4" id="FGQ-Rj-9q2"/>
                         <outlet property="loginButton" destination="KxP-iC-BbZ" id="gNm-kj-JR6"/>
                         <outlet property="loginDescription" destination="bQN-nf-pdC" id="L91-Wn-OoU"/>
                         <outlet property="passwordTextField" destination="f4e-wE-sHQ" id="RED-BE-hXP"/>
-                        <outlet property="usernameTextField" destination="nhR-Bt-zxn" id="uQ7-9B-uYk"/>
                         <outlet property="welcomeText" destination="1Tk-bQ-pDG" id="rLm-s3-A2N"/>
                     </connections>
                 </viewController>

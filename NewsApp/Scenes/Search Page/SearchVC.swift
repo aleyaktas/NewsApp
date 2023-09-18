@@ -19,7 +19,10 @@ class SearchVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.placeholder = "search_placeholder".localized()
 
+        
         navigationItem.title = "search_title".localized()
 
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: NSNotification.Name("changeLanguage"), object: nil)

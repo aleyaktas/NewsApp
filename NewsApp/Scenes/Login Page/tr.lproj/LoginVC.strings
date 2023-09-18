@@ -21,7 +21,7 @@
 "gM1-BC-Pv4.text" = "Hesabınız yok mu?";
 
 /* Class = "UITextField"; placeholder = "Username"; ObjectID = "nhR-Bt-zxn"; */
-"nhR-Bt-zxn.placeholder" = "Kullanıcı Adı";
+"nhR-Bt-zxn.placeholder" = "E-posta";
 
 /* Class = "UIButton"; configuration.title = "Create new account"; ObjectID = "v20-3V-BpA"; */
 "v20-3V-BpA.configuration.title" = "Hesap Oluştur";
