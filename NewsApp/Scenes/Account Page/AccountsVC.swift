@@ -60,6 +60,10 @@ class AccountsVC: UIViewController {
                      } else {
                          print("User data updated successfully")
                          self.showAlert(title: "Success", message: "Profile successfully updated")
+                         let updateUser = User(fullname: newFullname, email: self.emailTextField.text)
+                         self.auth.saveUserToUserDefaults(user: updateUser)
+                         NotificationCenter.default.post(name: NSNotification.Name("updateFullName"), object: nil)
+
                      }
                   }
               }

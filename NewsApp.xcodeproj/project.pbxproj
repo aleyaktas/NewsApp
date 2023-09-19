@@ -59,6 +59,10 @@
 		A6FC604B2AB8968500333C50 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A6FC604A2AB8968500333C50 /* FirebaseStorage */; };
 		A6FC604E2AB8D5A800333C50 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC604D2AB8D5A800333C50 /* AuthenticationManager.swift */; };
 		A6FC60502AB8E70900333C50 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC604F2AB8E70900333C50 /* UIViewController+.swift */; };
+		A6FC60562AB9117500333C50 /* MenuHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC60552AB9117500333C50 /* MenuHeaderTableViewCell.swift */; };
+		A6FC605A2AB91CBD00333C50 /* MenuItemTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6FC60592AB91CBD00333C50 /* MenuItemTableView.xib */; };
+		A6FC605C2AB91CC800333C50 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC605B2AB91CC800333C50 /* MenuItemTableViewCell.swift */; };
+		A6FC605D2AB9248900333C50 /* MenuHeaderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6FC605F2AB9248900333C50 /* MenuHeaderTableView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +128,12 @@
 		A6FC604F2AB8E70900333C50 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		A6FC60512AB8EE5F00333C50 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AccountsVC.strings; sourceTree = "<group>"; };
 		A6FC60522AB8EE6200333C50 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/AccountsVC.strings; sourceTree = "<group>"; };
+		A6FC60552AB9117500333C50 /* MenuHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		A6FC60592AB91CBD00333C50 /* MenuItemTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemTableView.xib; sourceTree = "<group>"; };
+		A6FC605B2AB91CC800333C50 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
+		A6FC605E2AB9248900333C50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MenuHeaderTableView.xib; sourceTree = "<group>"; };
+		A6FC60612AB9248B00333C50 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MenuHeaderTableView.strings; sourceTree = "<group>"; };
+		A6FC60632AB9248B00333C50 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/MenuHeaderTableView.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +278,8 @@
 		A62D5B602AA7C69C00CD4F1B /* _components */ = {
 			isa = PBXGroup;
 			children = (
+				A6FC60582AB91C2500333C50 /* menu item */,
+				A6FC60572AB9117F00333C50 /* menu header */,
 				A62D5B612AA7C6B500CD4F1B /* TabBarController.swift */,
 				A66C66AE2AB3CFD3000EA17B /* MenuVC.swift */,
 			);
@@ -381,6 +393,24 @@
 			path = _components;
 			sourceTree = "<group>";
 		};
+		A6FC60572AB9117F00333C50 /* menu header */ = {
+			isa = PBXGroup;
+			children = (
+				A6FC605F2AB9248900333C50 /* MenuHeaderTableView.xib */,
+				A6FC60552AB9117500333C50 /* MenuHeaderTableViewCell.swift */,
+			);
+			path = "menu header";
+			sourceTree = "<group>";
+		};
+		A6FC60582AB91C2500333C50 /* menu item */ = {
+			isa = PBXGroup;
+			children = (
+				A6FC60592AB91CBD00333C50 /* MenuItemTableView.xib */,
+				A6FC605B2AB91CC800333C50 /* MenuItemTableViewCell.swift */,
+			);
+			path = "menu item";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -463,9 +493,11 @@
 				A6C93A7F2AB72E7D00EDADD5 /* OnboardingVC.storyboard in Resources */,
 				A62ABC012AA90B6500EED1BF /* EnvironmentVariables.plist in Resources */,
 				A6C93A902AB72FE300EDADD5 /* FavoritesVC.storyboard in Resources */,
+				A6FC605D2AB9248900333C50 /* MenuHeaderTableView.xib in Resources */,
 				A6C93A8C2AB72FD000EDADD5 /* SettingsVC.storyboard in Resources */,
 				A62D5B3F2AA74D6B00CD4F1B /* Assets.xcassets in Resources */,
 				A6C93AAC2AB7302900EDADD5 /* HomeVC.storyboard in Resources */,
+				A6FC605A2AB91CBD00333C50 /* MenuItemTableView.xib in Resources */,
 				A6C93A872AB72EEF00EDADD5 /* AccountsVC.storyboard in Resources */,
 				A6C93A942AB72FF500EDADD5 /* SearchVC.storyboard in Resources */,
 				A6FC60332AB87D5300333C50 /* GoogleService-Info.plist in Resources */,
@@ -487,10 +519,12 @@
 				A66D32432AB4EFB200BC64B6 /* OnboardingSlider.swift in Sources */,
 				A66D323D2AB4E64500BC64B6 /* OnboardingVC.swift in Sources */,
 				A6C925A42AB23653000C2D96 /* HeaderCollectionView.swift in Sources */,
+				A6FC60562AB9117500333C50 /* MenuHeaderTableViewCell.swift in Sources */,
 				A62ABBFF2AA909DA00EED1BF /* Article.swift in Sources */,
 				A62ABBF82AA9049600EED1BF /* SliderDetailCollectionViewCell.swift in Sources */,
 				A62D5B502AA75A3100CD4F1B /* RegisterVC.swift in Sources */,
 				A66C66932AB399A7000EA17B /* FavoritesDetailManager.swift in Sources */,
+				A6FC605C2AB91CC800333C50 /* MenuItemTableViewCell.swift in Sources */,
 				A6FC604E2AB8D5A800333C50 /* AuthenticationManager.swift in Sources */,
 				A66C66A32AB3B3F9000EA17B /* AccountsVC.swift in Sources */,
 				A62D5B362AA74D6A00CD4F1B /* AppDelegate.swift in Sources */,
@@ -642,6 +676,16 @@
 				A66595E92AB7B54D0037058D /* en */,
 			);
 			name = RegisterVC.storyboard;
+			sourceTree = "<group>";
+		};
+		A6FC605F2AB9248900333C50 /* MenuHeaderTableView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6FC605E2AB9248900333C50 /* Base */,
+				A6FC60612AB9248B00333C50 /* en */,
+				A6FC60632AB9248B00333C50 /* tr */,
+			);
+			name = MenuHeaderTableView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
