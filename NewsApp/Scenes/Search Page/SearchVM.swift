@@ -28,7 +28,6 @@ final class SearchVM {
                             self?.newsData = []
                             self?.onError?("No articles found")
                         } else {
-                            print(articles)
                             self?.newsData = articles
                             self?.onSucces?()
                         }

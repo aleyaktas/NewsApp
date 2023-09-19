@@ -19,11 +19,14 @@ class AccountsVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     
     var auth = AuthenticationManager()
+    var viewModel = AccountVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(languageChanged),name: NSNotification.Name("changeLanguage"), object: nil)
+        
         configureData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(languageChanged),name: NSNotification.Name("changeLanguage"), object: nil)
     }
     
     @objc func languageChanged() {
@@ -44,33 +47,19 @@ class AccountsVC: UIViewController {
     }
     
     @IBAction func saveButtonAct(_ sender: UIButton) {
-        
-        if let newFullname = fullNameTextField.text, !newFullname.isEmpty{
-            let updateUser = User(fullname: newFullname, email: emailTextField.text)
-              auth.saveUserToUserDefaults(user: updateUser)
-              
-              if let user = Auth.auth().currentUser {
-                  
-                  let db = Database.database().reference()
-                  let userRef = db.child("users").child(user.uid)
-                  
-                  userRef.updateChildValues(["fullname": newFullname]) { (error, _) in
-                     if let error = error {
-                         print("Failed to update user data: \(error.localizedDescription)")
-                     } else {
-                         print("User data updated successfully")
-                         self.showAlert(title: "Success", message: "Profile successfully updated")
-                         let updateUser = User(fullname: newFullname, email: self.emailTextField.text)
-                         self.auth.saveUserToUserDefaults(user: updateUser)
-                         NotificationCenter.default.post(name: NSNotification.Name("updateFullName"), object: nil)
-
-                     }
-                  }
-              }
-          } else {
-              showAlert(title: "Warning", message: "Please fill in fields.")
-          }
-    }
+        if let newFullname = fullNameTextField.text, !newFullname.isEmpty {
+            viewModel.updateUser(fullname: newFullname) { success, message in
+                if success {
+                    self.showAlert(title: "Success", message: message)
+                } else {
+                    self.showAlert(title: "Error", message: message)
+                }
+                }
+            
+            } else {
+                showAlert(title: "Warning", message: "Please fill in fields.")
+            }
+        }
 }
 
 
