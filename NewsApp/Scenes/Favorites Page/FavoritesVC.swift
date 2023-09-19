@@ -11,19 +11,29 @@ import Localize_Swift
 class FavoritesVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    let homeVC = UIStoryboard(name: "HomeVC", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
-
+    
+    var viewModel = FavoritesVM()
+    
+    let homeVC = HomeVC()
     var newsData: [Article] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "favorites_title".localized()
+        prepareTableView()
+        prepareNavigation()
         
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: NSNotification.Name("changeLanguage"), object: nil)
-        
+ 
+    }
+    
+    func prepareTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func prepareNavigation() {
+        navigationItem.title = "favorites_title".localized()
     }
     
     @objc func languageChanged() {
@@ -35,35 +45,33 @@ class FavoritesVC: UIViewController {
     }
  
     func getFavoritesArticles() {
-        newsData = FavoritesManager.shared.getFavorites()
+        viewModel.getFavoritesArticles()
         tableView.reloadData()
     }
-
 }
 
 extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsData.count
+        return viewModel.numberOfItems(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as? NewsTableViewCell {
-            let article = newsData[indexPath.row]
+            let article = viewModel.cellForRow(at: indexPath)
 
-            if let urlToImage = article.urlToImage {
+            if let urlToImage = article?.urlToImage {
                 let url = URL(string: urlToImage)
                 cell.newImage.kf.setImage(with: url)
             }
             
-            if let author = article.author {
-                let components = author.components(separatedBy: ",")
-                cell.newAuthor.text = components.first
-            }
+            let components = article?.author?.components(separatedBy: ",")
+            cell.newAuthor.text = components?.first
+            
 
-            let date = homeVC?.dateFormatter(dateString: article.publishedAt ?? "")
+            let date = homeVC.dateFormatter(dateString: article?.publishedAt ?? "")
             cell.date.text = date ?? "Empty"
 
-            cell.titleText.text = article.title ?? "Empty"
+            cell.titleText.text = article?.title ?? "Empty"
 
             return cell
         } else {
@@ -74,20 +82,19 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "DetailVC", bundle: nil)
         
-        let article = newsData[indexPath.row]
+        let article = viewModel.cellForRow(at: indexPath)
         
         if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
-            if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
+            if let urlToImage = article?.urlToImage, let url = URL(string: urlToImage) {
                 vc.imageUrl = url
             }
-            if let author = article.author {
-                let components = author.components(separatedBy: ",")
-                vc.newAuthor = components.first
-            }
-            let date = homeVC?.dateFormatter(dateString: article.publishedAt ?? "")
+            let components = article?.author?.components(separatedBy: ",")
+            vc.newAuthor = components?.first
+            
+            let date = homeVC.dateFormatter(dateString: article?.publishedAt ?? "")
             vc.date = date ?? "Empty"
-            vc.newTitle = article.title ?? "Empty"
-            vc.content = article.content ?? "Empty"
+            vc.newTitle = article?.title ?? "Empty"
+            vc.content = article?.content ?? "Empty"
             vc.article = article
 
             self.navigationController?.pushViewController(vc, animated: true)
