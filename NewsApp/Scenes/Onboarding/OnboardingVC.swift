@@ -45,7 +45,7 @@ class OnboardingVC: UIViewController {
             let storyboard = UIStoryboard(name: "RegisterVC", bundle: nil)
                         
             if let vc = storyboard.instantiateViewController(withIdentifier: "RegisterVC") as? RegisterVC {
-                let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
                 vc.navigationItem.hidesBackButton = true
                 self.navigationController?.pushViewController(vc, animated: true)
             }

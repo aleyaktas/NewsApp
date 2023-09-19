@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 import Localize_Swift
 
 class SearchVC: UIViewController {
@@ -16,7 +15,7 @@ class SearchVC: UIViewController {
         
     var newsData: [Article] = []
     let homeVC = HomeVC()
-    var viewModel = SearchVM()
+    let viewModel = SearchVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()

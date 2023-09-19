@@ -31,6 +31,5 @@ class AuthenticationManager {
     func deleteUserFromUserDefaults() {
           UserDefaults.standard.removeObject(forKey: "user")
       }
-    
 }
 

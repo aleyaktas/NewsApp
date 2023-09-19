@@ -29,20 +29,22 @@ class MenuListController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
+        prepareTableView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged),name: NSNotification.Name("changeLanguage"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(fullNameUpdated),name: NSNotification.Name("updateFullName"), object: nil)
-        tableView.backgroundColor = .systemGray5
-        tableView.separatorStyle = .none
 
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         customNibs()
         languageChanged()
     }
     
-
+    func prepareTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = .systemGray5
+        tableView.separatorStyle = .none
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
     
     func customNibs() {
         let menuHeaderCellNib = UINib(nibName: "MenuHeaderTableView", bundle: nil)
@@ -52,10 +54,9 @@ class MenuListController: UITableViewController {
     }
     
     @objc func languageChanged() {
-
-        print("language changingggg")
         tableView.reloadData()
     }
+    
     @objc func fullNameUpdated() {
         tableView.reloadData()
     }
@@ -103,7 +104,6 @@ class MenuListController: UITableViewController {
         if indexPath.row > 0 {
             let selectedCategory = items[indexPath.row - 1]
             menuDelegate?.didSelectCategory(selectedCategory)
-
         }
     }
 }

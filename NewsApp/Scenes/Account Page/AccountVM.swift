@@ -8,7 +8,6 @@
 import Foundation
 import Firebase
 
-
 class AccountVM {
     
     private var auth = AuthenticationManager()

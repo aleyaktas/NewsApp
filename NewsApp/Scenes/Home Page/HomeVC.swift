@@ -6,28 +6,51 @@
 //
 
 import UIKit
-import Alamofire
 import Kingfisher
 import SideMenu
 
 class HomeVC: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var newsData: [Article] = []
+
+    let menu = MenuListController()
     
+    let viewModel = HomeVM()
+
     private var sideMenu: SideMenuNavigationController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: NSNotification.Name("changeLanguage"), object: nil)
-
-        configureData()
-        customNibs()
-        setupNavigationBar()
-        fetchNewsData(category: "general")
         
-        let menu = MenuListController()
+        customNibs()
+        prepareCollectionView()
+        setupNavigationBar()
+        prepareSideMenu()
+        prepareViewModel()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    func customNibs() {
+        let sliderCellNib: UINib = UINib(nibName: "SliderCollectionView", bundle: nil)
+        collectionView.register(sliderCellNib, forCellWithReuseIdentifier: "SliderCollectionViewCell")
+        
+        let newsCellNib: UINib = UINib(nibName: "NewsDetailCollectionView", bundle: nil)
+        collectionView.register(newsCellNib, forCellWithReuseIdentifier: "NewsDetailCollectionViewCell")
+    }
+    
+    func prepareViewModel() {
+        viewModel.onSucces = reloadTableView()
+        viewModel.onError = showError()
+        
+        viewModel.fetchNewsData(category: "general")
+    }
+    
+    func prepareSideMenu() {
         menu.menuDelegate = self
         
         sideMenu = SideMenuNavigationController(rootViewController: menu)
@@ -35,11 +58,10 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
         
         SideMenuManager.default.leftMenuNavigationController = sideMenu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
-    
     }
     
     @objc func languageChanged() {
-        fetchNewsData(category: "general")
+        viewModel.fetchNewsData(category: "general")
         collectionView.reloadData()
     }
     
@@ -54,78 +76,44 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
         imageView.heightAnchor.constraint(equalToConstant: imageSize.height).isActive = true
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-       
-    }
     
     @IBAction func menuButtonAct(_ sender: UIButton) {
         present(sideMenu!, animated: true, completion: nil)
     }
     
-    private func configureData() {
+    private func prepareCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        
     }
     
-    func customNibs() {
-        let sliderCellNib: UINib = UINib(nibName: "SliderCollectionView", bundle: nil)
-        collectionView.register(sliderCellNib, forCellWithReuseIdentifier: "SliderCollectionViewCell")
-        
-        let newsCellNib: UINib = UINib(nibName: "NewsDetailCollectionView", bundle: nil)
-        collectionView.register(newsCellNib, forCellWithReuseIdentifier: "NewsDetailCollectionViewCell")
-    }
-    
-    func fetchNewsData(category: String) {
-        
-        NetworkManager.shared.getAllNews(query: "", category: category) { [weak self] result in
+    func showError() -> (_ errorStr: String) -> () {
+        return { errorStr in
             DispatchQueue.main.async {
-                switch result {
-                case .success(let newsResponse):
-                    if let articles = newsResponse.articles {
-                        if articles.isEmpty {
-                            print("No articles found")
-                        } else {
-                            self?.newsData = articles
-                            self?.collectionView.reloadData()
-                        }
-                    } else {
-                        print("Articles key not found in data")
-                    }
-                case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
-                }
+                let alert = UIAlertController(title: "Error!", message: errorStr, preferredStyle: .alert)
+                let okButton = UIAlertAction(title: "OK", style: .cancel)
+                alert.addAction(okButton)
+                self.present(alert, animated: true)
+            }
+        }
+    }
+    
+    func reloadTableView() -> () -> () {
+        return {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
             }
         }
     }
     
     func dateFormatter(dateString: String) -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let userSelectedLanguage = UserDefaults.standard.string(forKey: "AppSelectedLanguage") ?? "en"
-        
-        if userSelectedLanguage == "en" {
-            dateFormatter.locale = Locale(identifier: "en_US")
-        } else if userSelectedLanguage == "tr" {
-            dateFormatter.locale = Locale(identifier: "tr_TR")
-        }
-        
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        
-        if let date = dateFormatter.date(from: dateString) {
-            dateFormatter.dateFormat = "dd MMM, yyyy"
-            let formattedDate = dateFormatter.string(from: date)
-            return formattedDate
-        }
-        return nil
+        viewModel.dateFormatter(dateString: dateString)
     }
 }
 
-extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SliderSelectDelegate, MenuListDelegate {
+extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SliderSelectDelegate {
 
     func didSelectCategory(_ category: Category) {
-        fetchNewsData(category: category.id)
+        viewModel.fetchNewsData(category: category.id)
         sideMenu?.dismiss(animated: true)
     }
     
@@ -151,49 +139,40 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else if section == 1 {
-            print(newsData.count)
-            return newsData.count
-        }
-        return 0
+        viewModel.numberOfItems(in: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCollectionViewCell", for: indexPath) as? SliderCollectionViewCell {
                 
-                let first10Items = Array(newsData.prefix(10))
-                cell.sliderDataList = first10Items
+                let sliderItems = viewModel.getTenItems()
+                cell.sliderDataList = sliderItems
                 cell.delegate = self
 
                 return cell
             }
         } else if indexPath.section == 1 {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsDetailCollectionViewCell", for: indexPath) as? NewsDetailCollectionViewCell {
-                    let article = newsData[indexPath.row]
-
-                    if let urlToImage = article.urlToImage {
+                let article = viewModel.cellForRow(at: indexPath)
+                    if let urlToImage = article?.urlToImage {
                         let url = URL(string: urlToImage)
                         cell.newImage.kf.setImage(with: url)
                     }
-                    if let author = article.author {
-                        let components = author.components(separatedBy: ",")
-                        cell.categoryName.text = components.first
-                    }
+                    
+                let components = article?.author?.components(separatedBy: ",")
+                cell.categoryName.text = components?.first
+                    
 
-                    cell.detail.text = article.title ?? "Empty"
-                    let date = dateFormatter(dateString: article.publishedAt ?? "")
-                    cell.newDate.text = date ?? "Empty"
+                cell.detail.text = article?.title ?? "Empty"
+                let date = dateFormatter(dateString: article?.publishedAt ?? "")
+                cell.newDate.text = date ?? "Empty"
 
                 return cell
             }
         }
         return UICollectionViewCell()
     }
-
-
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -233,20 +212,21 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "DetailVC", bundle: nil)
         
-        let article = newsData[indexPath.row]
+        let article = viewModel.cellForRow(at: indexPath)
         
         if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
-            if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
+            if let urlToImage = article?.urlToImage, let url = URL(string: urlToImage) {
                 vc.imageUrl = url
             }
-            vc.newTitle = article.title ?? "Empty"
-            vc.content = article.content ?? "Empty"
+            vc.newTitle = article?.title ?? "Empty"
+            vc.content = article?.content ?? "Empty"
             vc.article = article
 
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
 }
 
-
+extension HomeVC: MenuListDelegate {
+    
+}

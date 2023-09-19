@@ -7,7 +7,6 @@
 
 import UIKit
 import Localize_Swift
-import Firebase
 
 class SettingsVC: UIViewController {
 
@@ -77,21 +76,26 @@ class SettingsVC: UIViewController {
     }
     
     @IBAction func signOutAct(_ sender: UIButton) {
-        do {
-            try Auth.auth().signOut()
-            auth.deleteUserFromUserDefaults()
-
+        viewModel.signOut { [weak self] success, error in
+            if success {
+                self?.handleSignOutSuccess()
+            } else if let error = error {
+                self?.handleSignOutError(error)
+            }
+        }
+    }
+    
+    private func handleSignOutSuccess() {
+        self.tabBarController?.tabBar.isHidden = true
             let storyboard = UIStoryboard(name: "LoginVC", bundle: nil)
-
             if let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC {
-                let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-                self.tabBarController?.tabBar.isHidden = true
                 vc.navigationItem.hidesBackButton = true
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-        } catch let error as NSError {
-            print("Error logging out: \(error.localizedDescription)")
         }
+        
+    private func handleSignOutError(_ error: Error) {
+        print("Error logging out: \(error.localizedDescription)")
     }
 }
 
