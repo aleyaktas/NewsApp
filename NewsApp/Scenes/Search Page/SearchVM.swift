@@ -49,4 +49,6 @@ final class SearchVM {
     func numberOfItems(in section: Int) -> Int {
         return newsData.count
     }
+    
+    
 }

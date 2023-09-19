@@ -108,14 +108,14 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "DetailVC", bundle: nil)
         
-        let article = newsData[indexPath.row]
+        let article = viewModel.cellForRow(at: indexPath)
         
         if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
-            if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
+            if let urlToImage = article?.urlToImage, let url = URL(string: urlToImage) {
                 vc.imageUrl = url
             }
-            vc.newTitle = article.title ?? "Empty"
-            vc.content = article.content ?? "Empty"
+            vc.newTitle = article?.title
+            vc.content = article?.content
             vc.article = article
 
             self.navigationController?.pushViewController(vc, animated: true)

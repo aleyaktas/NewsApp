@@ -39,8 +39,8 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
     }
     
     @objc func languageChanged() {
-        collectionView.reloadData()
         fetchNewsData(category: "general")
+        collectionView.reloadData()
     }
     
     private func setupNavigationBar() {

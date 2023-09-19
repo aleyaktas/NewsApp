@@ -23,44 +23,27 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var auth = AuthenticationManager()
+    var viewModel = SettingsVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureData()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged),name: NSNotification.Name("changeLanguage"), object: nil)
-                
-        if UserDefaults.standard.bool(forKey: "IsDarkMode") == true {
-            darkModeSwitch.isOn = true
-        } else {
-            darkModeSwitch.isOn = false
-        }
-        
+
         languageChanged()
-        
-        if let selectedLanguage = UserDefaults.standard.string(forKey: "AppSelectedLanguage") {
-            segmentedControl.selectedSegmentIndex = (selectedLanguage == "tr") ? 0 : 1
-        } else {
-            segmentedControl.selectedSegmentIndex = 1
-        }
-     
+
+    }
+    
+    func configureData() {
+        darkModeSwitch.isOn = viewModel.isDarkModeOn
+        let selectedLanguage = viewModel.selectedLanguage
+                segmentedControl.selectedSegmentIndex = (selectedLanguage == .turkish) ? 0 : 1
     }
   
     @IBAction func darkModeAct(_ sender: UISwitch) {
-        if sender.isOn {
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                windowScene.windows.forEach { window in
-                    window.overrideUserInterfaceStyle = .dark
-                    UserDefaults.standard.set(sender.isOn, forKey: "IsDarkMode")
-                }
-            }
-        } else {
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                windowScene.windows.forEach { window in
-                    window.overrideUserInterfaceStyle = .light
-                    UserDefaults.standard.set(sender.isOn, forKey: "IsDarkMode")
-                }
-            }
-        }
-
+        viewModel.isDarkModeOn = sender.isOn
     }
     
     @objc func languageChanged() {
@@ -76,20 +59,14 @@ class SettingsVC: UIViewController {
 
     
     @IBAction func changeLanguageAct(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-           case 0:
-            Localize.setCurrentLanguage("tr")
-            UserDefaults.standard.set("tr", forKey: "AppSelectedLanguage")
+        let selectedLanguage = (sender.selectedSegmentIndex == 0) ? Language.turkish : Language.english
 
-           case 1:
-            Localize.setCurrentLanguage("en")
-            UserDefaults.standard.set("en", forKey: "AppSelectedLanguage")
+        Localize.setCurrentLanguage(selectedLanguage.rawValue)
 
-           default:
-               break
-           }
-        NotificationCenter.default.post(name: NSNotification.Name("changeLanguage"), object: nil)
+            viewModel.selectedLanguage = selectedLanguage
+            NotificationCenter.default.post(name: NSNotification.Name("changeLanguage"), object: nil)
     }
+
     
     @IBAction func editAccountAct(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "AccountsVC", bundle: nil)
@@ -117,3 +94,5 @@ class SettingsVC: UIViewController {
         }
     }
 }
+
+
