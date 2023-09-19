@@ -26,15 +26,22 @@ class DetailVC: UIViewController {
     var isCompleted: Bool?
     var newAuthor: String?
     var date: String?
+    
+    var viewModel = DetailVM()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureData()
+    }
+    
+    func configureData() {
         detailImage.kf.setImage(with: imageUrl)
         contentText.text = content
         titleText.text = newTitle
         author.text = newAuthor
         newDate.text = date
-    
+        
         scrollView.contentSize = detailView.frame.size
         if let article {
             updateFavoriteButtonIcon(article)
@@ -45,11 +52,12 @@ class DetailVC: UIViewController {
         
         contentText.numberOfLines = 0
         contentText.lineBreakMode = .byWordWrapping
-        
     }
     
     func updateFavoriteButtonIcon(_ article: Article) {
-        if FavoritesManager.shared.isArticleFavorited(article) {
+        let isFavorite = viewModel.isArticleFavorited(article: article)
+
+        if isFavorite {
             favoriteButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
             favoriteButton.tintColor = UIColor(named: "primary")
 
@@ -57,14 +65,16 @@ class DetailVC: UIViewController {
             favoriteButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
         }
     }
+
     
     @IBAction func favoriteButtonAct(_ sender: Any) {
         if let article {
-            if FavoritesManager.shared.isArticleFavorited(article) {
-                FavoritesManager.shared.removeFavorite(article)
+            let isFavorite = viewModel.isArticleFavorited(article: article)
+            if isFavorite {
+                viewModel.removeFavorite(article: article)
                 favoriteButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
             } else {
-                FavoritesManager.shared.addFavorite(article)
+                viewModel.addFavorite(article: article)
                 favoriteButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
             }
         }
