@@ -77,56 +77,26 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
         collectionView.register(newsCellNib, forCellWithReuseIdentifier: "NewsDetailCollectionViewCell")
     }
     
-    func fetchNewsData(category:String) {
-        getAllNews(category: category) { [weak self] articles in
+    func fetchNewsData(category: String) {
+        
+        NetworkManager.shared.getAllNews(query: "", category: category) { [weak self] result in
             DispatchQueue.main.async {
-                if let articles = articles {
-                    self?.newsData = articles
-                    self?.collectionView.reloadData()
-                } else {
-                    print("Data not found")
+                switch result {
+                case .success(let newsResponse):
+                    if let articles = newsResponse.articles {
+                        if articles.isEmpty {
+                            print("No articles found")
+                        } else {
+                            self?.newsData = articles
+                            self?.collectionView.reloadData()
+                        }
+                    } else {
+                        print("Articles key not found in data")
+                    }
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
                 }
             }
-        }}
-    
-    func getAllNews(category:String,completion: @escaping ([Article]?) -> Void) {
-        if let path = Bundle.main.path(forResource: "EnvironmentVariables", ofType: "plist"),
-           let dict = NSDictionary(contentsOfFile: path) as? [String: Any],
-           let apiKey = dict["API_KEY"] as? String {
-            let language = UserDefaults.standard.string(forKey: "AppSelectedLanguage") ?? "US"
-
-            let newsURL = "https://newsapi.org/v2/top-headlines"
-            let parameters: [String: Any] = [
-                "country": language == "en" ? "us" : language,
-               "apiKey": apiKey,
-               "category": category
-            ]
-           
-           AF.request(newsURL, method: .get, parameters: parameters).responseData { response in
-               switch response.result {
-               case .success(let data):
-                   do {
-                       let decoder = JSONDecoder()
-                       let newsResponse = try decoder.decode(NewsResponse.self, from: data)
-                       
-                       if let articles = newsResponse.articles {
-                           completion(articles)
-                       } else {
-                           completion([])
-                       }
-                   } catch {
-                       print("Error decoding JSON: \(error.localizedDescription)")
-                       completion(nil)
-                   }
-                   
-               case .failure(let error):
-                   print("Network request failed: \(error.localizedDescription)")
-                   completion(nil)
-               }
-           }
-        } else {
-           print("EnvironmentVariables.plist not found or API_KEY not set.")
-           completion(nil)
         }
     }
     
@@ -153,9 +123,9 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SliderSelectDelegate, MenuListDelegate {
-    
-    func didSelectCategory(_ category: String) {
-        fetchNewsData(category: category)
+
+    func didSelectCategory(_ category: Category) {
+        fetchNewsData(category: category.id)
         sideMenu?.dismiss(animated: true)
     }
     
@@ -278,4 +248,5 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
 }
+
 

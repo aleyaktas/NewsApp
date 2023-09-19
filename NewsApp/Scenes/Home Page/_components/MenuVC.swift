@@ -9,34 +9,24 @@ import UIKit
 import Localize_Swift
 
 protocol MenuListDelegate {
-    func didSelectCategory(_ category: String)
+    func didSelectCategory(_ category: Category)
 }
 
 class MenuListController: UITableViewController {
-    var items: [String] = []
+    var items: [Category] = [
+        Category(id: "general", value: "General"),
+        Category(id: "business", value: "Business"),
+        Category(id: "entertainment", value: "Entertainment"),
+        Category(id: "health", value: "Health"),
+        Category(id: "science", value: "Science"),
+        Category(id: "sports", value: "Sports"),
+        Category(id: "technology", value: "Technology")
+    ]
+
     public var menuDelegate: MenuListDelegate?
+    let authManage = AuthenticationManager()
     
-    var authManage = AuthenticationManager()
-    
-    init(items: [String] = ["General", "Business", "Entertainment", "Health", "Science", "Sports", "Technology"], menuDelegate: MenuListDelegate? = nil) {
-        self.items = items.map { $0.localized() }
-        super.init(style: .plain)
-        self.menuDelegate = menuDelegate
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        customNibs()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func customNibs() {
-        let menuHeaderCellNib = UINib(nibName: "MenuHeaderTableView", bundle: nil)
-        tableView.register(menuHeaderCellNib, forCellReuseIdentifier: "MenuHeaderTableViewCell")
-        let menuItemCellNib = UINib(nibName: "MenuItemTableView", bundle: nil)
-        tableView.register(menuItemCellNib, forCellReuseIdentifier: "MenuItemTableViewCell")
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -46,10 +36,24 @@ class MenuListController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(fullNameUpdated),name: NSNotification.Name("updateFullName"), object: nil)
         tableView.backgroundColor = .systemGray5
         tableView.separatorStyle = .none
+
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        customNibs()
+        languageChanged()
+    }
+    
+
+    
+    func customNibs() {
+        let menuHeaderCellNib = UINib(nibName: "MenuHeaderTableView", bundle: nil)
+        tableView.register(menuHeaderCellNib, forCellReuseIdentifier: "MenuHeaderTableViewCell")
+        let menuItemCellNib = UINib(nibName: "MenuItemTableView", bundle: nil)
+        tableView.register(menuItemCellNib, forCellReuseIdentifier: "MenuItemTableViewCell")
     }
     
     @objc func languageChanged() {
-        items = ["General", "Business", "Entertainment", "Health", "Science", "Sports", "Technology"].map { $0.localized() }
+
+        print("language changingggg")
         tableView.reloadData()
     }
     @objc func fullNameUpdated() {
@@ -76,8 +80,13 @@ class MenuListController: UITableViewController {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuItemTableViewCell", for: indexPath) as! MenuItemTableViewCell
             let menuItem = items[indexPath.row - 1]
-            cell.categoryName.text = menuItem.localized()
+            
+            cell.iconImage.image = UIImage(named: menuItem.id.lowercased())?.withTintColor(.label, renderingMode: .alwaysOriginal)
+            cell.iconImage.tintColor = .label
+            cell.categoryName.text = menuItem.value.localized()
+
             cell.backgroundColor = .systemGray5
+           
             return cell
         }
     }

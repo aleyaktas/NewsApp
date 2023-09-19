@@ -15,30 +15,31 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lMq-Tf-jVM">
-                    <rect key="frame" x="16" y="115" width="70" height="70"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lMq-Tf-jVM">
+                    <rect key="frame" x="16" y="127" width="50" height="46.666666666666686"/>
                     <color key="backgroundColor" systemColor="systemGray6Color"/>
+                    <color key="tintColor" systemColor="labelColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="70" id="3cC-4M-4xI"/>
-                        <constraint firstAttribute="width" constant="70" id="Ifk-ZM-ggM"/>
+                        <constraint firstAttribute="height" constant="50" id="3cC-4M-4xI"/>
+                        <constraint firstAttribute="width" constant="50" id="Ifk-ZM-ggM"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="35"/>
+                            <real key="value" value="25"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aH1-gq-urT">
-                    <rect key="frame" x="106" y="120" width="267" height="60"/>
+                    <rect key="frame" x="86" y="120" width="287" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyQ-3z-Xbn">
-                            <rect key="frame" x="0.0" y="0.0" width="267" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="287" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" systemColor="secondaryLabelColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aleyna Aktas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2FP-8J-6dD">
-                            <rect key="frame" x="0.0" y="30" width="267" height="30"/>
+                            <rect key="frame" x="0.0" y="30" width="287" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -68,6 +69,10 @@
         </view>
     </objects>
     <resources>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

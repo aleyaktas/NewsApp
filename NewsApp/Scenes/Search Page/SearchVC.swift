@@ -10,21 +10,21 @@ import Alamofire
 import Localize_Swift
 
 class SearchVC: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     var newsData: [Article] = []
     let homeVC = UIStoryboard(name: "HomeVC", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchBar.placeholder = "search_placeholder".localized()
-
+        
         
         navigationItem.title = "search_title".localized()
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: NSNotification.Name("changeLanguage"), object: nil)
         
         fetchNewsData(searchText: "")
@@ -47,63 +47,29 @@ class SearchVC: UIViewController {
     }
     
     func fetchNewsData(searchText: String) {
-        getFilterNews(query: searchText) { [weak self] articles in
+        NetworkManager.shared.getAllNews(query: searchText, category: "") { [weak self] result in
             DispatchQueue.main.async {
-                if let articles {
-                    self?.newsData = articles
-                    self?.tableView.reloadData()
-                } else {
-                    print("Data not found")
+                switch result {
+                case .success(let newsResponse):
+                    if let articles = newsResponse.articles {
+                        if articles.isEmpty {
+                            self?.newsData = []
+                            self?.tableView.reloadData()
+                            print("No articles found")
+                        } else {
+                            self?.newsData = articles
+                            self?.tableView.reloadData()
+                        }
+                    } else {
+                        print("Articles key not found in data")
+                    }
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
                 }
             }
         }
     }
-    
-    func getFilterNews(query: String, completion: @escaping ([Article]?) -> Void) {
-        if let path = Bundle.main.path(forResource: "EnvironmentVariables", ofType: "plist"),
-            let dict = NSDictionary(contentsOfFile: path) as? [String: Any],
-            let apiKey = dict["API_KEY"] as? String {
 
-            let language = UserDefaults.standard.string(forKey: "AppSelectedLanguage") ?? "US"
-
-            let newsURL = "https://newsapi.org/v2/top-headlines"
-            let parameters: [String: Any] = [
-                "q": query,
-                "country": language == "en" ? "us" : language,
-                "apiKey": apiKey
-            ]
-            
-           
-           AF.request(newsURL, method: .get, parameters: parameters).responseData { response in
-               switch response.result {
-               case .success(let data):
-                   do {
-                       let decoder = JSONDecoder()
-                       let newsResponse = try decoder.decode(NewsResponse.self, from: data)
-                       
-                       if let articles = newsResponse.articles {
-                           completion(articles)
-                           print(articles.count)
-                       } else {
-                           completion([])
-                       }
-                   } catch {
-                       print("Error decoding JSON: \(error.localizedDescription)")
-                       completion(nil)
-                   }
-                   
-               case .failure(let error):
-                   print("Network request failed: \(error.localizedDescription)")
-                   completion(nil)
-               }
-           }
-        } else {
-           print("EnvironmentVariables.plist not found or API_KEY not set.")
-           completion(nil)
-        }
-    }
-    
-    
 }
 
 extension SearchVC: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {

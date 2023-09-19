@@ -10,6 +10,7 @@ import UIKit
 class MenuItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var categoryName: UILabel!
+    @IBOutlet weak var iconImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

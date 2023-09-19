@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 import Localize_Swift
 
 class FavoritesVC: UIViewController {
