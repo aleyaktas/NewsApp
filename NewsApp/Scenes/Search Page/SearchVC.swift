@@ -13,88 +13,91 @@ class SearchVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
+        
     var newsData: [Article] = []
-    let homeVC = UIStoryboard(name: "HomeVC", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
+    let homeVC = HomeVC()
+    var viewModel = SearchVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchBar.placeholder = "search_placeholder".localized()
+        prepareTableView()
+        prepareSearchBar()
         
-        
-        navigationItem.title = "search_title".localized()
-        
+        viewModel.onSucces = reloadTableView()
+        viewModel.onError = showError()
+
+        viewModel.fetchNewsData(searchText: "")
+
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: NSNotification.Name("changeLanguage"), object: nil)
-        
-        fetchNewsData(searchText: "")
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        searchBar.delegate = self
     }
-    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         searchBar.text = ""
-        fetchNewsData(searchText: "")
+        viewModel.fetchNewsData(searchText: "")
     }
     
     @objc func languageChanged() {
         navigationItem.title = "search_title".localized()
-        fetchNewsData(searchText: "")
+        viewModel.fetchNewsData(searchText: "")
     }
     
-    func fetchNewsData(searchText: String) {
-        NetworkManager.shared.getAllNews(query: searchText, category: "") { [weak self] result in
+    func configureData() {
+        navigationItem.title = "search_title".localized()
+    }
+    
+    func prepareTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    func prepareSearchBar() {
+        searchBar.delegate = self
+        searchBar.placeholder = "search_placeholder".localized()
+    }
+    
+    func showError() -> (_ errorStr: String) -> () {
+        return { errorStr in
             DispatchQueue.main.async {
-                switch result {
-                case .success(let newsResponse):
-                    if let articles = newsResponse.articles {
-                        if articles.isEmpty {
-                            self?.newsData = []
-                            self?.tableView.reloadData()
-                            print("No articles found")
-                        } else {
-                            self?.newsData = articles
-                            self?.tableView.reloadData()
-                        }
-                    } else {
-                        print("Articles key not found in data")
-                    }
-                case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
-                }
+                let alert = UIAlertController(title: "Error!", message: errorStr, preferredStyle: .alert)
+                let okButton = UIAlertAction(title: "OK", style: .cancel)
+                alert.addAction(okButton)
+                self.present(alert, animated: true)
             }
         }
     }
-
+    
+    func reloadTableView() -> () -> () {
+        return {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
 
-extension SearchVC: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+extension SearchVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsData.count
+        return viewModel.numberOfItems(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as? NewsTableViewCell {
-            let article = newsData[indexPath.row]
+            let article = viewModel.cellForRow(at: indexPath)
 
-            if let urlToImage = article.urlToImage {
+            if let urlToImage = article?.urlToImage {
                 let url = URL(string: urlToImage)
                 cell.newImage.kf.setImage(with: url)
             }
             
-            if let author = article.author {
-                let components = author.components(separatedBy: ",")
-                cell.newAuthor.text = components.first
-            }
+            let components = article?.author?.components(separatedBy: ",")
+            cell.newAuthor.text = components?.first
+        
 
-            let date = homeVC?.dateFormatter(dateString: article.publishedAt ?? "2023-09-15T12:10:00Z")
+            let date = homeVC.dateFormatter(dateString: article?.publishedAt ?? "Empty")
             cell.date.text = date ?? "Empty"
-
-            cell.titleText.text = article.title ?? "Empty"
+            cell.titleText.text = article?.title ?? "Empty"
 
             return cell
         } else {
@@ -118,10 +121,10 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource, UISearchBarDeleg
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        fetchNewsData(searchText: searchText)
-    }
 }
 
-
+extension SearchVC: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.fetchNewsData(searchText: searchText)
+    }
+}

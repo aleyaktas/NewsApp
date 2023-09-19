@@ -14,7 +14,6 @@ protocol NetworkManagerProtocol {
     func getAllNews(query: String, category: String, completion: @escaping (Result<NewsResponse, Error>) -> ())
 }
 
-
 class NetworkManager {
     static let shared = NetworkManager()
 

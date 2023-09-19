@@ -113,7 +113,7 @@ class SettingsVC: UIViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         } catch let error as NSError {
-            print("Çıkış yaparken hata oluştu: \(error.localizedDescription)")
+            print("Error logging out: \(error.localizedDescription)")
         }
     }
 }
