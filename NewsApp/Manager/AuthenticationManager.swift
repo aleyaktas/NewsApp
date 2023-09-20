@@ -10,6 +10,7 @@ import Foundation
 struct User: Codable {
     var fullname: String?
     var email: String?
+    var avatarURL: URL?
 }
 
 class AuthenticationManager {
@@ -29,8 +30,18 @@ class AuthenticationManager {
     }
     
     func deleteUserFromUserDefaults() {
-        print("user deleted")
           UserDefaults.standard.removeObject(forKey: "user")
       }
+    
+    func saveAvatarURLToUserDefaults(avatarURL: URL, for user: inout User) {
+        user.avatarURL = avatarURL
+        saveUserToUserDefaults(user: user)
+        print("yess")
+    }
+    
+    func deleteAvatarURLFromUserDefaults(for user: inout User) {
+        user.avatarURL = nil
+        saveUserToUserDefaults(user: user)
+    }
 }
 

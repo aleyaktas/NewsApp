@@ -22,7 +22,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEn-lZ-Fjv">
                                 <rect key="frame" x="0.0" y="59" width="393" height="250"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lym-bT-rBH">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lym-bT-rBH">
                                         <rect key="frame" x="132.66666666666666" y="64.333333333333314" width="127.99999999999997" height="121.66666666666669"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" name="primary"/>
@@ -44,6 +44,9 @@
                                             <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                             <color key="baseForegroundColor" name="primary"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="editPhotoAct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Z6t-Fn-LOZ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -136,6 +139,7 @@
                         <outlet property="emailTextField" destination="faG-AH-KQY" id="3Xn-8a-f9d"/>
                         <outlet property="fullNameText" destination="cS5-xF-Acz" id="9h7-Z5-0Ru"/>
                         <outlet property="fullNameTextField" destination="ZmE-LN-Jkx" id="i1S-cg-UyE"/>
+                        <outlet property="profilePhoto" destination="lym-bT-rBH" id="yLG-24-WSc"/>
                         <outlet property="saveButton" destination="kNg-Aq-8J6" id="fzU-M1-ujl"/>
                     </connections>
                 </viewController>

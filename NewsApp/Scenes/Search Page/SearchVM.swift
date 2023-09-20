@@ -15,31 +15,33 @@ final class SearchVM {
     var onError: ((_ errorStr: String)->())?
     
     init() {
-        fetchNewsData(searchText: "")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            print("work1")
+            self.fetchNewsData(searchText: "")
+        }
     }
     
     func fetchNewsData(searchText: String) {
+
+        newsData = []
+        
         NetworkManager.shared.getAllNews(query: searchText, category: "") { [weak self] result in
+            print("work2")
             DispatchQueue.main.async {
                 switch result {
                 case .success(let newsResponse):
                     if let articles = newsResponse.articles {
-                        if articles.isEmpty {
-                            self?.newsData = []
-                            self?.onError?("No articles found")
-                        } else {
-                            self?.newsData = articles
-                            self?.onSucces?()
-                        }
-                    } else {
-                        print("Articles key not found in data")
+                        self?.newsData = articles
+                        self?.onSucces?()
                     }
                 case .failure(let error):
                     print("Error: \(error.localizedDescription)")
+                    self?.onError?("An error occurred")
                 }
             }
         }
     }
+
 
     func cellForRow(at indexPath: IndexPath) -> Article? {
         return newsData[indexPath.row]

@@ -5,8 +5,9 @@
 //  Created by Aleyna Aktaş on 20.09.2023.
 //
 
-import Foundation
+import UIKit
 import Firebase
+import FirebaseStorage
 
 class AccountVM {
     
@@ -38,4 +39,35 @@ class AccountVM {
              completion(false, "User not authenticated")
          }
      }
+    
+    func uploadUserImage() -> URL? {
+        let user = auth.getUserFromUserDefaults() ?? User()
+        return user.avatarURL
+    }
+    
+    func uploadProfilePhoto(image: UIImage, completion: @escaping (URL?) -> Void) {
+        if let imageData = image.jpegData(compressionQuality: 0.5) {
+            let storageRef = Storage.storage().reference().child("profile_photos/\(Auth.auth().currentUser!.uid).jpg")
+            storageRef.putData(imageData, metadata: nil) { (metadata, error) in
+                if let error = error {
+                    print("Upload image error: \(error)")
+                    completion(nil)
+                    return
+                }
+                storageRef.downloadURL { (url, error) in
+                    if let downloadURL = url {
+                        print("URL: \(downloadURL)")
+                        var user = self.auth.getUserFromUserDefaults() ?? User()
+                        self.auth.saveAvatarURLToUserDefaults(avatarURL: downloadURL, for: &user)
+                        NotificationCenter.default.post(name: NSNotification.Name("updateProfileImage"), object: nil)
+                        completion(downloadURL)
+                    } else {
+                        completion(nil)
+                    }
+                }
+            }
+        } else {
+            completion(nil)
+        }
+    }
 }

@@ -21,6 +21,7 @@ class NewsTableViewCell: UITableViewCell {
         
         titleText.numberOfLines = 0
         titleText.lineBreakMode = .byTruncatingTail
+    
     }
     override func prepareForReuse() {
         super.prepareForReuse()

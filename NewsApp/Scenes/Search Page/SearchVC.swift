@@ -13,7 +13,6 @@ class SearchVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
         
-    var newsData: [Article] = []
     let homeVC = HomeVC()
     let viewModel = SearchVM()
     
@@ -25,7 +24,7 @@ class SearchVC: UIViewController {
         
         viewModel.onSucces = reloadTableView()
         viewModel.onError = showError()
-
+        
         viewModel.fetchNewsData(searchText: "")
 
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: NSNotification.Name("changeLanguage"), object: nil)
@@ -68,6 +67,7 @@ class SearchVC: UIViewController {
     }
     
     func reloadTableView() -> () -> () {
+        
         return {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -127,3 +127,5 @@ extension SearchVC: UISearchBarDelegate {
         viewModel.fetchNewsData(searchText: searchText)
     }
 }
+
+

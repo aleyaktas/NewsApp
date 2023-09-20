@@ -13,19 +13,12 @@ protocol MenuListDelegate {
 }
 
 class MenuListController: UITableViewController {
-    var items: [Category] = [
-        Category(id: "general", value: "General"),
-        Category(id: "business", value: "Business"),
-        Category(id: "entertainment", value: "Entertainment"),
-        Category(id: "health", value: "Health"),
-        Category(id: "science", value: "Science"),
-        Category(id: "sports", value: "Sports"),
-        Category(id: "technology", value: "Technology")
-    ]
+    
+    var items: [Category] = CategoryList().items
 
     public var menuDelegate: MenuListDelegate?
-    let authManage = AuthenticationManager()
     
+    let viewModel = MenuVM()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +26,13 @@ class MenuListController: UITableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged),name: NSNotification.Name("changeLanguage"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(fullNameUpdated),name: NSNotification.Name("updateFullName"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(profileUpdated),name: NSNotification.Name("updateProfileImage"), object: nil)
 
         customNibs()
         languageChanged()
     }
+    
+
     
     func prepareTableView() {
         tableView.delegate = self
@@ -61,6 +57,11 @@ class MenuListController: UITableViewController {
         tableView.reloadData()
     }
     
+    @objc func profileUpdated() {
+        tableView.reloadData()
+    }
+    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -72,8 +73,13 @@ class MenuListController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuHeaderTableViewCell", for: indexPath) as! MenuHeaderTableViewCell
-            cell.headerImage.image = UIImage(systemName: "person.fill")
-            cell.fullNameText.text = authManage.getUserFromUserDefaults()?.fullname
+    
+                if let downloadURL = viewModel.uploadUserImage()
+                {
+                  cell.headerImage.kf.setImage(with: downloadURL)
+                }
+              
+            cell.fullNameText.text = viewModel.getFullName()
             cell.helloText.text = "hello".localized()
             cell.backgroundColor = .systemGray5
 
