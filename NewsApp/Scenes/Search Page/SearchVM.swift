@@ -16,7 +16,6 @@ final class SearchVM {
     
     init() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            print("work1")
             self.fetchNewsData(searchText: "")
         }
     }
@@ -26,7 +25,6 @@ final class SearchVM {
         newsData = []
         
         NetworkManager.shared.getAllNews(query: searchText, category: "") { [weak self] result in
-            print("work2")
             DispatchQueue.main.async {
                 switch result {
                 case .success(let newsResponse):
@@ -44,6 +42,7 @@ final class SearchVM {
 
 
     func cellForRow(at indexPath: IndexPath) -> Article? {
+        print("indexpath", indexPath.row)
         return newsData[indexPath.row]
     }
     

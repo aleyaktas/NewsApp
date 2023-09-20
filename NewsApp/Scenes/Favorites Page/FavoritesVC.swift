@@ -13,6 +13,7 @@ class FavoritesVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel = FavoritesVM()
+    var isDataEmpty = false
     
     let homeVC = HomeVC()
     var newsData: [Article] = []
@@ -23,17 +24,24 @@ class FavoritesVC: UIViewController {
         prepareTableView()
         prepareNavigation()
         
+        customNibs()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: NSNotification.Name("changeLanguage"), object: nil)
- 
     }
     
     func prepareTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
     }
     
     func prepareNavigation() {
         navigationItem.title = "favorites_title".localized()
+    }
+    
+    func customNibs() {
+        let emptyCell = UINib(nibName: "EmptyCell", bundle: nil)
+        tableView.register(emptyCell, forCellReuseIdentifier: "EmptyCell")
     }
     
     @objc func languageChanged() {
@@ -46,37 +54,50 @@ class FavoritesVC: UIViewController {
  
     func getFavoritesArticles() {
         viewModel.getFavoritesArticles()
+        self.isDataEmpty = self.viewModel.numberOfItems(in: 0) == 0
         tableView.reloadData()
     }
 }
 
 extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfItems(in: section)
+        if isDataEmpty {
+            return 1
+        } else {
+            return viewModel.numberOfItems(in: section)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as? NewsTableViewCell {
-            let article = viewModel.cellForRow(at: indexPath)
-
-            if let urlToImage = article?.urlToImage {
-                let url = URL(string: urlToImage)
-                cell.newImage.kf.setImage(with: url)
+        if isDataEmpty {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath) as? EmptyCell {
+                cell.emptyText.text = "favorites_empty_text".localized()
+                cell.emptyImage.image = UIImage(named:"favorites-empty")
+                cell.backgroundColor = .systemGray6
+                return cell
             }
-            
-            let components = article?.author?.components(separatedBy: ",")
-            cell.newAuthor.text = components?.first
-            
-
-            let date = homeVC.dateFormatter(dateString: article?.publishedAt ?? "")
-            cell.date.text = date ?? "Empty"
-
-            cell.titleText.text = article?.title ?? "Empty"
-
-            return cell
         } else {
-            return UITableViewCell()
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as? NewsTableViewCell {
+                let article = viewModel.cellForRow(at: indexPath)
+
+                if let urlToImage = article?.urlToImage {
+                    let url = URL(string: urlToImage)
+                    cell.newImage.kf.setImage(with: url)
+                }
+                
+                let components = article?.author?.components(separatedBy: ",")
+                cell.newAuthor.text = components?.first
+                
+
+                let date = homeVC.dateFormatter(dateString: article?.publishedAt ?? "")
+                cell.date.text = date ?? "Empty"
+
+                cell.titleText.text = article?.title ?? "Empty"
+
+                return cell
+            }
         }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -100,4 +121,13 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isDataEmpty {
+            return tableView.frame.height
+        } else {
+            return 150
+        }
+    }
+
 }

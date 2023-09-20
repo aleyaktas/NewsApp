@@ -99,10 +99,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1y-3F-wxH">
-                                        <rect key="frame" x="20" y="213.99999999999997" width="353" height="124.66666666666666"/>
+                                        <rect key="frame" x="20" y="214" width="353" height="74.333333333333314"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bDy-4M-2di">
-                                                <rect key="frame" x="0.0" y="0.0" width="353" height="124.66666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="74.333333333333329"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="srE-bi-HZi">
                                                         <rect key="frame" x="20" y="20.000000000000004" width="313" height="34.333333333333343"/>
@@ -125,27 +125,6 @@
                                                                 <connections>
                                                                     <action selector="editAccountAct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="n0u-la-qsG"/>
                                                                 </connections>
-                                                            </button>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S7h-Sq-axX">
-                                                        <rect key="frame" x="20" y="70.333333333333314" width="313" height="34.333333333333343"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S38-jw-26Y">
-                                                                <rect key="frame" x="0.0" y="0.0" width="273" height="34.333333333333336"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hB0-uX-bcp">
-                                                                <rect key="frame" x="273" y="0.0" width="40" height="34.333333333333336"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="40" id="odi-K7-f4E"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" title="">
-                                                                    <color key="baseForegroundColor" name="primary"/>
-                                                                </buttonConfiguration>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -173,7 +152,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MhB-B9-kHL">
-                                        <rect key="frame" x="20" y="394.66666666666669" width="353" height="74.333333333333314"/>
+                                        <rect key="frame" x="20" y="344.33333333333331" width="353" height="74.333333333333314"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZAE-Jk-SKu">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="74.333333333333329"/>
@@ -196,6 +175,9 @@
                                                                 <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" title="">
                                                                     <color key="baseForegroundColor" name="primary"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="privacySecurityAct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="s6H-Do-AXn"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -228,13 +210,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy and Security" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xV-5C-mnz">
-                                        <rect key="frame" x="20" y="358.66666666666669" width="187.66666666666666" height="24"/>
+                                        <rect key="frame" x="20" y="308.33333333333331" width="187.66666666666666" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zp-wk-4Yu">
-                                        <rect key="frame" x="136" y="485" width="121" height="34.333333333333371"/>
+                                        <rect key="frame" x="136" y="434.66666666666669" width="121" height="34.333333333333314"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right.fill" catalog="system" title="Sign Out" subtitle="">
                                             <fontDescription key="titleFontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
@@ -277,7 +259,6 @@
                     <navigationItem key="navigationItem" id="uh2-NX-Axp"/>
                     <connections>
                         <outlet property="accountText" destination="k3x-v6-f8u" id="J6M-CP-Xic"/>
-                        <outlet property="changePasswordText" destination="S38-jw-26Y" id="1nt-wX-0od"/>
                         <outlet property="darkModeSwitch" destination="Ggh-aJ-UXW" id="WjW-Qk-oFd"/>
                         <outlet property="darkModeText" destination="qcf-W1-wfo" id="AYZ-1N-mny"/>
                         <outlet property="editAccountText" destination="RO2-Ia-7wP" id="vYz-l4-MF1"/>

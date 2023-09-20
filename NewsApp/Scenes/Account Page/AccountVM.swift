@@ -19,6 +19,10 @@ class AccountVM {
              user = User(fullname: storedUser.fullname ?? "Empty", email: storedUser.email ?? "Empty")
          }
      }
+    
+    func getUser() -> User? {
+        return auth.getUserFromUserDefaults()
+    }
      
      func updateUser(fullname: String, completion: @escaping (Bool, String) -> Void) {
          if let user = Auth.auth().currentUser {

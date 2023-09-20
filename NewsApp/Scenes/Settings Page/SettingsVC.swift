@@ -16,7 +16,6 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var accountText: UILabel!
     @IBOutlet weak var privacyAndSecurityText: UILabel!
     @IBOutlet weak var editAccountText: UILabel!
-    @IBOutlet weak var changePasswordText: UILabel!
     @IBOutlet weak var securityText: UILabel!
     @IBOutlet weak var signOutText: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -28,11 +27,9 @@ class SettingsVC: UIViewController {
         super.viewDidLoad()
         
         configureData()
+        languageChanged()
         
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged),name: NSNotification.Name("changeLanguage"), object: nil)
-
-        languageChanged()
-
     }
     
     func configureData() {
@@ -50,12 +47,22 @@ class SettingsVC: UIViewController {
         languageText.text = "language_text".localized()
         accountText.text = "account_text".localized()
         editAccountText.text = "editAccount_text".localized()
-        changePasswordText.text = "change_password_text".localized()
         securityText.text = "security_text".localized()
         signOutText.setTitle("sign_out_text".localized(), for: .normal)
         privacyAndSecurityText.text = "privacyAndSecurity_text".localized()
     }
+    
+    
+    @IBAction func privacySecurityAct(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "PrivacySecurityDetail", bundle: nil)
+        
+        if let gotoVC = storyboard.instantiateViewController(withIdentifier: "PrivacySecurityDetailVC") as? PrivacySecurityDetailVC {
+            gotoVC.label = NSLocalizedString("privacy_policy_text", comment: "")
+            self.present(gotoVC, animated: true, completion: nil)
+        }
+    }
 
+    
     
     @IBAction func changeLanguageAct(_ sender: UISegmentedControl) {
         let selectedLanguage = (sender.selectedSegmentIndex == 0) ? Language.turkish : Language.english

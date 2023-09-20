@@ -46,6 +46,8 @@
 // Search
 "search_title" = "Search";
 "search_placeholder" = "Search News...";
+"search_empty_text" = "Search news not found";
+"favorites_empty_text" = "You don't have any favorite news yet.";
 
 // Favorites
 "favorites_title" = "Bookmarks";
@@ -65,4 +67,7 @@
 "Sports" = "Sports";
 "Technology" = "Technology";
 "hello" = "Hello";
+
+//privacy
+"privacy_policy_text" = "Privacy Policy\n\nEffective Date: 19.07.2023\n\n1. Introduction\n\nWelcome to News. We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard your information when you use our mobile application and services.\n\n2. Information We Collect\n\n2.1. Personal Information: We may collect certain personal information, such as your name, email address, and contact details when you voluntarily provide it to us.\n\n2.2. Usage Information: We may collect information about how you use our app, including your device type, IP address, and browsing behavior.\n\n3. How We Use Your Information\n\n3.1. We use the information we collect to provide and improve our services, customize your experience, and send you updates and notifications.\n\n3.2. We do not sell, rent, or trade your personal information to third parties.\n\n4. Data Security\n\nWe take reasonable measures to protect your data from unauthorized access, disclosure, alteration, or destruction.\n\n5. Changes to this Privacy Policy\n\nWe may update our Privacy Policy from time to time. Any changes will be effective upon posting the updated policy on our app.\n\n6. Contact Us\n\nIf you have any questions or concerns about our Privacy Policy, please contact us at [Your Contact Information].";
 

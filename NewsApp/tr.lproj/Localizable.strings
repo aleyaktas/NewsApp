@@ -47,6 +47,9 @@
 // Search
 "search_title" = "Arama Yap";
 "search_placeholder" = "Haber Ara...";
+"search_empty_text" = "Aranan haber bulunamadı";
+"favorites_empty_text" = "Henüz favori haberin yok";
+
 
 // Favorites
 "favorites_title" = "Favorilerim";
@@ -66,3 +69,8 @@
 "Sports" = "Spor";
 "Technology" = "Teknoloji";
 "hello" = "Merhaba";
+
+// privacy
+"privacy_policy_text" = "Gizlilik Politikası\n\nYürürlük Tarihi: 17.09.2023\n\n1. Giriş\n\nNews uygulamamızı kullanırken kişisel bilgilerinizi koruma ve güvence altına alma taahhüdündeyiz. Bu Gizlilik Politikası, mobil uygulamamızı ve hizmetlerimizi kullanırken bilgilerinizi nasıl topladığımızı, kullanığımızı, açıkladığımızı ve koruduğumuzu anlatır.\n\n2. Bilgi Toplama\n\n2.1. Kişisel Bilgiler: Adınız, e-posta adresiniz ve iletişim bilgileriniz gibi belirli kişisel bilgilerinizi gönüllü olarak bize sağladığınızda toplayabiliriz.\n\n2.2. Kullanım Bilgileri: Uygulamamızı nasıl kullandığınıza dair bilgileri toplayabiliriz, bu bilgiler cihaz tipiniz, IP adresiniz ve gezinme davranışınız gibi bilgileri içerebilir.\n\n3. Bilgilerinizi Nasıl Kullanıyoruz\n\n3.1. Topladığımız bilgileri hizmet sunmak ve geliştirmek, deneyiminizi özelleştirmek ve güncellemeleri ve bildirimleri size göndermek için kullanırız.\n\n3.2. Kişisel bilgilerinizi üçüncü taraflara satmıyor, kiralamıyor veya ticaretini yapmıyoruz.\n\n4. Veri Güvenliği\n\nVerilerinizi yetkisiz erişim, açıklama, değiştirme veya yok etmeye karşı korumak için makul önlemler alıyoruz.\n\n5. Bu Gizlilik Politikasının Değişiklikleri\n\nGizlilik Politikamızı zaman zaman güncelleyebiliriz. Herhangi bir değişiklik güncellenmiş politikayı uygulamamızda yayınladığımızda etkili olacaktır.\n\n6. Bize Ulaşın\n\nGizlilik Politikamızla ilgili herhangi bir sorunuz veya endişeniz varsa, lütfen [İletişim Bilgileriniz] üzerinden bizimle iletişime geçin.";
+
+

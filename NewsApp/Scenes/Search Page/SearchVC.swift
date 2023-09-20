@@ -16,6 +16,8 @@ class SearchVC: UIViewController {
     let homeVC = HomeVC()
     let viewModel = SearchVM()
     
+    var isDataEmpty = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +28,8 @@ class SearchVC: UIViewController {
         viewModel.onError = showError()
         
         viewModel.fetchNewsData(searchText: "")
+        
+        customNibs()
 
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: NSNotification.Name("changeLanguage"), object: nil)
     }
@@ -36,8 +40,14 @@ class SearchVC: UIViewController {
         viewModel.fetchNewsData(searchText: "")
     }
     
+    func customNibs() {
+        let emptyCell = UINib(nibName: "EmptyCell", bundle: nil)
+        tableView.register(emptyCell, forCellReuseIdentifier: "EmptyCell")
+    }
+    
     @objc func languageChanged() {
         navigationItem.title = "search_title".localized()
+        searchBar.placeholder = "search_placeholder".localized()
         viewModel.fetchNewsData(searchText: "")
     }
     
@@ -48,6 +58,7 @@ class SearchVC: UIViewController {
     func prepareTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
     }
     
     func prepareSearchBar() {
@@ -67,9 +78,9 @@ class SearchVC: UIViewController {
     }
     
     func reloadTableView() -> () -> () {
-        
         return {
             DispatchQueue.main.async {
+                self.isDataEmpty = self.viewModel.numberOfItems(in: 0) == 0
                 self.tableView.reloadData()
             }
         }
@@ -78,31 +89,54 @@ class SearchVC: UIViewController {
 
 extension SearchVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfItems(in: section)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as? NewsTableViewCell {
-            let article = viewModel.cellForRow(at: indexPath)
-
-            if let urlToImage = article?.urlToImage {
-                let url = URL(string: urlToImage)
-                cell.newImage.kf.setImage(with: url)
-            }
-            
-            let components = article?.author?.components(separatedBy: ",")
-            cell.newAuthor.text = components?.first
-        
-
-            let date = homeVC.dateFormatter(dateString: article?.publishedAt ?? "Empty")
-            cell.date.text = date ?? "Empty"
-            cell.titleText.text = article?.title ?? "Empty"
-
-            return cell
+        if isDataEmpty {
+            return 1
         } else {
-            return UITableViewCell()
+            return viewModel.numberOfItems(in: section)
         }
     }
+
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if isDataEmpty {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath) as? EmptyCell {
+                cell.emptyText.text = "search_empty_text".localized()
+                cell.emptyImage.image = UIImage(named: "search-empty")
+                cell.backgroundColor = .systemGray6
+                return cell
+            }
+        } else {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as? NewsTableViewCell {
+                let article = viewModel.cellForRow(at: indexPath)
+
+                if let urlToImage = article?.urlToImage {
+                    let url = URL(string: urlToImage)
+                    cell.newImage.kf.setImage(with: url)
+                }
+                
+                let components = article?.author?.components(separatedBy: ",")
+                cell.newAuthor.text = components?.first
+            
+
+                let date = homeVC.dateFormatter(dateString: article?.publishedAt ?? "Empty")
+                cell.date.text = date ?? "Empty"
+                cell.titleText.text = article?.title ?? "Empty"
+
+                return cell
+            }
+        }
+        return UITableViewCell()
+
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isDataEmpty {
+            return tableView.frame.height
+        } else {
+            return 150
+        }
+    }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "DetailVC", bundle: nil)
@@ -124,6 +158,8 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
 
 extension SearchVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        print(isDataEmpty)
         viewModel.fetchNewsData(searchText: searchText)
     }
 }

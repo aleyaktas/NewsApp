@@ -7,8 +7,6 @@
 
 import UIKit
 import Localize_Swift
-import FirebaseStorage
-import Firebase
 import Kingfisher
 
 class AccountsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -21,9 +19,11 @@ class AccountsVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var profilePhoto: UIImageView!
     
-    var auth = AuthenticationManager()
     var viewModel = AccountVM()
     let imagePicker = UIImagePickerController()
+    
+    var activityIndicator: UIActivityIndicatorView!
+    var loadingOverlay: UIView!
 
     
     override func viewDidLoad() {
@@ -38,6 +38,22 @@ class AccountsVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged),name: NSNotification.Name("changeLanguage"), object: nil)
     }
+    
+    func showLoadingIndicator() {
+        loadingOverlay = UIView(frame: view.bounds)
+        loadingOverlay.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = loadingOverlay.center
+        loadingOverlay.addSubview(activityIndicator)
+        view.addSubview(loadingOverlay)
+        activityIndicator.startAnimating()
+    }
+
+    func hideLoadingIndicator() {
+        activityIndicator.stopAnimating()
+        loadingOverlay.removeFromSuperview()
+    }
+
     
     
     @objc func languageChanged() {
@@ -56,7 +72,7 @@ class AccountsVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         fullNameText.text = "fullname_placeholder".localized()
         emailText.text = "email_placeholder".localized()
         emailTextField.isUserInteractionEnabled = false
-        if let user = auth.getUserFromUserDefaults() {
+        if let user = viewModel.getUser() {
             fullNameTextField.text = user.fullname
             emailTextField.text = user.email
         }
@@ -87,9 +103,11 @@ class AccountsVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                profilePhoto.image = pickedImage
+                showLoadingIndicator()
                 viewModel.uploadProfilePhoto(image: pickedImage) { (downloadURL) in
-                    if let downloadURL {
+                    if downloadURL != nil {
+                        self.profilePhoto.image = pickedImage
+                        self.hideLoadingIndicator()
                         self.showAlert(title: "Success", message: "Profile image updated")
                     } else {
                         self.showAlert(title: "Warning", message: "Profile image not updated")
