@@ -17,10 +17,12 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var createAccount: UILabel!
     @IBOutlet weak var registerDescription: UILabel!
-    @IBOutlet weak var securityPolicy: UILabel!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var hasAccountText: UILabel!
     @IBOutlet weak var loginButton: UIButton!
+    
+    var activityIndicator: UIActivityIndicatorView!
+    var loadingOverlay: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,6 @@ class RegisterVC: UIViewController {
         
         createAccount.text = "create_account_text".localized()
         registerDescription.text = "register_description".localized()
-        securityPolicy.text = "security_policy".localized()
         registerButton.setTitle("register_button".localized(), for: .normal)
         hasAccountText.text = "has_account_text".localized()
         loginButton.setTitle("login_button".localized(), for: .normal)
@@ -43,11 +44,28 @@ class RegisterVC: UIViewController {
         registerDescription.numberOfLines = 0
         registerDescription.lineBreakMode = .byTruncatingTail
     }
+    
+    func showLoadingIndicator() {
+        loadingOverlay = UIView(frame: view.bounds)
+        loadingOverlay.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = loadingOverlay.center
+        loadingOverlay.addSubview(activityIndicator)
+        view.addSubview(loadingOverlay)
+        activityIndicator.startAnimating()
+    }
+
+    func hideLoadingIndicator() {
+        activityIndicator.stopAnimating()
+        loadingOverlay.removeFromSuperview()
+    }
 
     @IBAction func registerAct(_ sender: UIButton) {
+        showLoadingIndicator()
            guard let fullname = fullNameTextField.text, !fullname.isEmpty,
                  let email = emailTextField.text, !email.isEmpty,
                  let password = passwordTextField.text, !password.isEmpty else {
+                   hideLoadingIndicator()
                    showAlert(title: "Warning", message: "Please fill fullname, email and password fields.")
                    return
            }
@@ -56,9 +74,9 @@ class RegisterVC: UIViewController {
                if success {
                    self.handleRegistrationSuccess()
                } else if let errorMessage = errorMessage {
-                 
                    self.showAlert(title: "User registration failed", message: errorMessage)
                }
+               self.hideLoadingIndicator()
            }
        }
        
@@ -71,6 +89,7 @@ class RegisterVC: UIViewController {
                }
            }
        }
+    
     
     @IBAction func loginAct(_ sender: UIButton) {        
         let storyboard = UIStoryboard(name: "LoginVC", bundle: nil)

@@ -40,7 +40,7 @@ News App</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxP-iC-BbZ">
-                                <rect key="frame" x="20" y="539" width="353" height="52"/>
+                                <rect key="frame" x="20" y="502" width="353" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="ujQ-CS-RPZ"/>
                                 </constraints>
@@ -83,7 +83,7 @@ News App</string>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiJ-cn-mZv">
-                                <rect key="frame" x="40" y="615" width="313" height="31"/>
+                                <rect key="frame" x="40" y="578" width="313" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gM1-BC-Pv4">
                                         <rect key="frame" x="0.0" y="0.0" width="151.66666666666666" height="31"/>
@@ -104,12 +104,6 @@ News App</string>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZh-yN-ThP">
-                                <rect key="frame" x="19.999999999999993" y="498" width="118.33333333333331" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <color key="textColor" name="primary"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -123,19 +117,16 @@ News App</string>
                             <constraint firstItem="aiJ-cn-mZv" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="UWQ-oZ-ggR"/>
                             <constraint firstItem="bkh-ah-CTc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Ugp-01-hcv"/>
                             <constraint firstItem="KxP-iC-BbZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="WYx-2z-NW2"/>
+                            <constraint firstItem="KxP-iC-BbZ" firstAttribute="top" secondItem="bkh-ah-CTc" secondAttribute="bottom" constant="20" id="Xgz-Py-25L"/>
                             <constraint firstItem="aiJ-cn-mZv" firstAttribute="top" secondItem="KxP-iC-BbZ" secondAttribute="bottom" constant="24" id="ZhA-Wm-psj"/>
-                            <constraint firstItem="cZh-yN-ThP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="b9v-Si-0UH"/>
-                            <constraint firstItem="KxP-iC-BbZ" firstAttribute="top" secondItem="cZh-yN-ThP" secondAttribute="bottom" constant="24" id="l8Q-TM-hEO"/>
                             <constraint firstItem="1Tk-bQ-pDG" firstAttribute="top" secondItem="bu7-O8-YWi" secondAttribute="bottom" constant="16" id="laA-6N-wWw"/>
                             <constraint firstItem="bkh-ah-CTc" firstAttribute="top" secondItem="bQN-nf-pdC" secondAttribute="bottom" constant="24" id="nFu-sj-jKm"/>
-                            <constraint firstItem="cZh-yN-ThP" firstAttribute="top" secondItem="bkh-ah-CTc" secondAttribute="bottom" constant="16" id="sxy-n9-TCn"/>
                             <constraint firstItem="bQN-nf-pdC" firstAttribute="top" secondItem="1Tk-bQ-pDG" secondAttribute="bottom" constant="12" id="yBc-Zd-ysm"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="createAccount" destination="v20-3V-BpA" id="IR6-pU-ya7"/>
                         <outlet property="emailTextField" destination="nhR-Bt-zxn" id="5o6-CA-4Az"/>
-                        <outlet property="forgotPassword" destination="cZh-yN-ThP" id="LWO-9V-Eha"/>
                         <outlet property="hasAccountText" destination="gM1-BC-Pv4" id="FGQ-Rj-9q2"/>
                         <outlet property="loginButton" destination="KxP-iC-BbZ" id="gNm-kj-JR6"/>
                         <outlet property="loginDescription" destination="bQN-nf-pdC" id="L91-Wn-OoU"/>

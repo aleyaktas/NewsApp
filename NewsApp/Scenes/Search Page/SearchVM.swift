@@ -42,8 +42,12 @@ final class SearchVM {
 
 
     func cellForRow(at indexPath: IndexPath) -> Article? {
-        print("indexpath", indexPath.row)
-        return newsData[indexPath.row]
+        if indexPath.row < newsData.count {
+              print("indexpath", indexPath.row)
+              return newsData[indexPath.row]
+          } else {
+              return nil
+          }
     }
     
     func numberOfItems(in section: Int) -> Int {

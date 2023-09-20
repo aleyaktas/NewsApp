@@ -13,10 +13,12 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var welcomeText: UILabel!
     @IBOutlet weak var loginDescription: UILabel!
-    @IBOutlet weak var forgotPassword: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var hasAccountText: UILabel!
     @IBOutlet weak var createAccount: UIButton!
+    
+    var activityIndicator: UIActivityIndicatorView!
+    var loadingOverlay: UIView!
         
     let viewModel = LoginVM()
     
@@ -31,7 +33,6 @@ class LoginVC: UIViewController {
         
         welcomeText.text = "welcome_text".localized()
         loginDescription.text = "login_description".localized()
-        forgotPassword.text = "forgot_password".localized()
         loginButton.setTitle("login_button".localized(), for: .normal)
         hasAccountText.text = "has_account_text".localized()
         createAccount.setTitle("create_account_text".localized(), for: .normal)
@@ -40,9 +41,27 @@ class LoginVC: UIViewController {
         loginDescription.lineBreakMode = .byTruncatingTail
     }
     
+    func showLoadingIndicator() {
+        loadingOverlay = UIView(frame: view.bounds)
+        loadingOverlay.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = loadingOverlay.center
+        loadingOverlay.addSubview(activityIndicator)
+        view.addSubview(loadingOverlay)
+        activityIndicator.startAnimating()
+    }
+
+    func hideLoadingIndicator() {
+        activityIndicator.stopAnimating()
+        loadingOverlay.removeFromSuperview()
+    }
+
+    
     @IBAction func loginAct(_ sender: UIButton) {
+        showLoadingIndicator()
           guard let email = emailTextField.text, !email.isEmpty,
                 let password = passwordTextField.text, !password.isEmpty else {
+                  hideLoadingIndicator()
                   showAlert(title: "Warning", message: "Please fill in both email and password fields.")
                   return
           }
@@ -53,6 +72,7 @@ class LoginVC: UIViewController {
               } else if let errorMessage = errorMessage {
                   self.showAlert(title: "User login failed", message: errorMessage)
               }
+              self.hideLoadingIndicator()
           }
       }
       

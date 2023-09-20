@@ -13,12 +13,15 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var darkModeText: UILabel!
     @IBOutlet weak var languageText: UILabel!
+    @IBOutlet weak var generalText: UILabel!
     @IBOutlet weak var accountText: UILabel!
     @IBOutlet weak var privacyAndSecurityText: UILabel!
     @IBOutlet weak var editAccountText: UILabel!
     @IBOutlet weak var securityText: UILabel!
     @IBOutlet weak var signOutText: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var editAccountView: UIView!
+    @IBOutlet weak var privacyView: UIView!
     
     var auth = AuthenticationManager()
     var viewModel = SettingsVM()
@@ -29,10 +32,42 @@ class SettingsVC: UIViewController {
         configureData()
         languageChanged()
         
+        prepareEditAccountAct()
+        preparePrivacyAct()
+
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged),name: NSNotification.Name("changeLanguage"), object: nil)
     }
     
+    func prepareEditAccountAct() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(editAccountAct))
+        editAccountView.addGestureRecognizer(tapGesture)
+    }
+    
+    func preparePrivacyAct() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(privacyAct))
+        privacyView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func editAccountAct() {
+        let storyboard = UIStoryboard(name: "AccountsVC", bundle: nil)
+
+        if let vc = storyboard.instantiateViewController(withIdentifier: "AccountsVC") as? AccountsVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @objc func privacyAct() {
+        
+        let storyboard = UIStoryboard(name: "PrivacySecurityDetail", bundle: nil)
+        
+        if let gotoVC = storyboard.instantiateViewController(withIdentifier: "PrivacySecurityDetailVC") as? PrivacySecurityDetailVC {
+            gotoVC.label = NSLocalizedString("privacy_policy_text", comment: "")
+            self.present(gotoVC, animated: true, completion: nil)
+        }
+    }
+    
     func configureData() {
+        self.navigationItem.title = "settings_text".localized()
         darkModeSwitch.isOn = viewModel.isDarkModeOn
         let selectedLanguage = viewModel.selectedLanguage
                 segmentedControl.selectedSegmentIndex = (selectedLanguage == .turkish) ? 0 : 1
@@ -43,6 +78,8 @@ class SettingsVC: UIViewController {
     }
     
     @objc func languageChanged() {
+        self.navigationItem.title = "settings_text".localized()
+        generalText.text = "general_text".localized()
         darkModeText.text = "dark_mood".localized()
         languageText.text = "language_text".localized()
         accountText.text = "account_text".localized()
@@ -53,17 +90,6 @@ class SettingsVC: UIViewController {
     }
     
     
-    @IBAction func privacySecurityAct(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "PrivacySecurityDetail", bundle: nil)
-        
-        if let gotoVC = storyboard.instantiateViewController(withIdentifier: "PrivacySecurityDetailVC") as? PrivacySecurityDetailVC {
-            gotoVC.label = NSLocalizedString("privacy_policy_text", comment: "")
-            self.present(gotoVC, animated: true, completion: nil)
-        }
-    }
-
-    
-    
     @IBAction func changeLanguageAct(_ sender: UISegmentedControl) {
         let selectedLanguage = (sender.selectedSegmentIndex == 0) ? Language.turkish : Language.english
 
@@ -71,15 +97,6 @@ class SettingsVC: UIViewController {
 
             viewModel.selectedLanguage = selectedLanguage
             NotificationCenter.default.post(name: NSNotification.Name("changeLanguage"), object: nil)
-    }
-
-    
-    @IBAction func editAccountAct(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "AccountsVC", bundle: nil)
-        
-        if let vc = storyboard.instantiateViewController(withIdentifier: "AccountsVC") as? AccountsVC {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
     }
     
     @IBAction func signOutAct(_ sender: UIButton) {

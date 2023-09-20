@@ -72,7 +72,7 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
         if isDataEmpty {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath) as? EmptyCell {
                 cell.emptyText.text = "favorites_empty_text".localized()
-                cell.emptyImage.image = UIImage(named:"favorites-empty")
+                cell.emptyImage.image = UIImage(named:"favorites-empty")?.withTintColor(.label, renderingMode: .alwaysOriginal)
                 cell.backgroundColor = .systemGray6
                 return cell
             }
@@ -101,25 +101,30 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "DetailVC", bundle: nil)
-        
-        let article = viewModel.cellForRow(at: indexPath)
-        
-        if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
-            if let urlToImage = article?.urlToImage, let url = URL(string: urlToImage) {
-                vc.imageUrl = url
-            }
-            let components = article?.author?.components(separatedBy: ",")
-            vc.newAuthor = components?.first
+        if !isDataEmpty {
+            let storyboard = UIStoryboard(name: "DetailVC", bundle: nil)
             
-            let date = homeVC.dateFormatter(dateString: article?.publishedAt ?? "")
-            vc.date = date ?? "Empty"
-            vc.newTitle = article?.title ?? "Empty"
-            vc.content = article?.content ?? "Empty"
-            vc.article = article
-
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+            let article = viewModel.cellForRow(at: indexPath)
+            
+            if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
+                if let urlToImage = article?.urlToImage, let url = URL(string: urlToImage) {
+                    vc.imageUrl = url
+                }
+                let components = article?.author?.components(separatedBy: ",")
+                vc.newAuthor = components?.first
+                
+                let date = homeVC.dateFormatter(dateString: article?.publishedAt ?? "")
+                vc.date = date ?? "Empty"
+                vc.newTitle = article?.title ?? "Empty"
+                vc.content = article?.content ?? "Empty"
+                vc.article = article
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            }else {
+                tableView.deselectRow(at: indexPath, animated: true)
+                return
+            }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

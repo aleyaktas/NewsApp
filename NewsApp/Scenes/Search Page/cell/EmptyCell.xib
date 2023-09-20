@@ -21,7 +21,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LF7-rH-99z">
                             <rect key="frame" x="0.0" y="0.0" width="353" height="80"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GoS-Fb-kJe">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-empty" translatesAutoresizingMaskIntoConstraints="NO" id="GoS-Fb-kJe">
                                     <rect key="frame" x="146.66666666666666" y="10" width="60" height="60"/>
                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                     <constraints>
@@ -44,6 +44,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <color key="backgroundColor" systemColor="systemGray6Color"/>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -58,11 +59,13 @@
             <connections>
                 <outlet property="emptyImage" destination="GoS-Fb-kJe" id="BU9-wp-59f"/>
                 <outlet property="emptyText" destination="oS0-M0-fPv" id="fkQ-fg-Lfs"/>
+                <outlet property="emptyView" destination="LF7-rH-99z" id="Ip1-HJ-Jog"/>
             </connections>
             <point key="canvasLocation" x="28" y="20"/>
         </view>
     </objects>
     <resources>
+        <image name="search-empty" width="512" height="512"/>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

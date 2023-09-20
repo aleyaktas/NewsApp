@@ -30,6 +30,7 @@ class SearchVC: UIViewController {
         viewModel.fetchNewsData(searchText: "")
         
         customNibs()
+        configureData()
 
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: NSNotification.Name("changeLanguage"), object: nil)
     }
@@ -101,7 +102,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
         if isDataEmpty {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath) as? EmptyCell {
                 cell.emptyText.text = "search_empty_text".localized()
-                cell.emptyImage.image = UIImage(named: "search-empty")
+                cell.emptyImage.image = UIImage(named: "search-empty")?.withTintColor(.label, renderingMode: .alwaysOriginal)
                 cell.backgroundColor = .systemGray6
                 return cell
             }
@@ -139,27 +140,30 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "DetailVC", bundle: nil)
-        
-        let article = viewModel.cellForRow(at: indexPath)
-        
-        if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
-            if let urlToImage = article?.urlToImage, let url = URL(string: urlToImage) {
-                vc.imageUrl = url
-            }
-            vc.newTitle = article?.title
-            vc.content = article?.content
-            vc.article = article
+        if !isDataEmpty {
+            let storyboard = UIStoryboard(name: "DetailVC", bundle: nil)
+            
+            let article = viewModel.cellForRow(at: indexPath)
+            
+            if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
+                if let urlToImage = article?.urlToImage, let url = URL(string: urlToImage) {
+                    vc.imageUrl = url
+                }
+                vc.newTitle = article?.title
+                vc.content = article?.content
+                vc.article = article
 
-            self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        } else {
+            tableView.deselectRow(at: indexPath, animated: true)
+            return
         }
     }
 }
 
 extension SearchVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
-        print(isDataEmpty)
         viewModel.fetchNewsData(searchText: searchText)
     }
 }

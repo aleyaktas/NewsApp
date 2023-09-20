@@ -41,7 +41,7 @@ account for you</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfM-T1-6Hv">
-                                <rect key="frame" x="20" y="635.33333333333337" width="353" height="52"/>
+                                <rect key="frame" x="20" y="589" width="353" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="Dam-yF-ew6"/>
                                 </constraints>
@@ -93,28 +93,8 @@ account for you</string>
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFo-li-4wB">
-                                <rect key="frame" x="20" y="585" width="353" height="34.333333333333371"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMQ-e1-tZG">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="34.333333333333336"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="35" id="RaH-Xy-zvT"/>
-                                        </constraints>
-                                        <color key="tintColor" systemColor="systemGray3Color"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="square.fill" catalog="system"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I agree to the Terms and Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ng-4q-TSy">
-                                        <rect key="frame" x="35" y="0.0" width="318" height="34.333333333333336"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akl-KT-gQS">
-                                <rect key="frame" x="82.666666666666671" y="711.33333333333337" width="227.66666666666663" height="31"/>
+                                <rect key="frame" x="82.666666666666671" y="665" width="227.66666666666663" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ak-4d-22x">
                                         <rect key="frame" x="0.0" y="0.0" width="165.66666666666666" height="31"/>
@@ -140,11 +120,9 @@ account for you</string>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="rze-Yw-Hxo" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="64" id="91G-CZ-R4N"/>
-                            <constraint firstItem="CFo-li-4wB" firstAttribute="top" secondItem="lDo-xE-ixG" secondAttribute="bottom" constant="16" id="BED-At-S99"/>
                             <constraint firstItem="lDo-xE-ixG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="BiV-Xc-UIM"/>
                             <constraint firstItem="ncc-hw-BC8" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="GsE-zu-wID"/>
                             <constraint firstItem="ncc-hw-BC8" firstAttribute="top" secondItem="rze-Yw-Hxo" secondAttribute="bottom" constant="16" id="IB7-T3-58s"/>
-                            <constraint firstItem="CFo-li-4wB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Ihb-vJ-zhw"/>
                             <constraint firstItem="TMU-nL-PQW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="JLf-Mu-bcf"/>
                             <constraint firstItem="rze-Yw-Hxo" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="JRO-v5-aiK"/>
                             <constraint firstItem="lDo-xE-ixG" firstAttribute="top" secondItem="TMU-nL-PQW" secondAttribute="bottom" constant="24" id="NZc-gD-uWC"/>
@@ -152,9 +130,8 @@ account for you</string>
                             <constraint firstItem="cfM-T1-6Hv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="SSr-I6-laZ"/>
                             <constraint firstItem="TMU-nL-PQW" firstAttribute="top" secondItem="ncc-hw-BC8" secondAttribute="bottom" constant="12" id="WOF-Th-PH1"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cfM-T1-6Hv" secondAttribute="trailing" constant="20" id="XjJ-hq-7as"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CFo-li-4wB" secondAttribute="trailing" constant="20" id="YMA-fQ-agh"/>
+                            <constraint firstItem="cfM-T1-6Hv" firstAttribute="top" secondItem="lDo-xE-ixG" secondAttribute="bottom" constant="20" id="cTl-kl-cLh"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TMU-nL-PQW" secondAttribute="trailing" constant="24" id="dQt-Vj-bYB"/>
-                            <constraint firstItem="cfM-T1-6Hv" firstAttribute="top" secondItem="CFo-li-4wB" secondAttribute="bottom" constant="16" id="qyu-WP-far"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lDo-xE-ixG" secondAttribute="trailing" constant="20" id="v1C-WG-o9g"/>
                             <constraint firstItem="akl-KT-gQS" firstAttribute="top" secondItem="cfM-T1-6Hv" secondAttribute="bottom" constant="24" id="zmc-Tj-Thj"/>
                         </constraints>
@@ -169,7 +146,6 @@ account for you</string>
                         <outlet property="passwordTextField" destination="P3b-3B-gb5" id="IKs-46-3mR"/>
                         <outlet property="registerButton" destination="cfM-T1-6Hv" id="ktY-7z-hLR"/>
                         <outlet property="registerDescription" destination="TMU-nL-PQW" id="oa1-t3-wTA"/>
-                        <outlet property="securityPolicy" destination="9ng-4q-TSy" id="v7Y-f2-ufV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -179,7 +155,6 @@ account for you</string>
     </scenes>
     <resources>
         <image name="logo" width="1000" height="999"/>
-        <image name="square.fill" catalog="system" width="128" height="114"/>
         <namedColor name="gray">
             <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -188,9 +163,6 @@ account for you</string>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

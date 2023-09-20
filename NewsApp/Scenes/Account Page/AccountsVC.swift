@@ -24,7 +24,6 @@ class AccountsVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     var activityIndicator: UIActivityIndicatorView!
     var loadingOverlay: UIView!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +52,6 @@ class AccountsVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         activityIndicator.stopAnimating()
         loadingOverlay.removeFromSuperview()
     }
-
-    
     
     @objc func languageChanged() {
         configureData()
@@ -83,8 +80,10 @@ class AccountsVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     @IBAction func saveButtonAct(_ sender: UIButton) {
         if let newFullname = fullNameTextField.text, !newFullname.isEmpty {
+            showLoadingIndicator()
             viewModel.updateUser(fullname: newFullname) { success, message in
                 if success {
+                    self.hideLoadingIndicator()
                     self.showAlert(title: "Success", message: message)
                 } else {
                     self.showAlert(title: "Error", message: message)
@@ -117,7 +116,6 @@ class AccountsVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             picker.dismiss(animated: true, completion: nil)
         }
 
-    
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
           picker.dismiss(animated: true, completion: nil)
