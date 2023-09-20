@@ -33,7 +33,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         
         let authManager = AuthenticationManager()
-
         if authManager.getUserFromUserDefaults() != nil {
             let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
             if let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController {

@@ -46,6 +46,8 @@
 		A67DAEA22ABA4DDB00479D4F /* DetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DAEA12ABA4DDA00479D4F /* DetailVM.swift */; };
 		A67DAEA42ABA5A4A00479D4F /* AccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DAEA32ABA5A4A00479D4F /* AccountVM.swift */; };
 		A67DAEA82ABA5CA900479D4F /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DAEA72ABA5CA900479D4F /* HomeVM.swift */; };
+		A67DAEAA2ABA664C00479D4F /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DAEA92ABA664C00479D4F /* LoginVM.swift */; };
+		A67DAEAD2ABA6C1800479D4F /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DAEAC2ABA6C1800479D4F /* RegisterVM.swift */; };
 		A6C9259E2AB1E825000C2D96 /* NewsDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C9259D2AB1E824000C2D96 /* NewsDetailCollectionViewCell.swift */; };
 		A6C925A12AB22E9A000C2D96 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A6C925A02AB22E9A000C2D96 /* Kingfisher */; };
 		A6C925A42AB23653000C2D96 /* HeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C925A32AB23653000C2D96 /* HeaderCollectionView.swift */; };
@@ -118,6 +120,8 @@
 		A67DAEA12ABA4DDA00479D4F /* DetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVM.swift; sourceTree = "<group>"; };
 		A67DAEA32ABA5A4A00479D4F /* AccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVM.swift; sourceTree = "<group>"; };
 		A67DAEA72ABA5CA900479D4F /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		A67DAEA92ABA664C00479D4F /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		A67DAEAC2ABA6C1800479D4F /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
 		A6C9259D2AB1E824000C2D96 /* NewsDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		A6C925A32AB23653000C2D96 /* HeaderCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionView.swift; sourceTree = "<group>"; };
 		A6C93A7E2AB72D3D00EDADD5 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 		A62D5B342AA74D6A00CD4F1B /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				A67DAEAB2ABA6BF000479D4F /* Manager */,
 				A62D5B4A2AA758F800CD4F1B /* Application */,
 				A62D5B512AA7948700CD4F1B /* Extension */,
 				A67DAE942AB9D8E400479D4F /* Network Layer */,
@@ -252,9 +257,9 @@
 		A62D5B4C2AA7598E00CD4F1B /* Register Page */ = {
 			isa = PBXGroup;
 			children = (
-				A6FC604C2AB8D57800333C50 /* _components */,
-				A6C93AB82AB7303700EDADD5 /* RegisterVC.storyboard */,
 				A62D5B4F2AA75A3100CD4F1B /* RegisterVC.swift */,
+				A67DAEAC2ABA6C1800479D4F /* RegisterVM.swift */,
+				A6C93AB82AB7303700EDADD5 /* RegisterVC.storyboard */,
 			);
 			path = "Register Page";
 			sourceTree = "<group>";
@@ -273,8 +278,9 @@
 		A62D5B552AA7952D00CD4F1B /* Login Page */ = {
 			isa = PBXGroup;
 			children = (
-				A6C93AB32AB7303000EDADD5 /* LoginVC.storyboard */,
 				A62D5B592AA7955800CD4F1B /* LoginVC.swift */,
+				A67DAEA92ABA664C00479D4F /* LoginVM.swift */,
+				A6C93AB32AB7303000EDADD5 /* LoginVC.storyboard */,
 			);
 			path = "Login Page";
 			sourceTree = "<group>";
@@ -325,18 +331,9 @@
 			path = "Search Page";
 			sourceTree = "<group>";
 		};
-		A66C66912AB3998D000EA17B /* _components */ = {
-			isa = PBXGroup;
-			children = (
-				A66C66922AB399A7000EA17B /* FavoritesDetailManager.swift */,
-			);
-			path = _components;
-			sourceTree = "<group>";
-		};
 		A66C66942AB399E3000EA17B /* Favorites Page */ = {
 			isa = PBXGroup;
 			children = (
-				A66C66912AB3998D000EA17B /* _components */,
 				A66C66992AB39D02000EA17B /* news */,
 				A66C66952AB39A12000EA17B /* FavoritesVC.swift */,
 				A67DAE9F2ABA4B9700479D4F /* FavoritesVM.swift */,
@@ -419,6 +416,15 @@
 			path = _components;
 			sourceTree = "<group>";
 		};
+		A67DAEAB2ABA6BF000479D4F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A66C66922AB399A7000EA17B /* FavoritesDetailManager.swift */,
+				A6FC604D2AB8D5A800333C50 /* AuthenticationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		A6C925962AB1E747000C2D96 /* news */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,14 +440,6 @@
 				A6C925A32AB23653000C2D96 /* HeaderCollectionView.swift */,
 			);
 			path = header;
-			sourceTree = "<group>";
-		};
-		A6FC604C2AB8D57800333C50 /* _components */ = {
-			isa = PBXGroup;
-			children = (
-				A6FC604D2AB8D5A800333C50 /* AuthenticationManager.swift */,
-			);
-			path = _components;
 			sourceTree = "<group>";
 		};
 		A6FC60572AB9117F00333C50 /* menu header */ = {
@@ -570,6 +568,7 @@
 				A66D32432AB4EFB200BC64B6 /* OnboardingSlider.swift in Sources */,
 				A66D323D2AB4E64500BC64B6 /* OnboardingVC.swift in Sources */,
 				A67DAEA82ABA5CA900479D4F /* HomeVM.swift in Sources */,
+				A67DAEAA2ABA664C00479D4F /* LoginVM.swift in Sources */,
 				A6C925A42AB23653000C2D96 /* HeaderCollectionView.swift in Sources */,
 				A67DAE9E2ABA404500479D4F /* SettingsVM.swift in Sources */,
 				A6FC60562AB9117500333C50 /* MenuHeaderTableViewCell.swift in Sources */,
@@ -595,6 +594,7 @@
 				A62D5B532AA7949E00CD4F1B /* UITextField+.swift in Sources */,
 				A66D32462AB4F03B00BC64B6 /* OnboardingSliderVC.swift in Sources */,
 				A67DAEA22ABA4DDB00479D4F /* DetailVM.swift in Sources */,
+				A67DAEAD2ABA6C1800479D4F /* RegisterVM.swift in Sources */,
 				A67DAEA42ABA5A4A00479D4F /* AccountVM.swift in Sources */,
 				A62ABBFD2AA909B900EED1BF /* NewsResponse.swift in Sources */,
 				A66C66962AB39A12000EA17B /* FavoritesVC.swift in Sources */,

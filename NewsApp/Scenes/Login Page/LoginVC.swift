@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 
 class LoginVC: UIViewController {
 
@@ -18,8 +17,8 @@ class LoginVC: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var hasAccountText: UILabel!
     @IBOutlet weak var createAccount: UIButton!
-    
-    var authManager = AuthenticationManager()
+        
+    let viewModel = LoginVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +28,7 @@ class LoginVC: UIViewController {
     func prepareTextFields() {
         emailTextField.attributedPlaceholder = NSAttributedString(string: "email_placeholder".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "password_placeholder".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
+        
         welcomeText.text = "welcome_text".localized()
         loginDescription.text = "login_description".localized()
         forgotPassword.text = "forgot_password".localized()
@@ -40,50 +40,32 @@ class LoginVC: UIViewController {
         loginDescription.lineBreakMode = .byTruncatingTail
     }
     
-    
     @IBAction func loginAct(_ sender: UIButton) {
-        guard let email = emailTextField.text, !email.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty else {
-                showAlert(title: "Warning", message: "Please fill in both email and password fields.")
-                return
-        }
-        Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
-            if let error = error {
-                print("User login failed: \(error.localizedDescription)")
-                self.showAlert(title: "User login failed", message: error.localizedDescription)
-            } else {
-                print("User logged in successfully!")
-                let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
-                if let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController {
-                   if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                      let windowDelegate = windowScene.delegate as? SceneDelegate {
-                       windowDelegate.window?.rootViewController = tabBarController
-                   }
-                }
-                
-                if let user = Auth.auth().currentUser {
-            
-                    let db = Database.database().reference()
-                    let userRef = db.child("users").child(user.uid)
-                    
-                    userRef.getData() { (error, snapshot) in
-                        if let error = error {
-                            print("Failed to retrieve user data: \(error.localizedDescription)")
-                        } else {
-                            if let userData = snapshot?.value as? [String: Any],
-                               let fullname = userData["fullname"] as? String {
-                                print("Full Name: \(fullname)")
-                                let newUser = User(fullname: fullname, email: email)
-                                self.authManager.saveUserToUserDefaults(user: newUser)
-                            }
-                            
-                        }
-                    }
-                }
-                
-            }
-        }
-    }
+          guard let email = emailTextField.text, !email.isEmpty,
+                let password = passwordTextField.text, !password.isEmpty else {
+                  showAlert(title: "Warning", message: "Please fill in both email and password fields.")
+                  return
+          }
+          
+          viewModel.loginUser(email: email, password: password) { success, errorMessage in
+              if success {
+                  self.handleSuccessfulLogin()
+              } else if let errorMessage = errorMessage {
+                  self.showAlert(title: "User login failed", message: errorMessage)
+              }
+          }
+      }
+      
+      private func handleSuccessfulLogin() {
+          let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
+          if let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController {
+              if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let windowDelegate = windowScene.delegate as? SceneDelegate {
+                  windowDelegate.window?.rootViewController = tabBarController
+              }
+          }
+      }
+    
     
     @IBAction func createAccountAct(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "RegisterVC", bundle: nil)
