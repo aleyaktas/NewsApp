@@ -27,7 +27,7 @@ class HomeVM {
                             self?.newsData = []
                             self?.onError?("No articles found")
                         } else {
-                            self?.newsData = articles
+                            self?.newsData = articles.filter({ $0.title != "[Removed]"})
                             self?.onSucces?()
                         }
                     } else {

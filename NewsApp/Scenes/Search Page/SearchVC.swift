@@ -102,7 +102,8 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
         if isDataEmpty {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath) as? EmptyCell {
                 cell.emptyText.text = "search_empty_text".localized()
-                cell.emptyImage.image = UIImage(named: "search-empty")?.withTintColor(.label, renderingMode: .alwaysOriginal)
+                cell.emptyImage.image = UIImage(named: "search-empty")
+                cell.emptyImage.tintColor = .secondaryLabel
                 cell.backgroundColor = .systemGray6
                 return cell
             }

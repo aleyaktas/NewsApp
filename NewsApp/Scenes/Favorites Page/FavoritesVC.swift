@@ -72,7 +72,8 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
         if isDataEmpty {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath) as? EmptyCell {
                 cell.emptyText.text = "favorites_empty_text".localized()
-                cell.emptyImage.image = UIImage(named:"favorites-empty")?.withTintColor(.label, renderingMode: .alwaysOriginal)
+                cell.emptyImage.image = UIImage(named:"favorites-empty")
+                cell.emptyImage.tintColor = .secondaryLabel
                 cell.backgroundColor = .systemGray6
                 return cell
             }

@@ -29,7 +29,7 @@ final class SearchVM {
                 switch result {
                 case .success(let newsResponse):
                     if let articles = newsResponse.articles {
-                        self?.newsData = articles
+                        self?.newsData = articles.filter({ $0.title != "[Removed]"})
                         self?.onSucces?()
                     }
                 case .failure(let error):

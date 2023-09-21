@@ -222,6 +222,7 @@
 				A67DAE942AB9D8E400479D4F /* Network Layer */,
 				A67DAEAB2ABA6BF000479D4F /* Manager */,
 				A62D5B492AA758C900CD4F1B /* Scenes */,
+				A6D1B3232ABBC20A00EB64E4 /* Model */,
 				A62D5B4B2AA7594300CD4F1B /* Resources */,
 				A62D5B402AA74D6B00CD4F1B /* LaunchScreen.storyboard */,
 			);
@@ -304,8 +305,6 @@
 				A62D5B5C2AA7C46400CD4F1B /* HomeVC.swift */,
 				A67DAEA72ABA5CA900479D4F /* HomeVM.swift */,
 				A6C93AAE2AB7302900EDADD5 /* HomeVC.storyboard */,
-				A62ABBFC2AA909B900EED1BF /* NewsResponse.swift */,
-				A62ABBFE2AA909DA00EED1BF /* Article.swift */,
 			);
 			path = "Home Page";
 			sourceTree = "<group>";
@@ -471,6 +470,15 @@
 				A6D1B3212ABB6F7300EB64E4 /* PrivacySecurityDetailVC.swift */,
 			);
 			path = "Privacy Detail Page";
+			sourceTree = "<group>";
+		};
+		A6D1B3232ABBC20A00EB64E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A62ABBFC2AA909B900EED1BF /* NewsResponse.swift */,
+				A62ABBFE2AA909DA00EED1BF /* Article.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A6FC60572AB9117F00333C50 /* menu header */ = {

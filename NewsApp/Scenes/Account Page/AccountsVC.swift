@@ -69,6 +69,10 @@ class AccountsVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         fullNameText.text = "fullname_placeholder".localized()
         emailText.text = "email_placeholder".localized()
         emailTextField.isUserInteractionEnabled = false
+        
+        fullNameTextField.setupRightImage(imageName: "person.fill")
+        emailTextField.setupRightImage(imageName: "envelope.fill")
+        
         if let user = viewModel.getUser() {
             fullNameTextField.text = user.fullname
             emailTextField.text = user.email

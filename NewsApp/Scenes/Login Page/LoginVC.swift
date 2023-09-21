@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class LoginVC: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
@@ -22,6 +23,7 @@ class LoginVC: UIViewController {
         
     let viewModel = LoginVM()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareTextFields()
@@ -36,6 +38,9 @@ class LoginVC: UIViewController {
         loginButton.setTitle("login_button".localized(), for: .normal)
         hasAccountText.text = "has_account_text".localized()
         createAccount.setTitle("create_account_text".localized(), for: .normal)
+        
+        emailTextField.setupRightImage(imageName: "envelope.fill")
+        passwordTextField.setupRightImage(imageName: "lock.fill")
         
         loginDescription.numberOfLines = 0
         loginDescription.lineBreakMode = .byTruncatingTail

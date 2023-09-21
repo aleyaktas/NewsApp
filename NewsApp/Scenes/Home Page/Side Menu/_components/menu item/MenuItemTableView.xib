@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0f5-Zw-fbj">
-                    <rect key="frame" x="16" y="90" width="361" height="20"/>
+                    <rect key="frame" x="20" y="90" width="357" height="20"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sports" translatesAutoresizingMaskIntoConstraints="NO" id="4Md-eb-byY">
                             <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -29,7 +29,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9I1-yf-1Ms">
-                            <rect key="frame" x="28" y="0.0" width="333" height="20"/>
+                            <rect key="frame" x="28" y="0.0" width="329" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0f5-Zw-fbj" secondAttribute="trailing" constant="16" id="Hzw-A5-B8D"/>
                 <constraint firstItem="0f5-Zw-fbj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="VOh-xv-oVV"/>
-                <constraint firstItem="0f5-Zw-fbj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="x50-ja-oSh"/>
+                <constraint firstItem="0f5-Zw-fbj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="x50-ja-oSh"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

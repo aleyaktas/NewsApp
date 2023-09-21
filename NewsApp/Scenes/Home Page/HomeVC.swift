@@ -54,8 +54,7 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
         menu.menuDelegate = self
         
         sideMenu = SideMenuNavigationController(rootViewController: menu)
-        sideMenu?.leftSide = true
-        
+ 
         SideMenuManager.default.leftMenuNavigationController = sideMenu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
     }
@@ -129,9 +128,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                 vc.newAuthor = components.first
             }
         
-            vc.date = dateFormatter(dateString: article.publishedAt) ?? "Empty"
-            vc.newTitle = article.title ?? "Empty"
-            vc.content = article.content ?? "Empty"
+            vc.date = dateFormatter(dateString: article.publishedAt) ?? ""
+            vc.newTitle = article.title ?? ""
+            vc.content = article.content ?? ""
             vc.article = article
 
             self.navigationController?.pushViewController(vc, animated: true)
@@ -164,9 +163,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                 cell.categoryName.text = components?.first
                     
 
-                cell.detail.text = article?.title ?? "Empty"
+                cell.detail.text = article?.title ?? ""
                 let date = dateFormatter(dateString: article?.publishedAt)
-                cell.newDate.text = date ?? "Empty"
+                cell.newDate.text = date ?? ""
 
                 return cell
             }
@@ -221,9 +220,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             let components = article?.author?.components(separatedBy: ",")
             vc.newAuthor = components?.first
         
-            vc.date = dateFormatter(dateString: article?.publishedAt) ?? "Empty"
-            vc.newTitle = article?.title ?? "Empty"
-            vc.content = article?.content ?? "Empty"
+            vc.date = dateFormatter(dateString: article?.publishedAt) ?? ""
+            vc.newTitle = article?.title ?? ""
+            vc.content = article?.content ?? ""
             vc.article = article
 
             self.navigationController?.pushViewController(vc, animated: true)

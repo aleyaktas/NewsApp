@@ -43,7 +43,7 @@
                                 <constraints>
                                     <constraint firstItem="cuM-f7-tgA" firstAttribute="trailing" secondItem="Whl-FZ-POk" secondAttribute="trailing" id="2Jq-PH-L5G"/>
                                     <constraint firstItem="Whl-FZ-POk" firstAttribute="leading" secondItem="cuM-f7-tgA" secondAttribute="leading" id="9sY-7V-lJ8"/>
-                                    <constraint firstItem="cuM-f7-tgA" firstAttribute="bottom" secondItem="Whl-FZ-POk" secondAttribute="bottom" id="aOW-7C-nQA"/>
+                                    <constraint firstItem="cuM-f7-tgA" firstAttribute="bottom" secondItem="Whl-FZ-POk" secondAttribute="bottom" constant="70" id="aOW-7C-nQA"/>
                                     <constraint firstItem="Whl-FZ-POk" firstAttribute="width" secondItem="yi6-WN-w0q" secondAttribute="width" id="jYJ-3d-Vat"/>
                                     <constraint firstItem="Whl-FZ-POk" firstAttribute="top" secondItem="cuM-f7-tgA" secondAttribute="top" id="s9U-5u-oFP"/>
                                     <constraint firstItem="Whl-FZ-POk" firstAttribute="height" secondItem="yi6-WN-w0q" secondAttribute="height" priority="250" id="sDS-v0-72x"/>

@@ -17,6 +17,7 @@ class MenuListController: UITableViewController {
     var items: [Category] = CategoryList().items
 
     public var menuDelegate: MenuListDelegate?
+    var selectedIndexPath: IndexPath?
     
     let viewModel = MenuVM()
 
@@ -30,10 +31,7 @@ class MenuListController: UITableViewController {
 
         customNibs()
         languageChanged()
-
     }
-    
-
     
     func prepareTableView() {
         tableView.delegate = self
@@ -48,6 +46,8 @@ class MenuListController: UITableViewController {
         tableView.register(menuHeaderCellNib, forCellReuseIdentifier: "MenuHeaderTableViewCell")
         let menuItemCellNib = UINib(nibName: "MenuItemTableView", bundle: nil)
         tableView.register(menuItemCellNib, forCellReuseIdentifier: "MenuItemTableViewCell")
+        selectedIndexPath = IndexPath(row: 1, section: 0)
+
     }
     
     @objc func languageChanged() {
@@ -89,7 +89,14 @@ class MenuListController: UITableViewController {
             let menuItem = items[indexPath.row - 1]
             
             cell.iconImage.image = UIImage(named: menuItem.id.lowercased())
-            cell.iconImage.tintColor = .label
+            if indexPath == selectedIndexPath {
+                cell.categoryName.textColor = UIColor(named: "primary")
+               cell.iconImage.tintColor = UIColor(named: "primary")
+           } else {
+               cell.categoryName.textColor = .label
+               cell.iconImage.tintColor = .label
+           }
+                       
             cell.categoryName.text = menuItem.value.localized()
             cell.backgroundColor = .systemGray5
            
@@ -101,18 +108,16 @@ class MenuListController: UITableViewController {
         if indexPath.row == 0 {
             return 100
         } else {
-            return 70
+            return 60
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row > 0 {
             let selectedCategory = items[indexPath.row - 1]
-            menuDelegate?.didSelectCategory(selectedCategory)
-            if let cell = tableView.cellForRow(at: indexPath) as? MenuItemTableViewCell {
-                cell.categoryName.textColor = UIColor(named: "primary")
-                cell.iconImage.tintColor = UIColor(named: "primary")
-            }
+                menuDelegate?.didSelectCategory(selectedCategory)
+                selectedIndexPath = indexPath
+                tableView.reloadData()
         }
     }
 }

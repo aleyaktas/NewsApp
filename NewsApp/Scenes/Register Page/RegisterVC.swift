@@ -41,6 +41,10 @@ class RegisterVC: UIViewController {
         hasAccountText.text = "has_account_text".localized()
         loginButton.setTitle("login_button".localized(), for: .normal)
         
+        fullNameTextField.setupRightImage(imageName: "person.fill")
+        emailTextField.setupRightImage(imageName: "envelope.fill")
+        passwordTextField.setupRightImage(imageName: "lock.fill")
+        
         registerDescription.numberOfLines = 0
         registerDescription.lineBreakMode = .byTruncatingTail
     }
