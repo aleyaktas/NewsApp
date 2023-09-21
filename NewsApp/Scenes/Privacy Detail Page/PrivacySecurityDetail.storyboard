@@ -17,9 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DJY-zy-NoU">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJY-zy-NoU">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whl-FZ-POk">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="91"/>
@@ -54,6 +53,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="DJY-zy-NoU" secondAttribute="bottom" id="axK-Nd-Gd9"/>
+                            <constraint firstItem="DJY-zy-NoU" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="iHt-Kj-eb6"/>
+                            <constraint firstItem="DJY-zy-NoU" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="jHu-gy-kq0"/>
+                            <constraint firstItem="DJY-zy-NoU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="oEK-xr-HQC"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="privacyLabel" destination="ey8-BV-RkV" id="brT-rj-HpF"/>

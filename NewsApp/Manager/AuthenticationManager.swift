@@ -36,7 +36,6 @@ class AuthenticationManager {
     func saveAvatarURLToUserDefaults(avatarURL: URL, for user: inout User) {
         user.avatarURL = avatarURL
         saveUserToUserDefaults(user: user)
-        print("yess")
     }
     
     func deleteAvatarURLFromUserDefaults(for user: inout User) {
