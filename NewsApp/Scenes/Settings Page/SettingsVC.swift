@@ -61,7 +61,7 @@ class SettingsVC: UIViewController {
         let storyboard = UIStoryboard(name: "PrivacySecurityDetail", bundle: nil)
         
         if let gotoVC = storyboard.instantiateViewController(withIdentifier: "PrivacySecurityDetailVC") as? PrivacySecurityDetailVC {
-            gotoVC.label = NSLocalizedString("privacy_policy_text", comment: "")
+            gotoVC.label = "privacy_policy_text".localized()
             self.present(gotoVC, animated: true, completion: nil)
         }
     }
@@ -91,12 +91,19 @@ class SettingsVC: UIViewController {
     
     
     @IBAction func changeLanguageAct(_ sender: UISegmentedControl) {
-        let selectedLanguage = (sender.selectedSegmentIndex == 0) ? Language.turkish : Language.english
+        switch sender.selectedSegmentIndex {
+           case 0:
+            Localize.setCurrentLanguage("tr")
+            UserDefaults.standard.set("tr", forKey: "AppSelectedLanguage")
 
-        Localize.setCurrentLanguage(selectedLanguage.rawValue)
+           case 1:
+            Localize.setCurrentLanguage("en")
+            UserDefaults.standard.set("en", forKey: "AppSelectedLanguage")
 
-            viewModel.selectedLanguage = selectedLanguage
-            NotificationCenter.default.post(name: NSNotification.Name("changeLanguage"), object: nil)
+           default:
+               break
+           }
+        NotificationCenter.default.post(name: NSNotification.Name("changeLanguage"), object: nil)
     }
     
     @IBAction func signOutAct(_ sender: UIButton) {

@@ -84,6 +84,9 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
                 if let urlToImage = article?.urlToImage {
                     let url = URL(string: urlToImage)
                     cell.newImage.kf.setImage(with: url)
+                } else {
+                    cell.newImage.image = UIImage(named: "no_photo")
+                    cell.tintColor = .secondaryLabel
                 }
                 
                 let components = article?.author?.components(separatedBy: ",")

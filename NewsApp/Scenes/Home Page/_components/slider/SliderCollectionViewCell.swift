@@ -73,6 +73,9 @@ extension SliderCollectionViewCell: UICollectionViewDelegate, UICollectionViewDa
             if let urlToImage = slider.urlToImage {
                 let url = URL(string: urlToImage)
                 cell.imageView.kf.setImage(with: url)
+            } else {
+                cell.imageView.image = UIImage(named: "no_photo")
+                cell.tintColor = .secondaryLabel
             }
             
             if let author = slider.author {

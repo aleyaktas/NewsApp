@@ -67,6 +67,7 @@ class LoginVC: UIViewController {
           guard let email = emailTextField.text, !email.isEmpty,
                 let password = passwordTextField.text, !password.isEmpty else {
                   hideLoadingIndicator()
+              
                   showAlert(title: "Warning", message: "Please fill in both email and password fields.")
                   return
           }

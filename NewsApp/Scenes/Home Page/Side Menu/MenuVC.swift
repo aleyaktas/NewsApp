@@ -77,7 +77,7 @@ class MenuListController: UITableViewController {
     
             if let downloadURL = viewModel.uploadUserImage() {
               cell.headerImage.kf.setImage(with: downloadURL)
-            }
+            } 
               
             cell.fullNameText.text = viewModel.getFullName()
             cell.helloText.text = "hello".localized()
