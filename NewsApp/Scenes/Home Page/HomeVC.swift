@@ -105,7 +105,7 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
         }
     }
     
-    func dateFormatter(dateString: String) -> String? {
+    func dateFormatter(dateString: String?) -> String? {
         viewModel.dateFormatter(dateString: dateString)
     }
 }
@@ -128,8 +128,8 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                 let components = author.components(separatedBy: ",")
                 vc.newAuthor = components.first
             }
-            let date = dateFormatter(dateString: article.publishedAt ?? "")
-            vc.date = date ?? "Empty"
+        
+            vc.date = dateFormatter(dateString: article.publishedAt) ?? "Empty"
             vc.newTitle = article.title ?? "Empty"
             vc.content = article.content ?? "Empty"
             vc.article = article
@@ -165,7 +165,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                     
 
                 cell.detail.text = article?.title ?? "Empty"
-                let date = dateFormatter(dateString: article?.publishedAt ?? "")
+                let date = dateFormatter(dateString: article?.publishedAt)
                 cell.newDate.text = date ?? "Empty"
 
                 return cell
@@ -218,6 +218,10 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             if let urlToImage = article?.urlToImage, let url = URL(string: urlToImage) {
                 vc.imageUrl = url
             }
+            let components = article?.author?.components(separatedBy: ",")
+            vc.newAuthor = components?.first
+        
+            vc.date = dateFormatter(dateString: article?.publishedAt) ?? "Empty"
             vc.newTitle = article?.title ?? "Empty"
             vc.content = article?.content ?? "Empty"
             vc.article = article

@@ -43,7 +43,6 @@ class DetailVC: UIViewController {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
-
     
     func configureData() {
         detailImage.kf.setImage(with: imageUrl)

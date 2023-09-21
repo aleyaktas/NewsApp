@@ -58,7 +58,7 @@ class HomeVM {
         return Array(newsData.prefix(10))
     }
     
-    func dateFormatter(dateString: String) -> String? {
+    func dateFormatter(dateString: String?) -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let userSelectedLanguage = UserDefaults.standard.string(forKey: "AppSelectedLanguage") ?? "en"
@@ -71,7 +71,7 @@ class HomeVM {
         
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
         
-        if let date = dateFormatter.date(from: dateString) {
+        if let date = dateFormatter.date(from: dateString ?? "") {
             dateFormatter.dateFormat = "dd MMM, yyyy"
             let formattedDate = dateFormatter.string(from: date)
             return formattedDate

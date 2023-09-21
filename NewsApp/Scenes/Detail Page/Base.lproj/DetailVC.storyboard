@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -27,17 +28,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="340.66666666666669"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBy-9F-PcP">
-                                                <rect key="frame" x="20" y="431" width="353" height="18"/>
+                                                <rect key="frame" x="20" y="439" width="353" height="18"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMp-dJ-FIp">
-                                                <rect key="frame" x="327" y="16" width="50" height="50"/>
+                                                <rect key="frame" x="330.66666666666669" y="16" width="46.333333333333314" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="4Zg-Ou-goU"/>
-                                                    <constraint firstAttribute="width" constant="50" id="qJq-vb-icK"/>
                                                 </constraints>
                                                 <size key="titleShadowOffset" width="5" height="5"/>
                                                 <state key="normal" title="Button"/>
@@ -54,22 +54,19 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbQ-ep-75p">
-                                                <rect key="frame" x="20" y="348.66666666666669" width="183" height="19.333333333333314"/>
+                                                <rect key="frame" x="20" y="356.66666666666669" width="297.66666666666669" height="19.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" name="primary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Geq-1T-sMn">
-                                                <rect key="frame" x="223" y="348.66666666666669" width="150" height="17"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="1yu-bC-HQT"/>
-                                                </constraints>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Geq-1T-sMn">
+                                                <rect key="frame" x="337.66666666666669" y="356.66666666666669" width="35.333333333333314" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5j-C6-efY">
-                                                <rect key="frame" x="20" y="388" width="353" height="27"/>
+                                                <rect key="frame" x="20" y="396" width="353" height="27"/>
                                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -85,15 +82,15 @@
                                             <constraint firstAttribute="trailing" secondItem="QcB-qd-zT0" secondAttribute="trailing" id="HOT-Od-EGe"/>
                                             <constraint firstItem="Geq-1T-sMn" firstAttribute="leading" secondItem="bbQ-ep-75p" secondAttribute="trailing" constant="20" id="LwJ-5a-aQX"/>
                                             <constraint firstItem="ZBy-9F-PcP" firstAttribute="leading" secondItem="XQZ-0b-2iZ" secondAttribute="leading" constant="20" id="Mit-6V-fFE"/>
-                                            <constraint firstItem="bbQ-ep-75p" firstAttribute="top" secondItem="QcB-qd-zT0" secondAttribute="bottom" constant="8" id="Pjy-Qp-R0i"/>
+                                            <constraint firstItem="bbQ-ep-75p" firstAttribute="top" secondItem="QcB-qd-zT0" secondAttribute="bottom" constant="16" id="Pjy-Qp-R0i"/>
                                             <constraint firstItem="QcB-qd-zT0" firstAttribute="leading" secondItem="XQZ-0b-2iZ" secondAttribute="leading" id="QJs-Cv-FyI"/>
-                                            <constraint firstItem="Geq-1T-sMn" firstAttribute="top" secondItem="QcB-qd-zT0" secondAttribute="bottom" constant="8" id="ZDt-5O-n1f"/>
+                                            <constraint firstItem="dMp-dJ-FIp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XQZ-0b-2iZ" secondAttribute="leading" constant="20" symbolic="YES" id="Z40-mt-Sel"/>
+                                            <constraint firstItem="Geq-1T-sMn" firstAttribute="top" secondItem="QcB-qd-zT0" secondAttribute="bottom" constant="16" id="ZDt-5O-n1f"/>
                                             <constraint firstItem="bbQ-ep-75p" firstAttribute="leading" secondItem="XQZ-0b-2iZ" secondAttribute="leading" constant="20" id="ZcH-rV-qf0"/>
                                             <constraint firstAttribute="trailing" secondItem="dMp-dJ-FIp" secondAttribute="trailing" constant="16" id="cvv-xc-4yV"/>
                                             <constraint firstAttribute="trailing" secondItem="h5j-C6-efY" secondAttribute="trailing" constant="20" id="u8f-Pc-Z3j"/>
                                             <constraint firstItem="h5j-C6-efY" firstAttribute="leading" secondItem="XQZ-0b-2iZ" secondAttribute="leading" constant="20" id="yOY-vG-S3e"/>
                                             <constraint firstAttribute="trailing" secondItem="ZBy-9F-PcP" secondAttribute="trailing" constant="20" id="z8U-cA-Wj6"/>
-                                            <constraint firstItem="Geq-1T-sMn" firstAttribute="leading" secondItem="bbQ-ep-75p" secondAttribute="trailing" constant="20" id="zL7-cr-4Bv"/>
                                         </constraints>
                                     </view>
                                 </subviews>

@@ -30,6 +30,7 @@ class MenuListController: UITableViewController {
 
         customNibs()
         languageChanged()
+
     }
     
 
@@ -74,10 +75,9 @@ class MenuListController: UITableViewController {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuHeaderTableViewCell", for: indexPath) as! MenuHeaderTableViewCell
     
-                if let downloadURL = viewModel.uploadUserImage()
-                {
-                  cell.headerImage.kf.setImage(with: downloadURL)
-                }
+            if let downloadURL = viewModel.uploadUserImage() {
+              cell.headerImage.kf.setImage(with: downloadURL)
+            }
               
             cell.fullNameText.text = viewModel.getFullName()
             cell.helloText.text = "hello".localized()
@@ -88,10 +88,9 @@ class MenuListController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuItemTableViewCell", for: indexPath) as! MenuItemTableViewCell
             let menuItem = items[indexPath.row - 1]
             
-            cell.iconImage.image = UIImage(named: menuItem.id.lowercased())?.withTintColor(.label, renderingMode: .alwaysOriginal)
+            cell.iconImage.image = UIImage(named: menuItem.id.lowercased())
             cell.iconImage.tintColor = .label
             cell.categoryName.text = menuItem.value.localized()
-
             cell.backgroundColor = .systemGray5
            
             return cell
@@ -110,6 +109,12 @@ class MenuListController: UITableViewController {
         if indexPath.row > 0 {
             let selectedCategory = items[indexPath.row - 1]
             menuDelegate?.didSelectCategory(selectedCategory)
+            if let cell = tableView.cellForRow(at: indexPath) as? MenuItemTableViewCell {
+                cell.categoryName.textColor = UIColor(named: "primary")
+                cell.iconImage.tintColor = UIColor(named: "primary")
+            }
         }
     }
 }
+
+
