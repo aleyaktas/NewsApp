@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8H-If-gYm">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4v-AO-INb">
-                                        <rect key="frame" x="0.0" y="10" width="393" height="852"/>
+                                        <rect key="frame" x="0.0" y="10" width="393" height="586"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="nDi-GG-GPm">
                                                 <rect key="frame" x="134.66666666666666" y="100" width="123.99999999999997" height="124"/>
@@ -116,6 +116,7 @@ News App</string>
                                             <constraint firstItem="TlR-eu-nMO" firstAttribute="centerX" secondItem="h4v-AO-INb" secondAttribute="centerX" id="4Jc-fD-N4a"/>
                                             <constraint firstItem="kW8-wE-RsP" firstAttribute="top" secondItem="lWT-Hs-nra" secondAttribute="bottom" constant="24" id="5K2-Yr-FdS"/>
                                             <constraint firstItem="kW8-wE-RsP" firstAttribute="leading" relation="lessThanOrEqual" secondItem="h4v-AO-INb" secondAttribute="leading" constant="20" id="89Z-N0-wzz"/>
+                                            <constraint firstAttribute="bottom" secondItem="kVh-Nv-IZg" secondAttribute="bottom" id="8tH-VB-nDk"/>
                                             <constraint firstItem="nDi-GG-GPm" firstAttribute="top" secondItem="h4v-AO-INb" secondAttribute="top" constant="100" id="9ls-Ul-jfG"/>
                                             <constraint firstItem="lWT-Hs-nra" firstAttribute="top" secondItem="TlR-eu-nMO" secondAttribute="bottom" constant="12" id="M46-X1-SIx"/>
                                             <constraint firstItem="kVh-Nv-IZg" firstAttribute="top" secondItem="kW8-wE-RsP" secondAttribute="bottom" constant="24" id="UKj-LX-uqC"/>
@@ -142,11 +143,11 @@ News App</string>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IOc-TN-HKi"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="E8H-If-gYm" firstAttribute="leading" secondItem="IOc-TN-HKi" secondAttribute="leading" id="0us-hF-j7j"/>
-                            <constraint firstAttribute="bottom" secondItem="E8H-If-gYm" secondAttribute="bottom" id="2Vf-lU-j8Y"/>
-                            <constraint firstItem="E8H-If-gYm" firstAttribute="top" secondItem="wvJ-OU-kqH" secondAttribute="top" id="Jza-lD-zSZ"/>
+                            <constraint firstItem="IOc-TN-HKi" firstAttribute="bottom" secondItem="E8H-If-gYm" secondAttribute="bottom" id="2Vf-lU-j8Y"/>
+                            <constraint firstItem="E8H-If-gYm" firstAttribute="top" secondItem="IOc-TN-HKi" secondAttribute="top" id="Jza-lD-zSZ"/>
                             <constraint firstItem="E8H-If-gYm" firstAttribute="trailing" secondItem="IOc-TN-HKi" secondAttribute="trailing" id="xxP-gy-gDe"/>
                         </constraints>
                     </view>
@@ -175,9 +176,6 @@ News App</string>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
