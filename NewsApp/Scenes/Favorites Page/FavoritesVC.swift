@@ -93,7 +93,8 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
                 cell.newAuthor.text = components?.first
                 
 
-                let date = homeVC.dateFormatter(dateString: article?.publishedAt ?? "")
+                let date = article?.publishedAt?.dateFormatter()
+
                 cell.date.text = date ?? "Empty"
 
                 cell.titleText.text = article?.title ?? "Empty"
@@ -117,7 +118,7 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
                 let components = article?.author?.components(separatedBy: ",")
                 vc.newAuthor = components?.first
                 
-                let date = homeVC.dateFormatter(dateString: article?.publishedAt ?? "")
+                let date = article?.publishedAt?.dateFormatter()
                 vc.date = date ?? "Empty"
                 vc.newTitle = article?.title ?? "Empty"
                 vc.content = article?.content ?? "Empty"

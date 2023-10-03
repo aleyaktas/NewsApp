@@ -98,15 +98,15 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
     
     func reloadTableView() -> () -> () {
         return {
-            DispatchQueue.main.async {
+//            DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
-        }
+        //}
     }
     
-    func dateFormatter(dateString: String?) -> String? {
-        viewModel.dateFormatter(dateString: dateString)
-    }
+//    func dateFormatter(dateString: String?) -> String? {
+//        viewModel.dateFormatter(dateString: dateString)
+//    }
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SliderSelectDelegate {
@@ -128,7 +128,8 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                 vc.newAuthor = components.first
             }
         
-            vc.date = dateFormatter(dateString: article.publishedAt) ?? ""
+            vc.date = article.publishedAt?.dateFormatter()
+
             vc.newTitle = article.title ?? ""
             vc.content = article.content ?? ""
             vc.article = article
@@ -167,7 +168,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                     
 
                 cell.detail.text = article?.title ?? ""
-                let date = dateFormatter(dateString: article?.publishedAt)
+                let date = article?.publishedAt?.dateFormatter()
                 cell.newDate.text = date ?? ""
 
                 return cell
@@ -223,7 +224,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             let components = article?.author?.components(separatedBy: ",")
             vc.newAuthor = components?.first
         
-            vc.date = dateFormatter(dateString: article?.publishedAt) ?? ""
+            vc.date = article?.publishedAt?.dateFormatter()
             vc.newTitle = article?.title ?? ""
             vc.content = article?.content ?? ""
             vc.article = article

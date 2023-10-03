@@ -15,9 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        
-        print(UserDefaults.standard.string(forKey: "AppSelectedLanguage"))
-                    
+                            
         let darkModeEnabled = UserDefaults.standard.bool(forKey: "IsDarkMode")
             if darkModeEnabled {
                 if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {

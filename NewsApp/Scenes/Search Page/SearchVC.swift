@@ -123,7 +123,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
                 cell.newAuthor.text = components?.first
             
 
-                let date = homeVC.dateFormatter(dateString: article?.publishedAt ?? "Empty")
+                let date = article?.publishedAt?.dateFormatter()
                 cell.date.text = date ?? "Empty"
                 cell.titleText.text = article?.title ?? "Empty"
 

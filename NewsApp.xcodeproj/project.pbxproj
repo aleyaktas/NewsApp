@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A626D5F32ACB29AD00286AC1 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626D5F22ACB29AD00286AC1 /* String+.swift */; };
 		A62ABBF42AA901F700EED1BF /* SliderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62ABBF32AA901F700EED1BF /* SliderCollectionViewCell.swift */; };
 		A62ABBF82AA9049600EED1BF /* SliderDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62ABBF72AA9049600EED1BF /* SliderDetailCollectionViewCell.swift */; };
 		A62ABBFB2AA9069400EED1BF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A62ABBFA2AA9069400EED1BF /* Alamofire */; };
@@ -82,6 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A626D5F22ACB29AD00286AC1 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		A62ABBF32AA901F700EED1BF /* SliderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCollectionViewCell.swift; sourceTree = "<group>"; };
 		A62ABBF72AA9049600EED1BF /* SliderDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		A62ABBFC2AA909B900EED1BF /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponse.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				A66D32402AB4EDEA00BC64B6 /* UIView+.swift */,
 				A6C93AC92AB73C4700EDADD5 /* Bundle+.swift */,
 				A6FC604F2AB8E70900333C50 /* UIViewController+.swift */,
+				A626D5F22ACB29AD00286AC1 /* String+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				A67DAEA42ABA5A4A00479D4F /* AccountVM.swift in Sources */,
 				A62ABBFD2AA909B900EED1BF /* NewsResponse.swift in Sources */,
 				A66C66962AB39A12000EA17B /* FavoritesVC.swift in Sources */,
+				A626D5F32ACB29AD00286AC1 /* String+.swift in Sources */,
 				A62D5B5A2AA7955800CD4F1B /* LoginVC.swift in Sources */,
 				A6FC60502AB8E70900333C50 /* UIViewController+.swift in Sources */,
 				A66C667E2AB31FA3000EA17B /* DetailVC.swift in Sources */,

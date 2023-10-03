@@ -19,7 +19,6 @@ class HomeVM {
     
     func fetchNewsData(category: String) {
         NetworkManager.shared.getAllNews(query: "", category: category) { [weak self] result in
-            DispatchQueue.main.async {
                 switch result {
                 case .success(let newsResponse):
                     if let articles = newsResponse.articles {
@@ -36,7 +35,6 @@ class HomeVM {
                 case .failure(let error):
                     print("Error: \(error.localizedDescription)")
                 }
-            }
         }
     }
 
@@ -58,24 +56,4 @@ class HomeVM {
         return Array(newsData.prefix(10))
     }
     
-    func dateFormatter(dateString: String?) -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let userSelectedLanguage = UserDefaults.standard.string(forKey: "AppSelectedLanguage") ?? "en"
-        
-        if userSelectedLanguage == "en" {
-            dateFormatter.locale = Locale(identifier: "en_US")
-        } else if userSelectedLanguage == "tr" {
-            dateFormatter.locale = Locale(identifier: "tr_TR")
-        }
-        
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        
-        if let date = dateFormatter.date(from: dateString ?? "") {
-            dateFormatter.dateFormat = "dd MMM, yyyy"
-            let formattedDate = dateFormatter.string(from: date)
-            return formattedDate
-        }
-        return nil
-    }
 }

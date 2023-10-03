@@ -29,5 +29,4 @@ extension UITextField {
         rightViewMode = .always
         self.tintColor = .lightGray
     }
-
 }

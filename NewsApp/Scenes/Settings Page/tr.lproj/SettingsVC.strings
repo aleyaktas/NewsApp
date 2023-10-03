@@ -36,7 +36,7 @@
 "k3x-v6-f8u.text" = "Account";
 
 /* Class = "UILabel"; text = "Dark Mood"; ObjectID = "qcf-W1-wfo"; */
-"qcf-W1-wfo.text" = "Koyu Mod2";
+"qcf-W1-wfo.text" = "Koyu Mod";
 
 /* Class = "UISegmentedControl"; rZm-dz-Pze.segmentTitles[0] = "Tr"; ObjectID = "rZm-dz-Pze"; */
 "rZm-dz-Pze.segmentTitles[0]" = "Tr";
