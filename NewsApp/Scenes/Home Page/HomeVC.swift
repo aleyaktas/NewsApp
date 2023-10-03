@@ -98,15 +98,9 @@ class HomeVC: UIViewController, UINavigationControllerDelegate {
     
     func reloadTableView() -> () -> () {
         return {
-//            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        //}
+            self.collectionView.reloadData()
+        }
     }
-    
-//    func dateFormatter(dateString: String?) -> String? {
-//        viewModel.dateFormatter(dateString: dateString)
-//    }
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SliderSelectDelegate {

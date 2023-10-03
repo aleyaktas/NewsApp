@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritesManager {
+final class FavoritesManager {
     static let shared = FavoritesManager()
     
     private let userDefaults = UserDefaults.standard

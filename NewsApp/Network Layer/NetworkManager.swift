@@ -10,11 +10,7 @@
 import Foundation
 import Alamofire
 
-protocol NetworkManagerProtocol {
-    func getAllNews(query: String, category: String, completion: @escaping (Result<NewsResponse, Error>) -> ())
-}
-
-class NetworkManager {
+final class NetworkManager {
     static let shared = NetworkManager()
 
     private init() { }

@@ -25,7 +25,6 @@ final class SearchVM {
         newsData = []
         
         NetworkManager.shared.getAllNews(query: searchText, category: "") { [weak self] result in
-            DispatchQueue.main.async {
                 switch result {
                 case .success(let newsResponse):
                     if let articles = newsResponse.articles {
@@ -37,7 +36,6 @@ final class SearchVM {
                     self?.onError?("An error occurred")
                 }
             }
-        }
     }
 
 

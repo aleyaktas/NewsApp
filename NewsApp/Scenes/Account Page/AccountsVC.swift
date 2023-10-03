@@ -29,13 +29,16 @@ final class AccountsVC: UIViewController, UIImagePickerControllerDelegate, UINav
         super.viewDidLoad()
         
         configureData()
-        
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        
         uploadUserImage()
+        prepareImagePicker()
         
         NotificationCenter.default.addObserver(self, selector: #selector(languageChanged),name: NSNotification.Name("changeLanguage"), object: nil)
+    }
+    
+    
+    func prepareImagePicker() {
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
     }
     
     func showLoadingIndicator() {
