@@ -8,7 +8,7 @@
 import UIKit
 import Localize_Swift
 
-class SettingsVC: UIViewController {
+final class SettingsVC: UIViewController {
 
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var darkModeText: UILabel!

@@ -8,7 +8,7 @@
 import UIKit
 import Localize_Swift
 
-class RegisterVC: UIViewController {
+final class RegisterVC: UIViewController {
     
     var viewModel = RegisterVM()
     

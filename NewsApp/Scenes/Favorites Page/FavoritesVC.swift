@@ -8,7 +8,7 @@
 import UIKit
 import Localize_Swift
 
-class FavoritesVC: UIViewController {
+final class FavoritesVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -112,16 +112,7 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
             let article = viewModel.cellForRow(at: indexPath)
             
             if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
-                if let urlToImage = article?.urlToImage, let url = URL(string: urlToImage) {
-                    vc.imageUrl = url
-                }
-                let components = article?.author?.components(separatedBy: ",")
-                vc.newAuthor = components?.first
-                
-                let date = article?.publishedAt?.dateFormatter()
-                vc.date = date ?? "Empty"
-                vc.newTitle = article?.title ?? "Empty"
-                vc.content = article?.content ?? "Empty"
+              
                 vc.article = article
                 
                 self.navigationController?.pushViewController(vc, animated: true)

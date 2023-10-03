@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PrivacySecurityDetailVC: UIViewController {
+final class PrivacySecurityDetailVC: UIViewController {
         
     var label: String?
 

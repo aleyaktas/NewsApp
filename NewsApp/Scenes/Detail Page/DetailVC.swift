@@ -4,7 +4,6 @@
 //
 //  Created by Aleyna Aktaş on 14.09.2023.
 //
-
 import UIKit
 import Kingfisher
 
@@ -19,18 +18,17 @@ class DetailVC: UIViewController {
     @IBOutlet weak var author: UILabel!
     @IBOutlet weak var newDate: UILabel!
     
-    var imageUrl:URL?
-    var content:String?
-    var newTitle:String?
-    var article: Article?
-    var isCompleted: Bool?
-    var newAuthor: String?
-    var date: String?
+    var article: Article? {
+        didSet {
+            viewModel = DetailVM(article: article!)
+        }
+    }
     
-    var viewModel = DetailVM()
+    var viewModel: DetailVM!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let _ = viewModel else { fatalError("ViewModel should be set") }
         configureData()
     }
     
@@ -45,16 +43,17 @@ class DetailVC: UIViewController {
     }
     
     func configureData() {
-        detailImage.kf.setImage(with: imageUrl)
-        contentText.text = content
-        titleText.text = newTitle
-        author.text = newAuthor
-        newDate.text = date
+        detailImage.kf.setImage(with: viewModel.imageUrl)
+
+        author.text = viewModel.authorText.isEmpty ? nil : viewModel.authorText
+
+        contentText.text = viewModel.contentText
+        titleText.text = viewModel.titleText
+        newDate.text = viewModel.dateText
         
         scrollView.contentSize = detailView.frame.size
-        if let article {
-            updateFavoriteButtonIcon(article)
-        }
+        
+        updateFavoriteButtonIcon()
         
         titleText.numberOfLines = 0
         titleText.lineBreakMode = .byWordWrapping
@@ -63,32 +62,14 @@ class DetailVC: UIViewController {
         contentText.lineBreakMode = .byWordWrapping
     }
     
-    func updateFavoriteButtonIcon(_ article: Article) {
-        let isFavorite = viewModel.isArticleFavorited(article: article)
-
-        if isFavorite {
-            favoriteButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-            favoriteButton.tintColor = UIColor(named: "primary")
-
-        } else {
-            favoriteButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
-        }
+    func updateFavoriteButtonIcon() {
+        let (image, color) = viewModel.favoriteButtonIconAndTintColor()
+        favoriteButton.setImage(image, for: .normal)
+        favoriteButton.tintColor = color
     }
-
     
     @IBAction func favoriteButtonAct(_ sender: Any) {
-        if let article {
-            let isFavorite = viewModel.isArticleFavorited(article: article)
-            if isFavorite {
-                viewModel.removeFavorite(article: article)
-                favoriteButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
-            } else {
-                viewModel.addFavorite(article: article)
-                favoriteButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-            }
-        }
-
+        viewModel.toggleFavorite()
+        updateFavoriteButtonIcon()
     }
-    
 }
-

@@ -120,18 +120,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         let storyboard = UIStoryboard(name: "DetailVC", bundle: nil)
 
         if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
-            if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
-                vc.imageUrl = url
-            }
-            if let author = article.author {
-                let components = author.components(separatedBy: ",")
-                vc.newAuthor = components.first
-            }
-        
-            vc.date = article.publishedAt?.dateFormatter()
 
-            vc.newTitle = article.title ?? ""
-            vc.content = article.content ?? ""
             vc.article = article
 
             self.navigationController?.pushViewController(vc, animated: true)
@@ -218,15 +207,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         let article = viewModel.cellForRow(at: indexPath)
         
         if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
-            if let urlToImage = article?.urlToImage, let url = URL(string: urlToImage) {
-                vc.imageUrl = url
-            }
-            let components = article?.author?.components(separatedBy: ",")
-            vc.newAuthor = components?.first
-        
-            vc.date = article?.publishedAt?.dateFormatter()
-            vc.newTitle = article?.title ?? ""
-            vc.content = article?.content ?? ""
+      
             vc.article = article
 
             self.navigationController?.pushViewController(vc, animated: true)

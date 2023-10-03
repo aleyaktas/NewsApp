@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OnboardingVC: UIViewController {
+final class OnboardingVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!

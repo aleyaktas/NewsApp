@@ -8,7 +8,7 @@
 import UIKit
 import Localize_Swift
 
-class SearchVC: UIViewController {
+final class SearchVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -150,11 +150,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
             let article = viewModel.cellForRow(at: indexPath)
             
             if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
-                if let urlToImage = article?.urlToImage, let url = URL(string: urlToImage) {
-                    vc.imageUrl = url
-                }
-                vc.newTitle = article?.title
-                vc.content = article?.content
+ 
                 vc.article = article
 
                 self.navigationController?.pushViewController(vc, animated: true)

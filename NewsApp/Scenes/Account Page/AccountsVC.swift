@@ -9,7 +9,7 @@ import UIKit
 import Localize_Swift
 import Kingfisher
 
-class AccountsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+final class AccountsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var editPhotoButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
