@@ -1,7 +1,5 @@
 # NewsApp
 
-UP School & Akbank IOS Bootcamp Capstone Project
-
 
 ## Application Images
 
